@@ -1,0 +1,43 @@
+# Subject manifest — convention 2.0 (workshop-content-tools/CONTENT_CONVENTION.md §3.2).
+# Port of the World Generator subject: the seven steps in one document, one part.
+schema_version: "2.0"
+
+project:
+  name: "World Generator"
+  slug: "world-generator"
+  summary: "Écris en Lua le générateur d'un monde en blocs façon Minecraft : collines, mers, forêts, grottes."
+  entrypoint: "intro.md"
+
+# How the subject shows its face on the workshop front page (convention §3.2b).
+# No capture exists yet: the platform shows the tagline alone until a `media`
+# (a GIF of the finished world) is added here.
+cover:
+  tagline: "Un bloc, puis un monde entier : montagnes, mers, forêts et grottes écrits en Lua."
+
+# The web app shown beside the instructions (docs/RUNTIME_PROTOCOL.md). The
+# runtime is World-Generator.html, a single static page kept in the
+# voxel-world_runtime repository as World-Generator.zip. It has no `case` in
+# the platform's tools/build_runtime.sh yet, so no pane is rendered until one
+# is added (the platform never points at a missing dist).
+runtime:
+  engine: "voxel-world"
+  language: "lua"             # student code is Lua, run in the page
+  id: "voxel-world"
+  version: "ab2d5b3"          # voxel-world_runtime commit holding World-Generator.zip
+  title: "World Generator"
+  pane:
+    placement: side           # side | bottom
+    open: false               # let the participant read the intro first
+    size: 55                  # percent of the viewport width
+
+platform:
+  mode_default: instructor_led
+  # The runtime checks each challenge itself when « ▶ Générer » is clicked, but
+  # it speaks no token protocol: the instructor sees the green check and reads
+  # out the code the instance generated (convention §3.3b).
+  validation_default: checkpoint
+  points_default: 25          # every step sets its own: 10 XP per estimated minute
+
+documents:
+  - intro.md
+  - world-generator.md
