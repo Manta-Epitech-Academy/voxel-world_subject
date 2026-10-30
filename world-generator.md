@@ -61,9 +61,17 @@ Ici, pas de pioche. Les blocs apparaissent quand tu **écris du code**.
 
 Pose un bloc de `PIERRE` au centre du monde, à 10 blocs de hauteur : en (64, 10, 64).
 
+Tu dois obtenir ceci :
+
+![Ton bloc de pierre, posé en (64, 10, 64), flotte tout seul dans le ciel du monde.](img/etape1-resultat.png)
+
 Vérifié automatiquement au clic sur « ▶ Générer » :
 
 - Un bloc de pierre en (64, 10, 64)
+
+Quand c'est réussi, la vérification passe au vert :
+
+![La ligne du défi, cochée en vert, avec le message du jeu : « Ton premier bloc est posé. »](img/etape1-verification.png)
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -148,6 +156,10 @@ Recouvre tout le sol du monde (y = 0) d'`HERBE` : les 128 × 128 colonnes.
 Vérifié automatiquement au clic sur « ▶ Générer » :
 
 - Les 16 384 colonnes ont un bloc à y = 0
+
+Tu dois obtenir quelque chose comme ça :
+
+![Tout le sol du monde est recouvert d'herbe, d'un bord à l'autre.](img/etape2-resultat.png)
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -234,6 +246,10 @@ Dans chaque colonne, de bas en haut : `SOCLE` à y = 0, de la `PIERRE`, exacteme
 Vérifié automatiquement au clic sur « ▶ Générer » :
 
 - Socle, pierre, 3 terre, herbe
+
+Tu dois obtenir quelque chose comme ça :
+
+![Vu depuis le coin du monde : sur la tranche, le socle tout en bas, la pierre, trois blocs de terre, puis l'herbe.](img/etape3-resultat.png)
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -329,6 +345,10 @@ Vérifié automatiquement au clic sur « ▶ Générer » :
 
 - Des collines douces avec les bonnes couches
 
+Tu dois obtenir quelque chose comme ça :
+
+![Des collines rondes et régulières, alignées comme une boîte d'œufs.](img/etape4-resultat.png)
+
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
@@ -411,6 +431,10 @@ Remplace `math.sin` par `bruit` : un relief naturel d'au moins **15 blocs de dé
 Vérifié automatiquement au clic sur « ▶ Générer » :
 
 - Un relief naturel fait avec bruit
+
+Tu dois obtenir quelque chose comme ça :
+
+![Avec bruit, les collines n'ont plus rien de régulier : des vallées, des sommets, des pentes douces.](img/etape5-resultat.png)
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -504,6 +528,10 @@ Ajoute une **mer** à hauteur fixe, du `SABLE` partout où la terre touche l'eau
 Vérifié automatiquement au clic sur « ▶ Générer » :
 
 - Une mer, des plages et de la neige
+
+Tu dois obtenir quelque chose comme ça :
+
+![Une mer à hauteur fixe, du sable là où la terre touche l'eau, et de la neige sur les sommets.](img/etape6-resultat.png)
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -617,6 +645,14 @@ Vérifié automatiquement au clic sur « ▶ Générer » :
 - Au moins 10 arbres
 - Des grottes creusées avec bruit3d
 - Charbon, et diamants tout au fond
+
+Tu dois obtenir quelque chose comme ça :
+
+![Des arbres partout où il y a de l'herbe, et aucun dans l'eau ni sur le sable.](img/etape7-resultat.png)
+
+Et sous tes pieds :
+
+![Dans une grotte, tout au fond : le charbon en points noirs, les diamants en bleu, et le socle sous tes pieds.](img/etape7-grotte.png)
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>

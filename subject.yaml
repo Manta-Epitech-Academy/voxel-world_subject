@@ -9,9 +9,10 @@ project:
   entrypoint: "intro.md"
 
 # How the subject shows its face on the workshop front page (convention §3.2b).
-# No capture exists yet: the platform shows the tagline alone until a `media`
-# (a GIF of the finished world) is added here.
+# A sentence and some files, never a layout. Paths start at the repo root.
 cover:
+  media: img/cover.gif        # one orbit around the world step 7 ends with
+  poster: img/cover.png       # the first frame as a still, for reduced motion
   tagline: "Un bloc, puis un monde entier : montagnes, mers, forêts et grottes écrits en Lua."
 
 # The web app shown beside the instructions (docs/RUNTIME_PROTOCOL.md). The

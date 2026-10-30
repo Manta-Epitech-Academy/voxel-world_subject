@@ -14,4 +14,6 @@ Rien à installer : tout se passe dans ton navigateur, à côté de ces instruct
 3. Le bouton **▶ Générer** (ou <kbd>Ctrl</kbd> + <kbd>Entrée</kbd>) exécute ton code, construit le monde et vérifie le défi de l'étape.
 4. Quand la vérification passe au vert, montre ton monde à l'encadrant : il te donne le code qui valide l'étape.
 
+![À gauche le monde en 3D et, dessous, le sujet de l'étape. À droite l'éditeur de code et la console. Le bouton Générer, encadré, construit le monde et vérifie le défi.](img/interface.png)
+
 Chaque étape te raconte un bout d'histoire, te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi. Les indices sont là si tu bloques, et un bonus t'attend quand tu as fini en avance.

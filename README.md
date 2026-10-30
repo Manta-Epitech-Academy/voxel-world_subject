@@ -18,4 +18,4 @@ Moteur : **voxel-world** (lua).
 - Étape 6 : Mers, plages et neige (3 indices)
 - Étape 7 : Forêts, grottes et minerais (4 indices)
 
-**7 étapes**, 21 indices.
+**7 étapes**, 21 indices, 12 images.
