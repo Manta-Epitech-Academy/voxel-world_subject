@@ -15,16 +15,14 @@ cover:
   poster: img/cover.png       # the first frame as a still, for reduced motion
   tagline: "Un bloc, puis un monde entier : montagnes, mers, forêts et grottes écrits en Lua."
 
-# The web app shown beside the instructions (docs/RUNTIME_PROTOCOL.md). The
-# runtime is World-Generator.html, a single static page kept in the
-# voxel-world_runtime repository as World-Generator.zip. It has no `case` in
-# the platform's tools/build_runtime.sh yet, so no pane is rendered until one
-# is added (the platform never points at a missing dist).
+# The web app shown beside the instructions (docs/RUNTIME_PROTOCOL.md):
+# Manta-Epitech-Academy/voxel-world_runtime, built by the platform's
+# tools/build_runtime.sh voxel-world. `version` is that repo's commit.
 runtime:
   engine: "voxel-world"
-  language: "lua"             # student code is Lua, run in the page
+  language: "lua"             # student code is Lua, run in the page by wasmoon
   id: "voxel-world"
-  version: "ab2d5b3"          # voxel-world_runtime commit holding World-Generator.zip
+  version: "5a13498"          # voxel-world_runtime, branch wrp-port
   title: "World Generator"
   pane:
     placement: side           # side | bottom
@@ -33,10 +31,11 @@ runtime:
 
 platform:
   mode_default: instructor_led
-  # The runtime checks each challenge itself when « ▶ Générer » is clicked, but
-  # it speaks no token protocol: the instructor sees the green check and reads
-  # out the code the instance generated (convention §3.3b).
-  validation_default: checkpoint
+  # The runtime checks each step's « défis » on « ▶ Générer ». When they are
+  # all green it shows a code derived from the instance's secret, which the
+  # platform set as the step's flag (convention §3.3b, `token`). Each step's
+  # `token_id` is its number in the runtime, 1 to 7.
+  validation_default: token
   points_default: 25          # every step sets its own: 10 XP per estimated minute
 
 documents:

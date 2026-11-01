@@ -12,7 +12,7 @@ Rien à installer : tout se passe dans ton navigateur, à côté de ces instruct
    <!-- ws:cue runtime -->
 2. Tu y trouves le monde en 3D, l'éditeur où tu écris ton code, et la **console** sous l'éditeur.
 3. Le bouton **▶ Générer** (ou <kbd>Ctrl</kbd> + <kbd>Entrée</kbd>) exécute ton code, construit le monde et vérifie le défi de l'étape.
-4. Quand la vérification passe au vert, montre ton monde à l'encadrant : il te donne le code qui valide l'étape.
+4. Quand toutes les vérifications passent au vert, le monde t'affiche un code de validation et le recopie dans la case de l'étape : il ne te reste qu'à valider.
 
 ![À gauche le monde en 3D et, dessous, le sujet de l'étape. À droite l'éditeur de code et la console. Le bouton Générer, encadré, construit le monde et vérifie le défi.](img/interface.png)
 

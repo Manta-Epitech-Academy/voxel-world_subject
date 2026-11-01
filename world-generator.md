@@ -3,7 +3,7 @@
 Sept étapes, dans l'ordre. Chacune te raconte un bout d'histoire, te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi que « ▶ Générer » vérifie tout seul. Les indices sont là si tu bloques, et un bonus t'attend quand tu as fini en avance.
 
 ## Étape 1 : Premier bloc
-<!-- ws: {type: exercise, id: premier-bloc, points: 150} -->
+<!-- ws: {type: exercise, id: premier-bloc, points: 150, token_id: "1"} -->
 <!-- étape de modelage : la ligne de code est donnée volontairement, dans l'indice 2 -->
 
 *Durée : 15 min*
@@ -92,7 +92,7 @@ Une seule ligne suffit : `bloc(64, 10, 64, PIERRE)`
 Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 
 ## Étape 2 : Le sol plat
-<!-- ws: {type: exercise, id: sol-plat, points: 200} -->
+<!-- ws: {type: exercise, id: sol-plat, points: 200, token_id: "2"} -->
 
 *Durée : 20 min*
 
@@ -193,7 +193,7 @@ end
 Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0 ou 1.
 
 ## Étape 3 : Les couches
-<!-- ws: {type: exercise, id: couches, points: 200} -->
+<!-- ws: {type: exercise, id: couches, points: 200, token_id: "3"} -->
 
 *Durée : 20 min*
 
@@ -277,7 +277,7 @@ Il te faut une boucle sur y pour la pierre, et une autre pour la terre.
 Vole sous ton monde (<kbd>Maj</kbd>) et regarde la tranche : on voit les couches sur les bords.
 
 ## Étape 4 : Les collines
-<!-- ws: {type: exercise, id: collines, points: 250} -->
+<!-- ws: {type: exercise, id: collines, points: 250, token_id: "4"} -->
 
 *Durée : 25 min*
 
@@ -375,7 +375,7 @@ Si la vérification parle d'une marche trop haute, **divise** x et z par un plus
 Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 
 ## Étape 5 : Le vrai relief
-<!-- ws: {type: exercise, id: relief, points: 250} -->
+<!-- ws: {type: exercise, id: relief, points: 250, token_id: "5"} -->
 
 *Durée : 25 min*
 
@@ -462,7 +462,7 @@ Pas assez de dénivelé ? Multiplie davantage le grand bruit.
 Mets `math.abs(bruit(...))` pour le grand bruit : tu obtiens des crêtes de montagne.
 
 ## Étape 6 : Mers, plages et neige
-<!-- ws: {type: exercise, id: mers-plages-neige, points: 250} -->
+<!-- ws: {type: exercise, id: mers-plages-neige, points: 250, token_id: "6"} -->
 
 *Durée : 25 min*
 
@@ -559,7 +559,7 @@ Sous l'eau, mets aussi du sable à la place de l'herbe et de la terre.
 Pose de la `GLACE` à la surface de l'eau quand la mer est entourée de neige.
 
 ## Étape 7 : Forêts, grottes et minerais
-<!-- ws: {type: exercise, id: forets-grottes-minerais, points: 350} -->
+<!-- ws: {type: exercise, id: forets-grottes-minerais, points: 350, token_id: "7"} -->
 
 *Durée : 35 min*
 
