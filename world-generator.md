@@ -276,10 +276,11 @@ Il te faut une boucle sur y pour la pierre, et une autre pour la terre.
 
 Vole sous ton monde (<kbd>Maj</kbd>) et regarde la tranche : on voit les couches sur les bords.
 
-## Étape 4 : Les collines
-<!-- ws: {type: exercise, id: collines, points: 250, token_id: "4"} -->
+## Étape 4a : Une colonne, une fonction
+<!-- ws: {type: exercise, id: colonne-fonction, points: 150, validation: checkpoint} -->
+<!-- étape de modelage : la fonction colonne est donnée volontairement dans la boîte à outils -->
 
-*Durée : 25 min*
+*Durée : 15 min*
 
 ### Histoire
 
@@ -290,19 +291,97 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 <!-- ws:toolbox -->
 ### Boîte à outils
 
+> 🧰 **Penser en colonnes**
+> Ton monde, c'est 128 × 128 **colonnes**. Une colonne, c'est une pile de blocs posée en (x, z) : le socle tout en bas, puis la pierre, la terre, et l'herbe au sommet, à la hauteur `h`.
+> Si tu sais construire **une** colonne, la double boucle de l'étape 2 construit toutes les autres.
+
 > 🧰 **Écrire sa propre fonction avec `function`**
 > Tu peux ranger du code sous un nom, puis le réutiliser. `x`, `z` et `h` sont les **paramètres** : des variables qui reçoivent les valeurs données à l'appel.
 >
 > ```lua
 > function colonne(x, z, h)
 >   bloc(x, 0, z, SOCLE)
->   -- ... les couches, avec h au lieu de SOL
+>   -- ... les couches, avec h comme hauteur de l'herbe
 >   bloc(x, h, z, HERBE)
 > end
 >
 > colonne(10, 10, 20)
 > colonne(11, 10, 25)
 > ```
+
+> 🧰 **`math.floor` « arrondir vers le bas »**
+> Les blocs sont à des hauteurs entières : `math.floor(4.7)` vaut `4`.
+>
+> ```lua
+> afficher(math.floor(4.7), math.floor(20 + 3 * math.sin(1)))
+> ```
+
+> 🧰 **Une hauteur qui dépend de x**
+> Ici, plus x est grand, plus le bloc est haut : une ligne d'herbe qui monte, un bloc plus haut tous les 10 blocs.
+>
+> ```lua
+> for x = 0, TAILLE - 1 do
+>   local h = 10 + math.floor(x / 10)
+>   bloc(x, h, 0, HERBE)
+> end
+> ```
+<!-- /ws:toolbox -->
+
+### Pièges
+
+- Une fonction doit être écrite **avant** la ligne qui l'appelle.
+- Dans ta fonction, toutes les couches se calculent à partir de `h` : l'herbe en `h`, la terre juste en dessous. Si un nombre fixe comme `20` reste dans ta fonction, ce n'est plus `h` qui commande.
+
+### Défi
+<!-- ws:doit -->
+
+Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis fais monter ton terrain en **pente douce** le long de x : chaque colonne aussi haute que sa voisine, ou un bloc plus haut, avec au moins **8 hauteurs différentes**. Les couches de l'étape 3 restent obligatoires.
+
+Pour vérifier toi-même, vole le long de ta pente :
+
+- elle monte d'un bord du monde à l'autre, sans marche de plus d'un bloc ;
+- sur la tranche, chaque colonne a toujours son socle, sa pierre, ses 3 blocs de terre et son herbe.
+
+Tu dois obtenir quelque chose comme ça :
+
+![Le terrain monte en escalier doux d'un bord à l'autre du monde, avec les couches visibles sur la tranche.](img/etape4a-resultat.png)
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 1</summary>
+
+Transforme le contenu de tes boucles en une fonction `colonne(x, z, h)`, où la hauteur de l'herbe devient `h`. Appelle-la avec la même hauteur partout : ton monde ne doit pas changer.
+
+</details>
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 2</summary>
+
+Dans la double boucle, calcule `h` pour chaque colonne à partir de x, puis appelle `colonne(x, z, h)`.
+
+</details>
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 3</summary>
+
+Ta pente monte trop vite ? **Divise** x par un plus grand nombre.
+
+</details>
+
+### Bonus
+
+Fais monter la pente en diagonale : que `h` dépende de x **et** de z.
+
+## Étape 4b : Les collines
+<!-- ws: {type: exercise, id: collines, points: 200, token_id: "4"} -->
+
+*Durée : 20 min*
+
+### Histoire
+
+Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et des creux : il est temps de **froisser** ton monde pour de bon.
+
+<!-- ws:toolbox -->
+### Boîte à outils
 
 > 🧰 **`math.sin` « la vague »**
 > `math.sin(t)` monte et descend entre -1 et 1, comme une vague.
@@ -315,25 +394,22 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 > end
 > ```
 
-> 🧰 **`math.floor` « arrondir vers le bas »**
-> Les blocs sont à des hauteurs entières : `math.floor(4.7)` vaut `4`.
+> 🧰 **Additionner des vagues**
+> Deux vagues **additionnées** font une vague plus riche : ici, une grande vague lente, plus une petite vague rapide, sur une seule ligne.
 >
 > ```lua
-> afficher(math.floor(4.7), math.floor(20 + 3 * math.sin(1)))
+> for x = 0, TAILLE - 1 do
+>   local h = 20 + math.floor(5 * math.sin(x / 10) + 2 * math.sin(x / 3))
+>   bloc(x, h, 0, HERBE)
+> end
 > ```
-
-> 🧰 **Deux vagues qui se croisent**
-> Une vague le long de x **plus** une vague le long de z : des collines dans les deux directions.
 >
-> ```lua
-> local h = 20 + math.floor(4 * math.sin(x / 8) + 4 * math.sin(z / 11))
-> ```
+> Pour des collines dans les deux directions, il te faut une vague qui dépend de x, et une autre qui dépend de z.
 <!-- /ws:toolbox -->
 
 ### Pièges
 
 - `math.sin(x)` tout seul ondule beaucoup trop vite : une vague tous les 6 blocs. Divise x pour élargir.
-- Une fonction doit être écrite **avant** la ligne qui l'appelle.
 - Avec une vague trop haute, `h` peut dépasser 63 (le ciel) ou descendre sous 5 (plus de place pour les couches).
 
 ### Défi
@@ -352,14 +428,14 @@ Tu dois obtenir quelque chose comme ça :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Transforme le contenu de tes boucles en une fonction `colonne(x, z, h)`, où `SOL` devient `h`.
+Garde ta fonction `colonne` telle quelle : seul le calcul de `h` change.
 
 </details>
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Dans la double boucle, calcule `h` pour chaque colonne, puis appelle `colonne(x, z, h)`.
+Commence par une seule vague, le long de x, et vole pour la voir onduler. Ajoute ensuite une deuxième vague, qui dépend de z.
 
 </details>
 

@@ -13,9 +13,10 @@ Moteur : **voxel-world** (lua).
 - Étape 1 : Premier bloc (2 indices)
 - Étape 2 : Le sol plat (3 indices)
 - Étape 3 : Les couches (3 indices)
-- Étape 4 : Les collines (3 indices)
+- Étape 4a : Une colonne, une fonction (3 indices)
+- Étape 4b : Les collines (3 indices)
 - Étape 5 : Le vrai relief (3 indices)
 - Étape 6 : Mers, plages et neige (3 indices)
 - Étape 7 : Forêts, grottes et minerais (4 indices)
 
-**7 étapes**, 21 indices, 12 images.
+**8 étapes**, 24 indices, 13 images.
