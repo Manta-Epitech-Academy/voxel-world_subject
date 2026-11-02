@@ -15,28 +15,34 @@ cover:
   poster: img/cover.png       # the first frame as a still, for reduced motion
   tagline: "Un bloc, puis un monde entier : montagnes, mers, forêts et grottes écrits en Lua."
 
-# The web app shown beside the instructions (docs/RUNTIME_PROTOCOL.md):
-# Manta-Epitech-Academy/voxel-world_runtime, built by the platform's
-# tools/build_runtime.sh voxel-world. `version` is that repo's commit.
+# The web app shown beside the instructions. INTERIM, for ctf-0110 only:
+# the platform image there has no voxel-world adapter and the cluster serves
+# no voxel-world runtime yet, so the app is framed from GitHub Pages
+# (voxel-world_runtime, branch wrp-port) as an `external` runtime.
+# `?plateforme=1` hides the app's own copy of the text and keeps its step list.
+# The target shape is on branch ctfd-workshop-plugin (same-origin runtime,
+# token validation).
 runtime:
   engine: "voxel-world"
-  language: "lua"             # student code is Lua, run in the page by wasmoon
+  language: "lua"
   id: "voxel-world"
-  version: "5a13498"          # voxel-world_runtime, branch wrp-port
+  version: "4c82e61"          # voxel-world_runtime commit served by Pages
+  external: true
+  src: "https://manta-epitech-academy.github.io/voxel-world_runtime/index.html?plateforme=1"
   title: "World Generator"
   pane:
-    placement: side           # side | bottom
-    open: false               # let the participant read the intro first
-    size: 55                  # percent of the viewport width
+    placement: side
+    open: false
+    size: 60                  # a little wider: the 3D world needs room
 
 platform:
   mode_default: instructor_led
-  # The runtime checks each step's « défis » on « ▶ Générer ». When they are
-  # all green it shows a code derived from the instance's secret, which the
-  # platform set as the step's flag (convention §3.3b, `token`). Each step's
-  # `token_id` is its number in the runtime, 1 to 7.
-  validation_default: token
-  points_default: 25          # every step sets its own: 10 XP per estimated minute
+  # INTERIM: a cross-origin runtime cannot receive the token secret, so each
+  # step is validated by the code the instructor reads out once the runtime's
+  # checks are green (convention §3.3b, `checkpoint`). Steps keep their
+  # token_id for when the runtime is served same-origin.
+  validation_default: checkpoint
+  points_default: 25
 
 documents:
   - intro.md
