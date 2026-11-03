@@ -22,7 +22,7 @@ runtime:
   engine: "voxel-world"
   language: "lua"             # student code is Lua, run in the page by wasmoon
   id: "voxel-world"
-  version: "6f8c4f1"          # voxel-world_runtime, branch wrp-port
+  version: "902700a"          # voxel-world_runtime, branch wrp-port
   title: "World Generator"
   pane:
     placement: side           # side | bottom
