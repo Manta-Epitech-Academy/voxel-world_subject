@@ -192,10 +192,10 @@ end
 
 Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0 ou 1.
 
-## Étape 3 : Les couches
-<!-- ws: {type: exercise, id: couches, points: 200, token_id: "3"} -->
+## Étape 3a : Une colonne
+<!-- ws: {type: exercise, id: une-colonne, points: 150, validation: checkpoint} -->
 
-*Durée : 20 min*
+*Durée : 15 min*
 
 ### Histoire
 
@@ -241,15 +241,16 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Un coup de pelle et
 ### Défi
 <!-- ws:doit -->
 
-Dans chaque colonne, de bas en haut : `SOCLE` à y = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet.
+Construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut : `SOCLE` à y = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet, à la hauteur `SOL`.
 
-Vérifié automatiquement au clic sur « ▶ Générer » :
+L'application ne vérifie pas cette étape : c'est toi qui vérifies, avec cette liste.
 
-- Socle, pierre, 3 terre, herbe
+- En volant autour, tu vois le socle, la pierre, 3 blocs de terre et l'herbe, dans cet ordre.
+- Change `SOL` en 30, puis clique sur « ▶ Générer » : toute la colonne grandit d'un coup, couches comprises.
 
 Tu dois obtenir quelque chose comme ça :
 
-![Vu depuis le coin du monde : sur la tranche, le socle tout en bas, la pierre, trois blocs de terre, puis l'herbe.](img/etape3-resultat.png)
+![Une seule colonne au centre de la grille : le socle en bas, la pierre, trois blocs de terre et l'herbe au sommet.](img/etape3a-resultat.png)
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -261,14 +262,60 @@ Avec `SOL = 20` : socle à 0, pierre de 1 à 16, terre de 17 à 19, herbe à 20.
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Tu as déjà les deux boucles x et z de l'étape 2. C'est **à l'intérieur** que tu empiles la colonne.
+Il te faut une boucle sur y pour la pierre, et une autre pour la terre.
 
 </details>
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 3</summary>
 
-Il te faut une boucle sur y pour la pierre, et une autre pour la terre.
+Ta colonne ne grandit pas quand tu changes `SOL` ? Cherche les nombres écrits en dur : chaque hauteur doit se calculer à partir de `SOL`.
+
+</details>
+
+## Étape 3b : Le monde en colonnes
+<!-- ws: {type: exercise, id: couches, points: 100, token_id: "3"} -->
+
+*Durée : 10 min*
+
+### Histoire
+
+Une colonne, c'est un bon début. Il en faut **16 384** pour couvrir ton monde. Heureusement, tu sais déjà faire répéter un ordinateur.
+
+<!-- ws:toolbox -->
+### Boîte à outils
+
+> 🧰 **Penser en colonnes**
+> Ton monde, c'est 128 × 128 **colonnes**. Une colonne, c'est une pile de blocs posée en (x, z) : le socle tout en bas, puis la pierre, la terre, et l'herbe au sommet.
+> Si tu sais construire **une** colonne, la double boucle de l'étape 2 construit toutes les autres.
+<!-- /ws:toolbox -->
+
+### Défi
+<!-- ws:doit -->
+
+Dans chaque colonne, de bas en haut : `SOCLE` à y = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet.
+
+Vérifié automatiquement au clic sur « ▶ Générer » :
+
+- Socle, pierre, 3 terre, herbe
+
+Pour vérifier encore : change `SOL` en 30, puis clique sur « ▶ Générer ». Tout ton monde doit monter d'un coup.
+
+Tu dois obtenir quelque chose comme ça :
+
+![Vu depuis le coin du monde : sur la tranche, le socle tout en bas, la pierre, trois blocs de terre, puis l'herbe.](img/etape3b-resultat.png)
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 1</summary>
+
+Tu as déjà les deux boucles x et z de l'étape 2. C'est **à l'intérieur** que tu empiles la colonne.
+
+</details>
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 2</summary>
+
+Dans ta colonne de l'étape 3a, x et z valaient 64. Dans la double boucle, ce sont les variables `x` et `z` qui prennent leur place.
 
 </details>
 
@@ -276,7 +323,7 @@ Il te faut une boucle sur y pour la pierre, et une autre pour la terre.
 
 Vole sous ton monde (<kbd>Maj</kbd>) et regarde la tranche : on voit les couches sur les bords.
 
-## Étape 4a : Une colonne, une fonction
+## Étape 4a : La fonction colonne
 <!-- ws: {type: exercise, id: colonne-fonction, points: 150, validation: checkpoint} -->
 <!-- étape de modelage : la fonction colonne est donnée volontairement dans la boîte à outils -->
 
@@ -290,10 +337,6 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
-
-> 🧰 **Penser en colonnes**
-> Ton monde, c'est 128 × 128 **colonnes**. Une colonne, c'est une pile de blocs posée en (x, z) : le socle tout en bas, puis la pierre, la terre, et l'herbe au sommet, à la hauteur `h`.
-> Si tu sais construire **une** colonne, la double boucle de l'étape 2 construit toutes les autres.
 
 > 🧰 **Écrire sa propre fonction avec `function`**
 > Tu peux ranger du code sous un nom, puis le réutiliser. `x`, `z` et `h` sont les **paramètres** : des variables qui reçoivent les valeurs données à l'appel.
@@ -337,7 +380,7 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 
 Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis fais monter ton terrain en **pente douce** le long de x : chaque colonne aussi haute que sa voisine, ou un bloc plus haut, avec au moins **8 hauteurs différentes**. Les couches de l'étape 3 restent obligatoires.
 
-Pour vérifier toi-même, vole le long de ta pente :
+L'application ne vérifie pas cette étape : c'est toi qui vérifies, en volant le long de ta pente.
 
 - elle monte d'un bord du monde à l'autre, sans marche de plus d'un bloc ;
 - sur la tranche, chaque colonne a toujours son socle, sa pierre, ses 3 blocs de terre et son herbe.
@@ -349,7 +392,7 @@ Tu dois obtenir quelque chose comme ça :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Transforme le contenu de tes boucles en une fonction `colonne(x, z, h)`, où la hauteur de l'herbe devient `h`. Appelle-la avec la même hauteur partout : ton monde ne doit pas changer.
+Transforme le contenu de tes boucles en une fonction `colonne(x, z, h)`, où `SOL` devient `h`. Appelle-la avec la même hauteur partout : ton monde ne doit pas changer.
 
 </details>
 

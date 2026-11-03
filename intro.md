@@ -4,7 +4,7 @@ Minecraft ne range pas ses mondes bloc par bloc : il les **calcule**. Quelques f
 
 Dans cet atelier, c'est toi qui écris ce générateur, en **Lua**. Tu commences par poser un seul bloc. Sept étapes plus tard, ton code dessine des collines, des mers bordées de plages, des sommets enneigés, des forêts, des grottes et des minerais. Et tu peux te promener dedans.
 
-Rien à installer : tout se passe dans ton navigateur, à côté de ces instructions. Compte environ 2 h 50 en tout.
+Rien à installer : tout se passe dans ton navigateur, à côté de ces instructions. Compte environ 2 h 55 en tout.
 
 ## Comment ça marche
 
