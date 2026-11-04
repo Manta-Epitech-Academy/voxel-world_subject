@@ -26,7 +26,7 @@ runtime:
   engine: "voxel-world"
   language: "lua"
   id: "voxel-world"
-  version: "902700a"          # voxel-world_runtime commit served by Pages
+  version: "242f7d4"          # voxel-world_runtime main, built from its sources by Pages
   external: true
   src: "https://manta-epitech-academy.github.io/voxel-world_runtime/index.html?plateforme=1"
   title: "World Generator"
