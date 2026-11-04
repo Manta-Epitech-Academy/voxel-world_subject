@@ -307,7 +307,7 @@ Pour vérifier encore : change `SOL` en 30, puis clique sur « ▶ Générer ».
 Tu dois obtenir quelque chose comme ça :
 
 ![Vu depuis le coin du monde : sur la tranche, le socle tout en bas, la pierre, trois blocs de terre, puis l'herbe.](img/etape3b-resultat.png)
-<!-- ws:scene {src: scenes/etape3b.glb, features: [orbit, zoom, reset, cut], cut: {axis: x, at: 64}, camera: {from: [-14, 30, -14], to: [12, 12, 12]}} -->
+<!-- ws:scene {src: scenes/etape3b.glb, features: [orbit, zoom, reset, cut], cut: {axis: x, at: 64, keep: above}, camera: {from: [-14, 30, -14], to: [12, 12, 12]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -560,7 +560,7 @@ Vérifié automatiquement au clic sur « ▶ Générer » :
 Tu dois obtenir quelque chose comme ça :
 
 ![Avec bruit, les collines n'ont plus rien de régulier : des vallées, des sommets, des pentes douces.](img/etape5-resultat.png)
-<!-- ws:scene {src: scenes/etape5.glb, features: [orbit, zoom, reset, cut], cut: {axis: x, at: 64}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+<!-- ws:scene {src: scenes/etape5.glb, features: [orbit, zoom, reset, cut], cut: {axis: x, at: 64, keep: above}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -658,7 +658,7 @@ Vérifié automatiquement au clic sur « ▶ Générer » :
 Tu dois obtenir quelque chose comme ça :
 
 ![Une mer à hauteur fixe, du sable là où la terre touche l'eau, et de la neige sur les sommets.](img/etape6-resultat.png)
-<!-- ws:scene {src: scenes/etape6.glb, features: [orbit, zoom, reset, cut], cut: {axis: z, at: 64}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+<!-- ws:scene {src: scenes/etape6.glb, features: [orbit, zoom, reset, cut], cut: {axis: z, at: 64, keep: above}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -776,7 +776,7 @@ Vérifié automatiquement au clic sur « ▶ Générer » :
 Tu dois obtenir quelque chose comme ça :
 
 ![Des arbres partout où il y a de l'herbe, et aucun dans l'eau ni sur le sable.](img/etape7-resultat.png)
-<!-- ws:scene {src: scenes/etape7.glb, features: [orbit, zoom, reset, cut], cut: {axis: x, at: 64}, camera: {from: [-18, 58, -18], to: [50, 20, 50]}} -->
+<!-- ws:scene {src: scenes/etape7.glb, features: [orbit, zoom, reset, cut], cut: {axis: x, at: 64, keep: above}, camera: {from: [-18, 58, -18], to: [50, 20, 50]}} -->
 
 Et sous tes pieds :
 
