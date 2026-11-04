@@ -1,0 +1,9 @@
+name: Verify content
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    uses: kevin-cazal/workshop-content-tools/.github/workflows/verify-content-reusable.yml@main

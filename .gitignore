@@ -1,0 +1,3 @@
+__pycache__/
+# Validation codes, if the subject ever chooses its own: commit only the .gpg.
+checkpoint_codes.yaml

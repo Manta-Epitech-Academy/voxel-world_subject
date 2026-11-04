@@ -1,0 +1,43 @@
+# Subject manifest — convention 2.0 (workshop-content-tools/CONTENT_CONVENTION.md §3.2).
+# Port of the World Generator subject: the seven steps in one document, one part.
+schema_version: "2.0"
+
+project:
+  name: "World Generator"
+  slug: "world-generator"
+  summary: "Écris en Lua le générateur d'un monde en blocs façon Minecraft : collines, mers, forêts, grottes."
+  entrypoint: "intro.md"
+
+# How the subject shows its face on the workshop front page (convention §3.2b).
+# A sentence and some files, never a layout. Paths start at the repo root.
+cover:
+  media: img/cover.gif        # one orbit around the world step 7 ends with
+  poster: img/cover.png       # the first frame as a still, for reduced motion
+  tagline: "Un bloc, puis un monde entier : montagnes, mers, forêts et grottes écrits en Lua."
+
+# The web app shown beside the instructions (docs/RUNTIME_PROTOCOL.md):
+# Manta-Epitech-Academy/voxel-world_runtime, built by the platform's
+# tools/build_runtime.sh voxel-world. `version` is that repo's commit.
+runtime:
+  engine: "voxel-world"
+  language: "lua"             # student code is Lua, run in the page by wasmoon
+  id: "voxel-world"
+  version: "902700a"          # voxel-world_runtime, branch wrp-port
+  title: "World Generator"
+  pane:
+    placement: side           # side | bottom
+    open: false               # let the participant read the intro first
+    size: 55                  # percent of the viewport width
+
+platform:
+  mode_default: instructor_led
+  # The runtime checks each step's « défis » on « ▶ Générer ». When they are
+  # all green it shows a code derived from the instance's secret, which the
+  # platform set as the step's flag (convention §3.3b, `token`). Each step's
+  # `token_id` is its number in the runtime, 1 to 7.
+  validation_default: token
+  points_default: 25          # every step sets its own: 10 XP per estimated minute
+
+documents:
+  - intro.md
+  - world-generator.md
