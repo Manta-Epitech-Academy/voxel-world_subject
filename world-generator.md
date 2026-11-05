@@ -17,12 +17,12 @@ Ici, pas de pioche. Les blocs apparaissent quand tu **écris du code**.
 <!-- ws:toolbox -->
 ### Boîte à outils
 
-> 🧰 **Appeler une fonction : `bloc`**
+> 🧰 **Appeler une fonction : `set_block`**
 > Une **fonction** est une action toute prête. On l'appelle en écrivant son nom, puis ses **paramètres** entre parenthèses, séparés par des virgules.
-> `bloc` pose un bloc. Ses quatre paramètres : x, y, z, puis le type de bloc.
+> `set_block` pose un bloc. Ses quatre paramètres : x, y, z, puis le type de bloc.
 >
 > ```lua
-> bloc(64, 10, 64, PIERRE)
+> set_block(64, 10, 64, PIERRE)
 > ```
 
 > 🧰 **Les coordonnées x, y, z**
@@ -30,8 +30,8 @@ Ici, pas de pioche. Les blocs apparaissent quand tu **écris du code**.
 > Le monde va de `0` à `127` en x et en z, et de `0` à `63` en hauteur. Le coin des flèches, c'est (0, 0, 0).
 >
 > ```lua
-> bloc(0, 0, 0, HERBE)  -- dans le coin, au sol
-> bloc(0, 5, 0, HERBE)  -- 5 blocs plus haut
+> set_block(0, 0, 0, HERBE)  -- dans le coin, au sol
+> set_block(0, 5, 0, HERBE)  -- 5 blocs plus haut
 > ```
 
 > 🧰 **Voler et marcher dans le monde**
@@ -43,10 +43,10 @@ Ici, pas de pioche. Les blocs apparaissent quand tu **écris du code**.
 > - <kbd>Échap</kbd> pour rendre la souris et revenir au code
 
 > 🧰 **Les types de bloc**
-> Le type de bloc s'écrit en **MAJUSCULES** : `PIERRE`, `TERRE`, `HERBE`, `SABLE`, `EAU`, `BOIS`, `FEUILLES`, `NEIGE`, `GLACE`, `GRAVIER`, `CHARBON`, `FER`, `DIAMANT`, `SOCLE`, et `AIR` pour effacer.
+> Le type de bloc s'écrit en **MAJUSCULES** : `PIERRE`, `TERRE`, `HERBE`, `SABLE`, `EAU`, `BOIS`, `FEUILLES`, `NEIGE`, `GLACE`, `GRAVIER`, `CHARBON`, `FER`, `DIAMANT`, `BEDROCK`, et `AIR` pour effacer.
 >
 > ```lua
-> bloc(64, 11, 64, DIAMANT)
+> set_block(64, 11, 64, DIAMANT)
 > ```
 <!-- /ws:toolbox -->
 
@@ -84,7 +84,7 @@ Les trois nombres sont toujours dans l'ordre x, y, z. La hauteur est le **deuxi�
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Une seule ligne suffit : `bloc(64, 10, 64, PIERRE)`
+Une seule ligne suffit : `set_block(64, 10, 64, PIERRE)`
 
 </details>
 
@@ -111,7 +111,7 @@ Heureusement, un ordinateur adore répéter.
 >
 > ```lua
 > for x = 0, 9 do
->   bloc(x, 0, 0, PIERRE)
+>   set_block(x, 0, 0, PIERRE)
 > end
 > ```
 
@@ -121,7 +121,7 @@ Heureusement, un ordinateur adore répéter.
 > ```lua
 > for x = 0, 9 do
 >   for z = 0, 9 do
->     bloc(x, 0, z, PIERRE)
+>     set_block(x, 0, z, PIERRE)
 >   end
 > end
 > ```
@@ -130,16 +130,16 @@ Heureusement, un ordinateur adore répéter.
 > `TAILLE` vaut 128, la largeur du monde. Les colonnes vont de `0` à `TAILLE - 1`, c'est-à-dire 127.
 >
 > ```lua
-> afficher(TAILLE)
-> afficher(TAILLE - 1)
+> print(TAILLE)
+> print(TAILLE - 1)
 > ```
 
-> 🧰 **`afficher` « écrire dans la console »**
-> `afficher` écrit dans la console, sous l'éditeur. C'est ta loupe : quand ton code ne fait pas ce que tu crois, affiche tes variables.
+> 🧰 **`print` « écrire dans la console »**
+> `print` écrit dans la console, sous l'éditeur. C'est ta loupe : quand ton code ne fait pas ce que tu crois, affiche tes variables.
 >
 > ```lua
 > for x = 0, 3 do
->   afficher("x vaut", x)
+>   print("x vaut", x)
 > end
 > ```
 <!-- /ws:toolbox -->
@@ -201,7 +201,7 @@ Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0
 
 ### Histoire
 
-Creuse dans Minecraft : sous l'herbe il y a de la terre, puis de la pierre, et tout au fond le **socle** que rien ne peut casser.
+Creuse dans Minecraft : sous l'herbe il y a de la terre, puis de la pierre, et tout au fond la **bedrock** que rien ne peut casser.
 
 Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Un coup de pelle et on tombe dans le vide.
 
@@ -213,8 +213,8 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Un coup de pelle et
 >
 > ```lua
 > local SOL = 20
-> bloc(64, SOL, 64, HERBE)
-> bloc(64, SOL - 1, 64, TERRE)
+> set_block(64, SOL, 64, HERBE)
+> set_block(64, SOL - 1, 64, TERRE)
 > ```
 
 > 🧰 **Une boucle vers le haut**
@@ -222,7 +222,7 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Un coup de pelle et
 >
 > ```lua
 > for y = 1, 16 do
->   bloc(64, y, 64, PIERRE)
+>   set_block(64, y, 64, PIERRE)
 > end
 > ```
 
@@ -231,7 +231,7 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Un coup de pelle et
 >
 > ```lua
 > local SOL = 20
-> afficher(SOL - 4, SOL - 3, SOL - 1)
+> print(SOL - 4, SOL - 3, SOL - 1)
 > ```
 <!-- /ws:toolbox -->
 
@@ -243,22 +243,22 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Un coup de pelle et
 ### Défi
 <!-- ws:doit -->
 
-Construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut : `SOCLE` à y = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet, à la hauteur `SOL`.
+Construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut : `BEDROCK` à y = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet, à la hauteur `SOL`.
 
 L'application ne vérifie pas cette étape : c'est toi qui vérifies, avec cette liste.
 
-- En volant autour, tu vois le socle, la pierre, 3 blocs de terre et l'herbe, dans cet ordre.
+- En volant autour, tu vois la bedrock, la pierre, 3 blocs de terre et l'herbe, dans cet ordre.
 - Change `SOL` en 30, puis clique sur « ▶ Générer » : toute la colonne grandit d'un coup, couches comprises.
 
 Tu dois obtenir quelque chose comme ça :
 
-![Une seule colonne au centre de la grille : le socle en bas, la pierre, trois blocs de terre et l'herbe au sommet.](img/etape3a-resultat.png)
+![Une seule colonne au centre de la grille : la bedrock en bas, la pierre, trois blocs de terre et l'herbe au sommet.](img/etape3a-resultat.png)
 <!-- ws:scene {src: scenes/etape3a.glb, camera: {from: [50, 23, 46], to: [64.5, 10, 64.5]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Avec `SOL = 20` : socle à 0, pierre de 1 à 16, terre de 17 à 19, herbe à 20.
+Avec `SOL = 20` : bedrock à 0, pierre de 1 à 16, terre de 17 à 19, herbe à 20.
 
 </details>
 
@@ -289,24 +289,24 @@ Une colonne, c'est un bon début. Il en faut **16 384** pour couvrir ton monde. 
 ### Boîte à outils
 
 > 🧰 **Penser en colonnes**
-> Ton monde, c'est 128 × 128 **colonnes**. Une colonne, c'est une pile de blocs posée en (x, z) : le socle tout en bas, puis la pierre, la terre, et l'herbe au sommet.
+> Ton monde, c'est 128 × 128 **colonnes**. Une colonne, c'est une pile de blocs posée en (x, z) : la bedrock tout en bas, puis la pierre, la terre, et l'herbe au sommet.
 > Si tu sais construire **une** colonne, la double boucle de l'étape 2 construit toutes les autres.
 <!-- /ws:toolbox -->
 
 ### Défi
 <!-- ws:doit -->
 
-Dans chaque colonne, de bas en haut : `SOCLE` à y = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet.
+Dans chaque colonne, de bas en haut : `BEDROCK` à y = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet.
 
 Vérifié automatiquement au clic sur « ▶ Générer » :
 
-- Socle, pierre, 3 terre, herbe
+- Bedrock, pierre, 3 terre, herbe
 
 Pour vérifier encore : change `SOL` en 30, puis clique sur « ▶ Générer ». Tout ton monde doit monter d'un coup.
 
 Tu dois obtenir quelque chose comme ça :
 
-![Vu depuis le coin du monde : sur la tranche, le socle tout en bas, la pierre, trois blocs de terre, puis l'herbe.](img/etape3b-resultat.png)
+![Vu depuis le coin du monde : sur la tranche, la bedrock tout en bas, la pierre, trois blocs de terre, puis l'herbe.](img/etape3b-resultat.png)
 <!-- ws:scene {src: scenes/etape3b.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-14, 30, -14], to: [12, 12, 12]}} -->
 
 <!-- ws: {type: hint} -->
@@ -347,9 +347,9 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 >
 > ```lua
 > function colonne(x, z, h)
->   bloc(x, 0, z, SOCLE)
+>   set_block(x, 0, z, BEDROCK)
 >   -- ... les couches, avec h comme hauteur de l'herbe
->   bloc(x, h, z, HERBE)
+>   set_block(x, h, z, HERBE)
 > end
 >
 > colonne(10, 10, 20)
@@ -360,7 +360,7 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 > Les blocs sont à des hauteurs entières : `math.floor(4.7)` vaut `4`.
 >
 > ```lua
-> afficher(math.floor(4.7), math.floor(20 + 3 * math.sin(1)))
+> print(math.floor(4.7), math.floor(20 + 3 * math.sin(1)))
 > ```
 
 > 🧰 **Une hauteur qui dépend de x**
@@ -369,7 +369,7 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 > ```lua
 > for x = 0, TAILLE - 1 do
 >   local h = 10 + math.floor(x / 10)
->   bloc(x, h, 0, HERBE)
+>   set_block(x, h, 0, HERBE)
 > end
 > ```
 <!-- /ws:toolbox -->
@@ -387,7 +387,7 @@ Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis f
 L'application ne vérifie pas cette étape : c'est toi qui vérifies, en volant le long de ta pente.
 
 - elle monte d'un bord du monde à l'autre, sans marche de plus d'un bloc ;
-- sur la tranche, chaque colonne a toujours son socle, sa pierre, ses 3 blocs de terre et son herbe.
+- sur la tranche, chaque colonne a toujours sa bedrock, sa pierre, ses 3 blocs de terre et son herbe.
 
 Tu dois obtenir quelque chose comme ça :
 
@@ -438,7 +438,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 > ```lua
 > for x = 0, TAILLE - 1 do
 >   local h = 20 + math.floor(5 * math.sin(x / 8))
->   bloc(x, h, 0, HERBE)
+>   set_block(x, h, 0, HERBE)
 > end
 > ```
 
@@ -448,7 +448,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 > ```lua
 > for x = 0, TAILLE - 1 do
 >   local h = 20 + math.floor(5 * math.sin(x / 10) + 2 * math.sin(x / 3))
->   bloc(x, h, 0, HERBE)
+>   set_block(x, h, 0, HERBE)
 > end
 > ```
 >
@@ -513,49 +513,49 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 <!-- ws:toolbox -->
 ### Boîte à outils
 
-> 🧰 **`bruit(x, z)` « un hasard tout doux »**
-> `bruit` renvoie un nombre entre -1 et 1. Si x et z bougent *un peu*, le résultat bouge *un peu* : c'est ce qui rend les collines douces.
+> 🧰 **`perlin2d(x, z)` « un hasard tout doux »**
+> `perlin2d` renvoie un nombre entre -1 et 1. Si x et z bougent *un peu*, le résultat bouge *un peu* : c'est ce qui rend les collines douces.
 >
 > ```lua
-> afficher(bruit(10.5, 3.2))
-> afficher(bruit(10.6, 3.2))
-> afficher(bruit(50.1, 80.7))
+> print(perlin2d(10.5, 3.2))
+> print(perlin2d(10.6, 3.2))
+> print(perlin2d(50.1, 80.7))
 > ```
 
 > 🧰 **L'échelle**
 > Le `/ 40` règle la **largeur** des collines, le `* 12` leur **hauteur**.
 >
 > ```lua
-> local h = 24 + math.floor(bruit(x / 40, z / 40) * 12)
+> local h = 24 + math.floor(perlin2d(x / 40, z / 40) * 12)
 > ```
 
 > 🧰 **Les octaves**
 > Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chaque couche s'appelle une **octave**.
 >
 > ```lua
-> local n = bruit(x / 60, z / 60) * 24
->         + bruit(x / 24, z / 24) * 6
->         + bruit(x / 8, z / 8) * 1.5
+> local n = perlin2d(x / 60, z / 60) * 24
+>         + perlin2d(x / 24, z / 24) * 6
+>         + perlin2d(x / 8, z / 8) * 1.5
 > local h = math.floor(26 + n)
 > ```
 
-> 🧰 **La graine**
-> La **graine** (en haut du monde) choisit un bruit parmi des milliards. Même code et même graine : exactement le même monde. Change-la pour en découvrir un autre.
+> 🧰 **La seed**
+> La **seed** (la graine, en haut du monde) choisit un bruit parmi des milliards. Même code et même seed : exactement le même monde. Change-la pour en découvrir un autre.
 <!-- /ws:toolbox -->
 
 ### Pièges
 
-- `bruit` avec des nombres **entiers** renvoie toujours 0 : `bruit(3, 7)` vaut 0. Divise toujours x et z.
+- `perlin2d` avec des nombres **entiers** renvoie toujours 0 : `perlin2d(3, 7)` vaut 0. Divise toujours x et z.
 - Plus tu divises x et z, plus les collines sont **larges**. Plus tu multiplies le résultat, plus elles sont **hautes**.
 
 ### Défi
 <!-- ws:doit -->
 
-Remplace `math.sin` par `bruit` : un relief naturel d'au moins **15 blocs de dénivelé** entre le point le plus bas et le plus haut, sans falaise de plus de 3 blocs. Les couches restent obligatoires.
+Remplace `math.sin` par `perlin2d` : un relief naturel d'au moins **15 blocs de dénivelé** entre le point le plus bas et le plus haut, sans falaise de plus de 3 blocs. Les couches restent obligatoires.
 
 Vérifié automatiquement au clic sur « ▶ Générer » :
 
-- Un relief naturel fait avec bruit
+- Un relief naturel fait avec perlin2d
 
 Tu dois obtenir quelque chose comme ça :
 
@@ -572,7 +572,7 @@ Tu dois obtenir quelque chose comme ça :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Si ton terrain est plat, affiche `bruit(x, z)` : as-tu oublié de diviser ?
+Si ton terrain est plat, affiche `perlin2d(x, z)` : as-tu oublié de diviser ?
 
 </details>
 
@@ -585,7 +585,7 @@ Pas assez de dénivelé ? Multiplie davantage le grand bruit.
 
 ### Bonus
 
-Mets `math.abs(bruit(...))` pour le grand bruit : tu obtiens des crêtes de montagne.
+Mets `math.abs(perlin2d(...))` pour le grand bruit : tu obtiens des crêtes de montagne.
 
 ## Étape 6 : Mers, plages et neige
 <!-- ws: {type: exercise, id: mers-plages-neige, points: 250, token_id: "6"} -->
@@ -607,11 +607,11 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > ```lua
 > local h = 30
 > if h < 20 then
->   afficher("bas")
+>   print("bas")
 > elseif h > 35 then
->   afficher("haut")
+>   print("haut")
 > else
->   afficher("au milieu")
+>   print("au milieu")
 > end
 > ```
 
@@ -623,7 +623,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > if h >= 34 then
 >   dessus = NEIGE
 > end
-> bloc(x, h, z, dessus)
+> set_block(x, h, z, dessus)
 > ```
 
 > 🧰 **Remplir d'eau**
@@ -632,7 +632,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > ```lua
 > NIVEAU_MER = 22
 > for y = h + 1, NIVEAU_MER do
->   bloc(x, y, z, EAU)
+>   set_block(x, y, z, EAU)
 > end
 > ```
 
@@ -699,23 +699,23 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 <!-- ws:toolbox -->
 ### Boîte à outils
 
-> 🧰 **`hasard(a, b)` « lancer un dé »**
-> `hasard(1, 6)` donne un nombre entier entre 1 et 6, comme un dé. Il dépend de la graine : même graine, mêmes tirages, donc même monde.
+> 🧰 **`random(a, b)` « lancer un dé »**
+> `random(1, 6)` donne un nombre entier entre 1 et 6, comme un dé. Il dépend de la seed : même seed, mêmes tirages, donc même monde.
 >
 > ```lua
-> afficher(hasard(1, 6), hasard(1, 6), hasard(0, TAILLE - 1))
+> print(random(1, 6), random(1, 6), random(0, TAILLE - 1))
 > ```
 
-> 🧰 **`lire` et `while` « trouver le sol »**
-> `lire(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au premier bloc.
+> 🧰 **`get_block` et `while` « trouver le sol »**
+> `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au premier bloc.
 >
 > ```lua
 > local x, z = 64, 64
 > local y = HAUTEUR - 1
-> while y > 0 and lire(x, y, z) == AIR do
+> while y > 0 and get_block(x, y, z) == AIR do
 >   y = y - 1
 > end
-> afficher("le sol est à y =", y)
+> print("le sol est à y =", y)
 > ```
 
 > 🧰 **Une fonction arbre**
@@ -724,20 +724,20 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > ```lua
 > function arbre(x, y, z)
 >   for i = 0, 4 do
->     bloc(x, y + i, z, BOIS)
+>     set_block(x, y + i, z, BOIS)
 >   end
->   bloc(x, y + 5, z, FEUILLES)
+>   set_block(x, y + 5, z, FEUILLES)
 > end
 > ```
 
-> 🧰 **`bruit3d` « creuser des grottes »**
-> Même idée que `bruit`, mais en 3D. Là où il dépasse un seuil, on **ne pose pas** de pierre : ça fait un trou. Plus le seuil est bas, plus les grottes sont grandes.
+> 🧰 **`perlin3d` « creuser des grottes »**
+> Même idée que `perlin2d`, mais en 3D. Là où il dépasse un seuil, on **ne pose pas** de pierre : ça fait un trou. Plus le seuil est bas, plus les grottes sont grandes.
 >
 > ```lua
-> if bruit3d(x / 16, y / 10, z / 16) > 0.3 then
+> if perlin3d(x / 16, y / 10, z / 16) > 0.3 then
 >   -- grotte : on ne pose rien
 > else
->   bloc(x, y, z, PIERRE)
+>   set_block(x, y, z, PIERRE)
 > end
 > ```
 
@@ -746,13 +746,13 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 >
 > ```lua
 > function pierre(y)
->   if y < 12 and hasard(1, 200) == 1 then
+>   if y < 12 and random(1, 200) == 1 then
 >     return DIAMANT
 >   end
 >   return PIERRE
 > end
 >
-> afficher(pierre(5))
+> print(pierre(5))
 > ```
 <!-- /ws:toolbox -->
 
@@ -765,12 +765,12 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 ### Défi
 <!-- ws:doit -->
 
-Trois défis : au moins **10 arbres** plantés sur l'herbe, des **grottes** creusées avec `bruit3d`, et des **minerais** : du `CHARBON`, et du `DIAMANT` seulement tout au fond (y < 12).
+Trois défis : au moins **10 arbres** plantés sur l'herbe, des **grottes** creusées avec `perlin3d`, et des **minerais** : du `CHARBON`, et du `DIAMANT` seulement tout au fond (y < 12).
 
 Vérifié automatiquement au clic sur « ▶ Générer » :
 
 - Au moins 10 arbres
-- Des grottes creusées avec bruit3d
+- Des grottes creusées avec perlin3d
 - Charbon, et diamants tout au fond
 
 Tu dois obtenir quelque chose comme ça :
@@ -780,12 +780,12 @@ Tu dois obtenir quelque chose comme ça :
 
 Et sous tes pieds :
 
-![Dans une grotte, tout au fond : le charbon en points noirs, les diamants en bleu, et le socle sous tes pieds.](img/etape7-grotte.png)
+![Dans une grotte, tout au fond : le charbon en points noirs, les diamants en bleu, et la bedrock sous tes pieds.](img/etape7-grotte.png)
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Pour planter un arbre : tire x et z au hasard, cherche le sol avec `while`, et plante seulement si `lire(x, y, z) == HERBE`.
+Pour planter un arbre : tire x et z au hasard, cherche le sol avec `while`, et plante seulement si `get_block(x, y, z) == HERBE`.
 
 </details>
 
@@ -812,10 +812,10 @@ Pour les minerais, remplace `PIERRE` par l'appel d'une fonction qui renvoie parf
 
 ### Bonus
 
-**Défi libre** : invente des biomes. Un deuxième bruit très large peut décider d'une zone de désert (sable, pas d'arbres) ou d'une forêt dense. Puis partage ta graine préférée !
+**Défi libre** : invente des biomes. Un deuxième bruit très large peut décider d'une zone de désert (sable, pas d'arbres) ou d'une forêt dense. Puis partage ta seed préférée !
 
 ## Et maintenant
 
 Tu es parti d'un bloc. Ton code dessine maintenant un monde entier, avec ses montagnes, ses mers, ses forêts et ses grottes, et il tient en quelques dizaines de lignes. C'est exactement comme ça que Minecraft fabrique les siens.
 
-Change la graine, promène-toi, et garde ton code : la prochaine idée est la tienne.
+Change la seed, promène-toi, et garde ton code : la prochaine idée est la tienne.
