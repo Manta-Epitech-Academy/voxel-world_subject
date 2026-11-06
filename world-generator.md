@@ -356,19 +356,12 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 > colonne(11, 10, 25)
 > ```
 
-> 🧰 **`math.floor` « arrondir vers le bas »**
-> Les blocs sont à des hauteurs entières : `math.floor(4.7)` vaut `4`.
->
-> ```lua
-> print(math.floor(4.7), math.floor(20 + 3 * math.sin(1)))
-> ```
-
 > 🧰 **Une hauteur qui dépend de x**
-> Ici, plus x est grand, plus le bloc est haut : une ligne d'herbe qui monte, un bloc plus haut tous les 10 blocs.
+> Ici, plus x est grand, plus le bloc est haut : une ligne d'herbe qui monte, un bloc plus haut tous les 10 blocs. Pas besoin d'arrondir : un bloc ne peut pas être à la hauteur 10,7, `set_block` arrondit vers le bas tout seul.
 >
 > ```lua
 > for x = 0, TAILLE - 1 do
->   local h = 10 + math.floor(x / 10)
+>   local h = 10 + x / 10
 >   set_block(x, h, 0, HERBE)
 > end
 > ```
