@@ -412,10 +412,10 @@ Ta pente monte trop vite ? **Divise** x par un plus grand nombre.
 
 Fais monter la pente en diagonale : que `h` dépende de x **et** de z.
 
-## Étape 4b : Les collines
+## Étape 4b : La vague
 <!-- ws: {type: exercise, id: collines, points: 200, token_id: "4"} -->
 
-*Durée : 20 min*
+*Durée : 10 min*
 
 ### Histoire
 
@@ -425,27 +425,16 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Boîte à outils
 
 > 🧰 **`math.sin` « la vague »**
-> `math.sin(t)` monte et descend entre -1 et 1, comme une vague.
-> Le `5` règle la **hauteur** de la vague, le `/ 8` sa **largeur**.
+> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent : le `20` dit à quelle hauteur elle flotte, le `5` sa **hauteur**, le `/ 8` sa **largeur**.
 >
 > ```lua
 > for x = 0, TAILLE - 1 do
->   local h = 20 + math.floor(5 * math.sin(x / 8))
+>   local h = 20 + 5 * math.sin(x / 8)
 >   set_block(x, h, 0, HERBE)
 > end
 > ```
 
-> 🧰 **Additionner des vagues**
-> Deux vagues **additionnées** font une vague plus riche : ici, une grande vague lente, plus une petite vague rapide, sur une seule ligne.
->
-> ```lua
-> for x = 0, TAILLE - 1 do
->   local h = 20 + math.floor(5 * math.sin(x / 10) + 2 * math.sin(x / 3))
->   set_block(x, h, 0, HERBE)
-> end
-> ```
->
-> Pour des collines dans les deux directions, il te faut une vague qui dépend de x, et une autre qui dépend de z.
+![La vague, terme par terme : ÷ 8 l'élargit, × 4 la grandit, + 20 la monte, et les colonnes suivent la courbe.](img/etape4b-vague.gif)
 <!-- /ws:toolbox -->
 
 ### Pièges
@@ -456,7 +445,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Défi
 <!-- ws:doit -->
 
-Fais onduler ton terrain avec `math.sin` : au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines. Les couches de l'étape 3 restent obligatoires.
+Fais onduler ton terrain le long de x avec `math.sin` : au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines. Les couches de l'étape 3 restent obligatoires.
 
 Vérifié automatiquement au clic sur « ▶ Générer » :
 
@@ -464,27 +453,85 @@ Vérifié automatiquement au clic sur « ▶ Générer » :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Des collines rondes et régulières, alignées comme une boîte d'œufs.](img/etape4-resultat.png)
+![Des vagues de plage : le terrain ondule de gauche à droite, et chaque vague traverse le monde d'un bord à l'autre.](img/etape4b-resultat.png)
 <!-- ws:scene {src: scenes/etape4b.glb, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Garde ta fonction `colonne` telle quelle : seul le calcul de `h` change.
+Garde ta fonction `colonne` telle quelle : seule la ligne qui calcule `h` change.
 
 </details>
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Commence par une seule vague, le long de x, et vole pour la voir onduler. Ajoute ensuite une deuxième vague, qui dépend de z.
+Commence avec une petite hauteur de vague, par exemple `2 * math.sin(x / 8)`, génère, puis augmente-la.
 
 </details>
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 3</summary>
 
-Si la vérification parle d'une marche trop haute, **divise** x et z par un plus grand nombre.
+Si la vérification parle d'une marche trop haute, **divise** x par un plus grand nombre.
+
+</details>
+
+## Étape 4c : Les collines
+<!-- ws: {type: exercise, id: collines-deux-sens, points: 150, validation: checkpoint} -->
+<!-- étape de modelage : la formule à deux vagues est donnée volontairement dans la boîte à outils -->
+
+*Durée : 10 min*
+
+### Histoire
+
+Vole vers le fond du monde, tout droit. Tu avances sans jamais monter ni descendre : tes vagues sont une **tôle ondulée**. Il manque les bosses dans l'autre sens.
+
+<!-- ws:toolbox -->
+### Boîte à outils
+
+> 🧰 **Une vague en x, une vague en z**
+> Avec `math.sin(x / 8)` seul, toutes les colonnes qui ont le même x ont la même hauteur, quel que soit z : rien ne change quand tu avances vers le fond. Pour que ça bouge aussi dans ce sens, ajoute une deuxième vague qui, elle, regarde z. Les deux s'additionnent : la tôle ondulée devient une **boîte d'œufs**.
+>
+> ```lua
+> local h = 20 + 4 * math.sin(x / 8) + 4 * math.sin(z / 11)
+> ```
+
+> 🧰 **Pourquoi 8 et 11 ?**
+> Deux largeurs différentes, pour que les bosses ne tombent pas toutes au même endroit. Essaie `8` et `8`, puis `8` et `11`, et regarde la différence depuis le ciel.
+<!-- /ws:toolbox -->
+
+### Pièges
+
+- Deux vagues de hauteur 4 font une hauteur totale de 8 : vérifie que `h` reste entre 5 et 63.
+- Si tu écris `math.sin(x / 8 + z / 11)`, c'est **une seule** vague, en diagonale. Il faut deux `math.sin`.
+
+### Défi
+<!-- ws:doit -->
+
+Ajoute une deuxième vague qui dépend de z. Ton terrain doit onduler **dans les deux sens** : le long de x, et aussi quand tu voles vers le fond.
+
+L'application vérifie encore la douceur du terrain, pas le deuxième sens : c'est toi qui vérifies, en volant.
+
+- vole vers le fond du monde : ça monte et ça descend ;
+- vu du ciel, des bosses et des creux partout, comme une boîte d'œufs.
+
+Tu dois obtenir quelque chose comme ça :
+
+![Des collines rondes et régulières, alignées comme une boîte d'œufs.](img/etape4c-resultat.png)
+<!-- ws:scene {src: scenes/etape4c.glb, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 1</summary>
+
+Ta ligne `h` a déjà une vague qui dépend de x. Ajoute `+ 4 * math.sin(z / 11)` juste après.
+
+</details>
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 2</summary>
+
+Si le terrain fait des marches trop hautes, baisse les deux `4`, ou augmente les deux largeurs.
 
 </details>
 
