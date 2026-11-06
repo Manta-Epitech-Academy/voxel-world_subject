@@ -436,7 +436,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 
 <!-- /ws:toolbox -->
 
-![La vague, terme par terme : ÷ 8 l'élargit, × 4 la grandit, + 20 la monte, et les colonnes suivent la courbe.](img/etape4b-vague.gif)
+![La vague, terme par terme : ÷ 8 l'élargit, × 4 la grandit, + 20 la monte, et les colonnes suivent la courbe.](img/etape4b-vague.webp)
 
 ### Pièges
 
@@ -502,7 +502,7 @@ Vole vers le fond du monde, tout droit. Tu avances sans jamais monter ni descend
 > Deux largeurs différentes, pour que les bosses ne tombent pas toutes au même endroit. Essaie `8` et `8`, puis `8` et `11`, et regarde la différence depuis le ciel.
 <!-- /ws:toolbox -->
 
-![Avec une seule vague en x, le terrain est une tôle ondulée : rien ne change en avançant vers le fond. La vague en z s'ajoute, et les bosses apparaissent dans tous les sens.](img/etape4c-collines.gif)
+![Avec une seule vague en x, le terrain est une tôle ondulée : rien ne change en avançant vers le fond. La vague en z s'ajoute, et les bosses apparaissent dans tous les sens.](img/etape4c-collines.webp)
 
 ### Pièges
 

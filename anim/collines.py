@@ -2,7 +2,7 @@
 # vague en x (une tôle ondulée : rien ne change quand on avance en z), puis la
 # vague en z qui s'ajoute et fait la boîte d'œufs.
 #
-#   capture.py anim anim/collines.py LesCollines -o img/etape4c-collines.gif
+#   capture.py anim anim/collines.py LesCollines -o img/etape4c-collines.webp
 import math
 from manim import *
 
