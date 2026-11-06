@@ -3,7 +3,7 @@
 # qui se transforme, la formule qui change en haut, un mot pour chaque changement.
 #
 #   ~/.claude/.venvs/manim/bin/python ~/.claude/skills/workshop-capture/scripts/capture.py \
-#       anim anim/vague.py LaVague -o img/etape4b-vague.gif
+#       anim anim/vague.py LaVague -o img/etape4b-vague.webp
 import math
 from manim import *
 
