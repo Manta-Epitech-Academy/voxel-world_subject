@@ -25,6 +25,9 @@ Sept étapes, dans l'ordre. Chacune te raconte un bout d'histoire, te donne les 
 > set_block(0, 0, 0, HERBE)  -- dans le coin, au sol
 > set_block(0, 5, 0, HERBE)  -- 5 blocs plus haut
 > ```
+>
+> ![64 en x, 10 en y vers le ciel, 64 en z : le bloc de set_block(64, 10, 64, PIERRE).](img/outil-coordonnees.webp)
+> <!-- ws:anim {src: img/outil-coordonnees.webm, chapters: img/outil-coordonnees.vtt} -->
 
 > 🧰 **Voler et marcher dans le monde**
 > **Clique** sur le monde pour prendre le contrôle, puis :
@@ -98,6 +101,9 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 >   set_block(x, 0, 0, PIERRE)
 > end
 > ```
+>
+> ![x vaut 0, puis 1, puis 2… et un bloc se pose à chaque tour.](img/outil-boucle.webp)
+> <!-- ws:anim {src: img/outil-boucle.webm, chapters: img/outil-boucle.vtt} -->
 
 > 🧰 **Une boucle dans une boucle**
 > Pour chaque valeur de `x`, la boucle intérieure fait tous les `z`. 10 × 10 = un carré de 100 blocs.
@@ -109,6 +115,9 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 >   end
 > end
 > ```
+>
+> ![Pour chaque x, la boucle intérieure fait tous les z : le carré se remplit ligne après ligne.](img/outil-double-boucle.webp)
+> <!-- ws:anim {src: img/outil-double-boucle.webm, chapters: img/outil-double-boucle.vtt} -->
 
 > 🧰 **`TAILLE` « la largeur du monde »**
 > `TAILLE` vaut 128, la largeur du monde. Les colonnes vont de `0` à `TAILLE - 1`, c'est-à-dire 127.
@@ -192,6 +201,9 @@ Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0
 > set_block(64, SOL, 64, HERBE)
 > set_block(64, SOL - 1, 64, TERRE)
 > ```
+>
+> ![SOL change une fois, et les deux blocs qui l'utilisent montent avec lui.](img/outil-variables.webp)
+> <!-- ws:anim {src: img/outil-variables.webm, chapters: img/outil-variables.vtt} -->
 
 > 🧰 **Une boucle vers le haut**
 > La même boucle `for`, mais sur y : une colonne de pierre de y = 1 à y = 16.
@@ -201,6 +213,9 @@ Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0
 >   set_block(64, y, 64, PIERRE)
 > end
 > ```
+>
+> ![y compte de 1 à 16, et la colonne monte bloc par bloc.](img/outil-colonne.webp)
+> <!-- ws:anim {src: img/outil-colonne.webm, chapters: img/outil-colonne.vtt} -->
 
 > 🧰 **Calculer avec les variables**
 > On peut faire des calculs partout où on attend un nombre : `+`, `-`, `*` (fois), `/` (divisé).
@@ -261,6 +276,9 @@ Ta colonne ne grandit pas quand tu changes `SOL` ? Cherche les nombres écrits e
 > 🧰 **Penser en colonnes**
 > Ton monde, c'est 128 × 128 **colonnes**. Une colonne, c'est une pile de blocs posée en (x, z) : la bedrock tout en bas, puis la pierre, la terre, et l'herbe au sommet.
 > Si tu sais construire **une** colonne, la double boucle de l'étape 2 construit toutes les autres.
+>
+> ![Une colonne avec ses couches, puis la double boucle qui pose toutes les autres.](img/outil-colonnes.webp)
+> <!-- ws:anim {src: img/outil-colonnes.webm, chapters: img/outil-colonnes.vtt} -->
 <!-- /ws:toolbox -->
 
 ### Défi
@@ -317,6 +335,9 @@ Vole sous ton monde (<kbd>Maj</kbd>) et regarde la tranche : on voit les couches
 > colonne(10, 10, 20)
 > colonne(11, 10, 25)
 > ```
+>
+> ![Deux appels de colonne(x, z, h) avec d'autres valeurs : deux colonnes.](img/outil-fonction.webp)
+> <!-- ws:anim {src: img/outil-fonction.webm, chapters: img/outil-fonction.vtt} -->
 
 > 🧰 **Une hauteur qui dépend de x**
 > Ici, plus x est grand, plus le bloc est haut : une ligne d'herbe qui monte, un bloc plus haut tous les 10 blocs. Pas besoin d'arrondir : un bloc ne peut pas être à la hauteur 10,7, `set_block` arrondit vers le bas tout seul.
@@ -525,6 +546,9 @@ Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 >         + perlin2d(x / 8, z / 8) * 1.5
 > local h = math.floor(26 + n)
 > ```
+>
+> ![Un grand bruit, un moyen, un petit, et leur somme.](img/outil-octaves.webp)
+> <!-- ws:anim {src: img/outil-octaves.webm, chapters: img/outil-octaves.vtt} -->
 
 > 🧰 **La seed**
 > La **seed** (la graine, en haut du monde) choisit un bruit parmi des milliards. Même code et même seed : exactement le même monde. Change-la pour en découvrir un autre.
@@ -596,6 +620,9 @@ Mets `math.abs(perlin2d(...))` pour le grand bruit : tu obtiens des crêtes de m
 >   print("au milieu")
 > end
 > ```
+>
+> ![Pour h = 30, 12 puis 40 : la première condition vraie l'emporte.](img/outil-if.webp)
+> <!-- ws:anim {src: img/outil-if.webm, chapters: img/outil-if.vtt} -->
 
 > 🧰 **Choisir le bloc du dessus**
 > On range le type de bloc dans une variable, et on la change si besoin avant de poser.
@@ -607,6 +634,9 @@ Mets `math.abs(perlin2d(...))` pour le grand bruit : tu obtiens des crêtes de m
 > end
 > set_block(x, h, z, dessus)
 > ```
+>
+> ![Au-dessus de 34, le dessus devient NEIGE.](img/outil-dessus.webp)
+> <!-- ws:anim {src: img/outil-dessus.webm, chapters: img/outil-dessus.vtt} -->
 
 > 🧰 **Remplir d'eau**
 > De l'eau de `h + 1` jusqu'au niveau de la mer. Si le sol est plus haut que la mer, la boucle ne fait **aucun tour** : pas d'eau. Pratique !
@@ -617,6 +647,9 @@ Mets `math.abs(perlin2d(...))` pour le grand bruit : tu obtiens des crêtes de m
 >   set_block(x, y, z, EAU)
 > end
 > ```
+>
+> ![De h + 1 jusqu'à NIVEAU_MER : sous la mer la boucle remplit, au-dessus elle ne fait aucun tour.](img/outil-eau.webp)
+> <!-- ws:anim {src: img/outil-eau.webm, chapters: img/outil-eau.vtt} -->
 
 > 🧰 **Les comparaisons**
 > `<` plus petit, `>` plus grand, `<=` et `>=` « ou égal », `==` égal, `~=` différent.
@@ -691,6 +724,9 @@ Pose de la `GLACE` à la surface de l'eau quand la mer est entourée de neige.
 > end
 > print("le sol est à y =", y)
 > ```
+>
+> ![y descend du ciel tant que la case est de l'air, et s'arrête sur l'herbe.](img/outil-sol.webp)
+> <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
 
 > 🧰 **Une fonction arbre**
 > Un tronc de 5 blocs, puis des feuilles autour du haut. À toi de compléter la couronne.
@@ -703,6 +739,9 @@ Pose de la `GLACE` à la surface de l'eau quand la mer est entourée de neige.
 >   set_block(x, y + 5, z, FEUILLES)
 > end
 > ```
+>
+> ![Un tronc de cinq blocs, une feuille au sommet, puis une couronne.](img/outil-arbre.webp)
+> <!-- ws:anim {src: img/outil-arbre.webm, chapters: img/outil-arbre.vtt} -->
 
 > 🧰 **`perlin3d` « creuser des grottes »**
 > Même idée que `perlin2d`, mais en 3D. Là où il dépasse un seuil, on **ne pose pas** de pierre : ça fait un trou. Plus le seuil est bas, plus les grottes sont grandes.
@@ -714,6 +753,9 @@ Pose de la `GLACE` à la surface de l'eau quand la mer est entourée de neige.
 >   set_block(x, y, z, PIERRE)
 > end
 > ```
+>
+> ![Un nombre par case ; au-dessus du seuil, on ne pose rien, et baisser le seuil agrandit les grottes.](img/outil-grottes.webp)
+> <!-- ws:anim {src: img/outil-grottes.webm, chapters: img/outil-grottes.vtt} -->
 
 > 🧰 **`return` « une fonction qui répond »**
 > Une fonction peut **renvoyer** une valeur. Ici, elle choisit quel bloc poser.
