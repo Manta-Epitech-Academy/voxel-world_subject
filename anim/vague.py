@@ -45,6 +45,7 @@ class LaVague(Scene):
             return Text(texte, font="DejaVu Sans", font_size=26, color=couleur).next_to(axes, DOWN, buff=0.35)
 
         # 1. sin(x) : trop serré, et autour de zéro.
+        self.next_section("math.sin(x) : trop serré")
         f = formule("h = math.sin(x)")
         c = courbe(lambda x: 20 + math.sin(x))   # dessinée à 20 pour rester visible
         self.play(Write(f), Create(c), run_time=1.3)
@@ -52,6 +53,7 @@ class LaVague(Scene):
         self.play(FadeIn(n)); self.wait(1.0)
 
         # 2. / 8 : plus large.
+        self.next_section("÷ 8 : plus large")
         f2 = formule("h = math.sin(x / 8)")
         c2 = courbe(lambda x: 20 + math.sin(x / 8))
         n2 = note("÷ 8 : la vague s'élargit", CIEL)
@@ -59,6 +61,7 @@ class LaVague(Scene):
         self.play(FadeIn(n2)); self.wait(1.0)
 
         # 3. × 4 : plus haute.
+        self.next_section("× 4 : plus haute")
         f3 = formule("h = 4 * math.sin(x / 8)")
         c3 = courbe(lambda x: 20 + 4 * math.sin(x / 8))
         n3 = note("× 4 : la vague grandit", CIEL)
@@ -67,6 +70,7 @@ class LaVague(Scene):
 
         # 4. + 20 : à la bonne hauteur. Jusqu'ici la courbe était posée à 20 pour
         # qu'on la voie ; on la montre d'abord autour de 0, puis elle monte.
+        self.next_section("+ 20 : à la bonne hauteur")
         f4 = formule("h = 20 + 4 * math.sin(x / 8)")
         c0 = courbe(lambda x: 4 * math.sin(x / 8))
         n4 = note("sans + 20, la vague est au ras du sol…", ALERTE)
@@ -77,6 +81,7 @@ class LaVague(Scene):
         self.play(Transform(f, f4), Transform(c, c4), FadeOut(n4), run_time=1.4)
         self.play(FadeIn(n5)); self.wait(1.0)
 
+        self.next_section("les colonnes suivent la courbe")
         # 5. Les blocs suivent la courbe : set_block arrondit vers le bas.
         blocs = VGroup()
         for x in range(0, 128, 2):

@@ -6,8 +6,6 @@ Sept étapes, dans l'ordre. Chacune te raconte un bout d'histoire, te donne les 
 <!-- ws: {type: exercise, id: premier-bloc, points: 150, token_id: "1"} -->
 <!-- étape de modelage : la ligne de code est donnée volontairement, dans l'indice 2 -->
 
-*Durée : 15 min*
-
 ### Histoire
 
 Le serveur a planté. Quand tu te reconnectes, il ne reste **rien** : un ciel bleu, une grille au sol et trois flèches de couleur. Un message s'affiche : *« Monde introuvable. Mode architecte activé. »*
@@ -94,8 +92,6 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 
 ## Étape 2 : Le sol plat
 <!-- ws: {type: exercise, id: sol-plat, points: 200, token_id: "2"} -->
-
-*Durée : 20 min*
 
 ### Histoire
 
@@ -197,8 +193,6 @@ Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0
 ## Étape 3a : Une colonne
 <!-- ws: {type: exercise, id: une-colonne, points: 150, validation: checkpoint} -->
 
-*Durée : 15 min*
-
 ### Histoire
 
 Creuse dans Minecraft : sous l'herbe il y a de la terre, puis de la pierre, et tout au fond la **bedrock** que rien ne peut casser.
@@ -279,8 +273,6 @@ Ta colonne ne grandit pas quand tu changes `SOL` ? Cherche les nombres écrits e
 ## Étape 3b : Le monde en colonnes
 <!-- ws: {type: exercise, id: couches, points: 100, token_id: "3"} -->
 
-*Durée : 10 min*
-
 ### Histoire
 
 Une colonne, c'est un bon début. Il en faut **16 384** pour couvrir ton monde. Heureusement, tu sais déjà faire répéter un ordinateur.
@@ -330,8 +322,6 @@ Vole sous ton monde (<kbd>Maj</kbd>) et regarde la tranche : on voit les couches
 ## Étape 4a : La fonction colonne
 <!-- ws: {type: exercise, id: colonne-fonction, points: 150, validation: checkpoint} -->
 <!-- étape de modelage : la fonction colonne est donnée volontairement dans la boîte à outils -->
-
-*Durée : 15 min*
 
 ### Histoire
 
@@ -415,8 +405,6 @@ Fais monter la pente en diagonale : que `h` dépende de x **et** de z.
 ## Étape 4b : La vague
 <!-- ws: {type: exercise, id: collines, points: 200, token_id: "4"} -->
 
-*Durée : 10 min*
-
 ### Histoire
 
 Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et des creux : il est temps de **froisser** ton monde pour de bon.
@@ -482,8 +470,6 @@ Si la vérification parle d'une marche trop haute, **divise** x par un plus gran
 <!-- ws: {type: exercise, id: collines-deux-sens, points: 150, validation: checkpoint} -->
 <!-- étape de modelage : la formule à deux vagues est donnée volontairement dans la boîte à outils -->
 
-*Durée : 10 min*
-
 ### Histoire
 
 Vole vers le fond du monde, tout droit. Tu avances sans jamais monter ni descendre : tes vagues sont une **tôle ondulée**. Il manque les bosses dans l'autre sens.
@@ -544,8 +530,6 @@ Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 
 ## Étape 5 : Le vrai relief
 <!-- ws: {type: exercise, id: relief, points: 250, token_id: "5"} -->
-
-*Durée : 25 min*
 
 ### Histoire
 
@@ -634,8 +618,6 @@ Mets `math.abs(perlin2d(...))` pour le grand bruit : tu obtiens des crêtes de m
 
 ## Étape 6 : Mers, plages et neige
 <!-- ws: {type: exercise, id: mers-plages-neige, points: 250, token_id: "6"} -->
-
-*Durée : 25 min*
 
 ### Histoire
 
@@ -732,8 +714,6 @@ Pose de la `GLACE` à la surface de l'eau quand la mer est entourée de neige.
 
 ## Étape 7 : Forêts, grottes et minerais
 <!-- ws: {type: exercise, id: forets-grottes-minerais, points: 350, token_id: "7"} -->
-
-*Durée : 35 min*
 
 ### Histoire
 
