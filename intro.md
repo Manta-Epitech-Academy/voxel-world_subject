@@ -11,9 +11,9 @@ Rien à installer : tout se passe dans ton navigateur, à côté de ces instruct
 1. Clique sur le bouton **Ouvrir World Generator** : le monde s'ouvre à côté des instructions.
    <!-- ws:cue runtime -->
 2. Tu y trouves le monde en 3D, l'éditeur où tu écris ton code, et la **console** sous l'éditeur.
-3. Le bouton **▶ Générer** (ou <kbd>Ctrl</kbd> + <kbd>Entrée</kbd>) exécute ton code, construit le monde et vérifie le défi de l'étape.
-4. Quand toutes les vérifications passent au vert, le monde t'affiche un code de validation et le recopie dans la case de l'étape : il ne te reste qu'à valider.
+3. Le bouton **▶ Générer** (ou <kbd>Ctrl</kbd> + <kbd>Entrée</kbd>) exécute ton code et construit le monde.
+4. Quand ton monde répond au défi, montre-le à l'animateur : il te donne le code qui valide l'étape, à écrire dans sa case.
 
-![À gauche le monde en 3D et, dessous, la vérification de l'étape. À droite l'éditeur de code et, dessous, la console. Le bouton Générer, encadré, construit le monde et vérifie le défi.](img/interface.png)
+![À gauche le monde en 3D. À droite l'éditeur de code et, dessous, la console. Le bouton Générer, encadré, construit le monde.](img/interface.png)
 
 Chaque étape te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi. Les indices sont là si tu bloques, et un bonus t'attend quand tu as fini en avance.

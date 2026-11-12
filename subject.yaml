@@ -31,13 +31,14 @@ runtime:
 
 platform:
   mode_default: instructor_led
-  # The runtime checks each step's « défis » on « ▶ Générer ». When they are
-  # all green it shows a code derived from the instance's secret, which the
-  # platform set as the step's flag (convention §3.3b, `token`). Each step's
-  # `token_id` is its number in the runtime, 1 to 7.
-  validation_default: token
+  # The runtime no longer checks the steps itself (its automatic validation
+  # is off): each step is validated by the code the instructor gives once the
+  # world is right (convention §3.3b, `checkpoint`). Steps keep their
+  # token_id, which maps them to the runtime's own steps.
+  validation_default: checkpoint
   points_default: 25          # every step sets its own: 10 XP per estimated minute
 
 documents:
   - intro.md
-  - world-generator.md
+  - partie-1.md
+  - partie-2.md
