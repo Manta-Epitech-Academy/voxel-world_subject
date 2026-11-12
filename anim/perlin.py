@@ -101,26 +101,35 @@ class LePerlin(Scene):
         self.play(Transform(f, f3), Transform(c, c3), FadeOut(n3), run_time=1.4)
         self.play(FadeIn(n4)); self.wait(1.2)
 
-        # 3. Multiplier le résultat : plus haut. On revient à ÷ 40, puis × 12, sur
-        # des axes en blocs.
-        f4 = formule("h = 24 + 12 * perlin2d(x / 40, 7)")
+        # 3. Multiplier le résultat : plus haut. On revient à ÷ 40, sur des axes
+        # en blocs : × 12 fait des collines douze fois plus hautes, mais autour
+        # de 0, donc à moitié sous le sol ; + 24 les pose à la bonne hauteur.
         axes2 = Axes(
-            x_range=[0, 128, 16], y_range=[0, 48, 8],
+            x_range=[0, 128, 16], y_range=[-16, 48, 8],
             x_length=11, y_length=3.6,
             axis_config={"color": DOUX, "include_tip": False}, tips=False,
         ).shift(DOWN * 0.4)
         grads2 = VGroup(
-            *[Text(str(v), font="DejaVu Sans", font_size=18, color=DOUX).next_to(axes2.c2p(v, 0), DOWN, buff=0.15)
+            *[Text(str(v), font="DejaVu Sans", font_size=18, color=DOUX).next_to(axes2.c2p(v, -16), DOWN, buff=0.15)
               for v in range(0, 129, 32)],
             *[Text(str(v), font="DejaVu Sans", font_size=18, color=DOUX).next_to(axes2.c2p(0, v), LEFT, buff=0.15)
-              for v in (12, 24, 36, 48)],
+              for v in (-12, 0, 12, 24, 36, 48)],
         )
-        c4 = axes2.plot(lambda x: 24 + 12 * perlin2d(x / 40, 7), x_range=[0, 127, 0.25], color=CIEL, stroke_width=4)
-        n5 = note("× 12 : les mêmes collines, douze fois plus hautes, posées à 24", CIEL)
+        sol = axes2.plot(lambda x: 0, x_range=[0, 128], color=DOUX, stroke_width=1.5, stroke_opacity=0.6)
+
+        f4 = formule("h = 12 * perlin2d(x / 40, 7)")
+        c4 = axes2.plot(lambda x: 12 * perlin2d(x / 40, 7), x_range=[0, 127, 0.25], color=CIEL, stroke_width=4)
+        n5 = note("× 12 : douze fois plus haut… mais autour de 0, à moitié sous le sol", ALERTE)
         self.play(Transform(f, f4), FadeOut(n4), FadeOut(zero),
                   ReplacementTransform(axes, axes2), ReplacementTransform(grads, grads2),
-                  Transform(c, c4), run_time=1.8)
+                  Transform(c, c4), FadeIn(sol), run_time=1.8)
         self.play(FadeIn(n5)); self.wait(1.4)
+
+        f5 = formule("h = 24 + 12 * perlin2d(x / 40, 7)")
+        c5 = axes2.plot(lambda x: 24 + 12 * perlin2d(x / 40, 7), x_range=[0, 127, 0.25], color=CIEL, stroke_width=4)
+        n6 = note("+ 24 : les collines montent, posées à la hauteur 24", CIEL)
+        self.play(Transform(f, f5), Transform(c, c5), FadeOut(n5), run_time=1.4)
+        self.play(FadeIn(n6)); self.wait(1.2)
 
         blocs = VGroup()
         for x in range(0, 128, 2):
@@ -130,6 +139,6 @@ class LePerlin(Scene):
                           fill_color=HERBE, fill_opacity=0.85, stroke_width=0.5, stroke_color=FOND)
             r.move_to((bas + haut) / 2)
             blocs.add(r)
-        n6 = note("un relief naturel : change la seed pour en découvrir un autre", HERBE)
-        self.play(FadeOut(n5), LaggedStart(*[GrowFromEdge(b, DOWN) for b in blocs], lag_ratio=0.01), run_time=2)
-        self.play(FadeIn(n6)); self.wait(1.6)
+        n7 = note("un relief naturel : change la seed pour en découvrir un autre", HERBE)
+        self.play(FadeOut(n6), LaggedStart(*[GrowFromEdge(b, DOWN) for b in blocs], lag_ratio=0.01), run_time=2)
+        self.play(FadeIn(n7)); self.wait(1.6)
