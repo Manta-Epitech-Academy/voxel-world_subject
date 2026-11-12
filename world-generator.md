@@ -410,11 +410,11 @@ Fais monter la pente en diagonale : que `h` dépende de x **et** de z.
 >   set_block(x, h, 0, HERBE)
 > end
 > ```
+>
+> ![La vague, terme par terme : ÷ 8 l'élargit, × 4 la grandit, + 20 la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
+> <!-- ws:anim {src: img/etape6-vague.webm, chapters: img/etape6-vague.vtt} -->
 
 <!-- /ws:toolbox -->
-
-![La vague, terme par terme : ÷ 8 l'élargit, × 4 la grandit, + 20 la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
-<!-- ws:anim {src: img/etape6-vague.webm, chapters: img/etape6-vague.vtt} -->
 
 ### Pièges
 
@@ -469,13 +469,13 @@ Si la vérification parle d'une marche trop haute, **divise** x par un plus gran
 > ```lua
 > local h = 20 + 4 * math.sin(x / 8) + 4 * math.sin(z / 11)
 > ```
+>
+> ![Avec une seule vague en x, le terrain est une tôle ondulée : rien ne change en avançant vers le fond. La vague en z s'ajoute, et les bosses apparaissent dans tous les sens.](img/etape7-collines.webp)
+> <!-- ws:anim {src: img/etape7-collines.webm, chapters: img/etape7-collines.vtt} -->
 
 > 🧰 **Pourquoi 8 et 11 ?**
 > Deux largeurs différentes, pour que les bosses ne tombent pas toutes au même endroit. Essaie `8` et `8`, puis `8` et `11`, et regarde la différence depuis le ciel.
 <!-- /ws:toolbox -->
-
-![Avec une seule vague en x, le terrain est une tôle ondulée : rien ne change en avançant vers le fond. La vague en z s'ajoute, et les bosses apparaissent dans tous les sens.](img/etape7-collines.webp)
-<!-- ws:anim {src: img/etape7-collines.webm, chapters: img/etape7-collines.vtt} -->
 
 ### Pièges
 
@@ -529,6 +529,9 @@ Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 > print(perlin2d(10.6, 3.2))
 > print(perlin2d(50.1, 80.7))
 > ```
+>
+> ![Le bruit de Perlin : à chaque nombre entier il vaut 0, d'où le terrain plat ; ÷ 40 donne des collines larges, ÷ 10 des collines serrées, × 12 les rend douze fois plus hautes mais autour de 0, et + 24 les pose à la bonne hauteur.](img/etape8-perlin.webp)
+> <!-- ws:anim {src: img/etape8-perlin.webm, chapters: img/etape8-perlin.vtt} -->
 
 > 🧰 **L'échelle**
 > Le `/ 40` règle la **largeur** des collines, le `* 12` leur **hauteur**.
@@ -553,9 +556,6 @@ Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 > 🧰 **La seed**
 > La **seed** (la graine, en haut du monde) choisit un bruit parmi des milliards. Même code et même seed : exactement le même monde. Change-la pour en découvrir un autre.
 <!-- /ws:toolbox -->
-
-![Le bruit de Perlin : à chaque nombre entier il vaut 0, d'où le terrain plat ; ÷ 40 donne des collines larges, ÷ 10 des collines serrées, × 12 les rend douze fois plus hautes mais autour de 0, et + 24 les pose à la bonne hauteur.](img/etape8-perlin.webp)
-<!-- ws:anim {src: img/etape8-perlin.webm, chapters: img/etape8-perlin.vtt} -->
 
 ### Pièges
 
