@@ -178,7 +178,7 @@ end
 
 Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0 ou 1.
 
-## Étape 3a : Une colonne
+## Étape 3 : Une colonne
 <!-- ws: {type: exercise, id: une-colonne, points: 150, validation: checkpoint} -->
 
 <!-- ws:toolbox -->
@@ -228,8 +228,8 @@ L'application ne vérifie pas cette étape : c'est toi qui vérifies, avec cette
 
 Tu dois obtenir quelque chose comme ça :
 
-![Une seule colonne au centre de la grille : la bedrock en bas, la pierre, trois blocs de terre et l'herbe au sommet.](img/etape3a-resultat.png)
-<!-- ws:scene {src: scenes/etape3a.glb, camera: {from: [50, 23, 46], to: [64.5, 10, 64.5]}} -->
+![Une seule colonne au centre de la grille : la bedrock en bas, la pierre, trois blocs de terre et l'herbe au sommet.](img/etape3-resultat.png)
+<!-- ws:scene {src: scenes/etape3.glb, camera: {from: [50, 23, 46], to: [64.5, 10, 64.5]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -252,7 +252,7 @@ Ta colonne ne grandit pas quand tu changes `SOL` ? Cherche les nombres écrits e
 
 </details>
 
-## Étape 3b : Le monde en colonnes
+## Étape 4 : Le monde en colonnes
 <!-- ws: {type: exercise, id: couches, points: 100, token_id: "3"} -->
 
 <!-- ws:toolbox -->
@@ -276,8 +276,8 @@ Pour vérifier encore : change `SOL` en 30, puis clique sur « ▶ Générer ».
 
 Tu dois obtenir quelque chose comme ça :
 
-![Vu depuis le coin du monde : sur la tranche, la bedrock tout en bas, la pierre, trois blocs de terre, puis l'herbe.](img/etape3b-resultat.png)
-<!-- ws:scene {src: scenes/etape3b.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-14, 30, -14], to: [12, 12, 12]}} -->
+![Vu depuis le coin du monde : sur la tranche, la bedrock tout en bas, la pierre, trois blocs de terre, puis l'herbe.](img/etape4-resultat.png)
+<!-- ws:scene {src: scenes/etape4.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-14, 30, -14], to: [12, 12, 12]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -289,7 +289,7 @@ Tu as déjà les deux boucles x et z de l'étape 2. C'est **à l'intérieur** qu
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Dans ta colonne de l'étape 3a, x et z valaient 64. Dans la double boucle, ce sont les variables `x` et `z` qui prennent leur place.
+Dans ta colonne de l'étape 3, x et z valaient 64. Dans la double boucle, ce sont les variables `x` et `z` qui prennent leur place.
 
 </details>
 
@@ -297,7 +297,7 @@ Dans ta colonne de l'étape 3a, x et z valaient 64. Dans la double boucle, ce so
 
 Vole sous ton monde (<kbd>Maj</kbd>) et regarde la tranche : on voit les couches sur les bords.
 
-## Étape 4a : La fonction colonne
+## Étape 5 : La fonction colonne
 <!-- ws: {type: exercise, id: colonne-fonction, points: 150, validation: checkpoint} -->
 <!-- étape de modelage : la fonction colonne est donnée volontairement dans la boîte à outils -->
 
@@ -337,7 +337,7 @@ Vole sous ton monde (<kbd>Maj</kbd>) et regarde la tranche : on voit les couches
 ### Défi
 <!-- ws:doit -->
 
-Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis fais monter ton terrain en **pente douce** le long de x : chaque colonne aussi haute que sa voisine, ou un bloc plus haut, avec au moins **8 hauteurs différentes**. Les couches de l'étape 3 restent obligatoires.
+Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis fais monter ton terrain en **pente douce** le long de x : chaque colonne aussi haute que sa voisine, ou un bloc plus haut, avec au moins **8 hauteurs différentes**. Les couches de l'étape 4 restent obligatoires.
 
 L'application ne vérifie pas cette étape : c'est toi qui vérifies, en volant le long de ta pente.
 
@@ -346,8 +346,8 @@ L'application ne vérifie pas cette étape : c'est toi qui vérifies, en volant 
 
 Tu dois obtenir quelque chose comme ça :
 
-![Le terrain monte en escalier doux d'un bord à l'autre du monde, avec les couches visibles sur la tranche.](img/etape4a-resultat.png)
-<!-- ws:scene {src: scenes/etape4a.glb, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+![Le terrain monte en escalier doux d'un bord à l'autre du monde, avec les couches visibles sur la tranche.](img/etape5-resultat.png)
+<!-- ws:scene {src: scenes/etape5.glb, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -374,7 +374,7 @@ Ta pente monte trop vite ? **Divise** x par un plus grand nombre.
 
 Fais monter la pente en diagonale : que `h` dépende de x **et** de z.
 
-## Étape 4b : La vague
+## Étape 6 : La vague
 <!-- ws: {type: exercise, id: collines, points: 200, token_id: "4"} -->
 
 <!-- ws:toolbox -->
@@ -392,8 +392,8 @@ Fais monter la pente en diagonale : que `h` dépende de x **et** de z.
 
 <!-- /ws:toolbox -->
 
-![La vague, terme par terme : ÷ 8 l'élargit, × 4 la grandit, + 20 la monte, et les colonnes suivent la courbe.](img/etape4b-vague.webp)
-<!-- ws:anim {src: img/etape4b-vague.webm, chapters: img/etape4b-vague.vtt} -->
+![La vague, terme par terme : ÷ 8 l'élargit, × 4 la grandit, + 20 la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
+<!-- ws:anim {src: img/etape6-vague.webm, chapters: img/etape6-vague.vtt} -->
 
 ### Pièges
 
@@ -403,7 +403,7 @@ Fais monter la pente en diagonale : que `h` dépende de x **et** de z.
 ### Défi
 <!-- ws:doit -->
 
-Fais onduler ton terrain le long de x avec `math.sin` : au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines. Les couches de l'étape 3 restent obligatoires.
+Fais onduler ton terrain le long de x avec `math.sin` : au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines. Les couches de l'étape 4 restent obligatoires.
 
 Vérifié automatiquement au clic sur « ▶ Générer » :
 
@@ -411,8 +411,8 @@ Vérifié automatiquement au clic sur « ▶ Générer » :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Des vagues de plage : le terrain ondule de gauche à droite, et chaque vague traverse le monde d'un bord à l'autre.](img/etape4b-resultat.png)
-<!-- ws:scene {src: scenes/etape4b.glb, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+![Des vagues de plage : le terrain ondule de gauche à droite, et chaque vague traverse le monde d'un bord à l'autre.](img/etape6-resultat.png)
+<!-- ws:scene {src: scenes/etape6.glb, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -435,7 +435,7 @@ Si la vérification parle d'une marche trop haute, **divise** x par un plus gran
 
 </details>
 
-## Étape 4c : Les collines
+## Étape 7 : Les collines
 <!-- ws: {type: exercise, id: collines-deux-sens, points: 150, validation: checkpoint} -->
 <!-- étape de modelage : la formule à deux vagues est donnée volontairement dans la boîte à outils -->
 
@@ -453,8 +453,8 @@ Si la vérification parle d'une marche trop haute, **divise** x par un plus gran
 > Deux largeurs différentes, pour que les bosses ne tombent pas toutes au même endroit. Essaie `8` et `8`, puis `8` et `11`, et regarde la différence depuis le ciel.
 <!-- /ws:toolbox -->
 
-![Avec une seule vague en x, le terrain est une tôle ondulée : rien ne change en avançant vers le fond. La vague en z s'ajoute, et les bosses apparaissent dans tous les sens.](img/etape4c-collines.webp)
-<!-- ws:anim {src: img/etape4c-collines.webm, chapters: img/etape4c-collines.vtt} -->
+![Avec une seule vague en x, le terrain est une tôle ondulée : rien ne change en avançant vers le fond. La vague en z s'ajoute, et les bosses apparaissent dans tous les sens.](img/etape7-collines.webp)
+<!-- ws:anim {src: img/etape7-collines.webm, chapters: img/etape7-collines.vtt} -->
 
 ### Pièges
 
@@ -473,8 +473,8 @@ L'application vérifie encore la douceur du terrain, pas le deuxième sens : c'e
 
 Tu dois obtenir quelque chose comme ça :
 
-![Des collines rondes et régulières, alignées comme une boîte d'œufs.](img/etape4c-resultat.png)
-<!-- ws:scene {src: scenes/etape4c.glb, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+![Des collines rondes et régulières, alignées comme une boîte d'œufs.](img/etape7-resultat.png)
+<!-- ws:scene {src: scenes/etape7.glb, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -494,7 +494,7 @@ Si le terrain fait des marches trop hautes, baisse les deux `4`, ou augmente les
 
 Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 
-## Étape 5 : Le vrai relief
+## Étape 8 : Le vrai relief
 <!-- ws: {type: exercise, id: relief, points: 250, token_id: "5"} -->
 
 <!-- ws:toolbox -->
@@ -530,8 +530,8 @@ Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 > La **seed** (la graine, en haut du monde) choisit un bruit parmi des milliards. Même code et même seed : exactement le même monde. Change-la pour en découvrir un autre.
 <!-- /ws:toolbox -->
 
-![Le bruit de Perlin : à chaque nombre entier il vaut 0, d'où le terrain plat ; ÷ 40 donne des collines larges, ÷ 10 des collines serrées, × 12 les rend douze fois plus hautes mais autour de 0, et + 24 les pose à la bonne hauteur.](img/etape5-perlin.webp)
-<!-- ws:anim {src: img/etape5-perlin.webm, chapters: img/etape5-perlin.vtt} -->
+![Le bruit de Perlin : à chaque nombre entier il vaut 0, d'où le terrain plat ; ÷ 40 donne des collines larges, ÷ 10 des collines serrées, × 12 les rend douze fois plus hautes mais autour de 0, et + 24 les pose à la bonne hauteur.](img/etape8-perlin.webp)
+<!-- ws:anim {src: img/etape8-perlin.webm, chapters: img/etape8-perlin.vtt} -->
 
 ### Pièges
 
@@ -549,8 +549,8 @@ Vérifié automatiquement au clic sur « ▶ Générer » :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Avec bruit, les collines n'ont plus rien de régulier : des vallées, des sommets, des pentes douces.](img/etape5-resultat.png)
-<!-- ws:scene {src: scenes/etape5.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+![Avec bruit, les collines n'ont plus rien de régulier : des vallées, des sommets, des pentes douces.](img/etape8-resultat.png)
+<!-- ws:scene {src: scenes/etape8.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -577,7 +577,7 @@ Pas assez de dénivelé ? Multiplie davantage le grand bruit.
 
 Mets `math.abs(perlin2d(...))` pour le grand bruit : tu obtiens des crêtes de montagne.
 
-## Étape 6 : Mers, plages et neige
+## Étape 9 : Mers, plages et neige
 <!-- ws: {type: exercise, id: mers-plages-neige, points: 250, token_id: "6"} -->
 
 <!-- ws:toolbox -->
@@ -639,8 +639,8 @@ Vérifié automatiquement au clic sur « ▶ Générer » :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Une mer à hauteur fixe, du sable là où la terre touche l'eau, et de la neige sur les sommets.](img/etape6-resultat.png)
-<!-- ws:scene {src: scenes/etape6.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: z}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+![Une mer à hauteur fixe, du sable là où la terre touche l'eau, et de la neige sur les sommets.](img/etape9-resultat.png)
+<!-- ws:scene {src: scenes/etape9.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: z}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -667,7 +667,7 @@ Sous l'eau, mets aussi du sable à la place de l'herbe et de la terre.
 
 Pose de la `GLACE` à la surface de l'eau quand la mer est entourée de neige.
 
-## Étape 7 : Forêts, grottes et minerais
+## Étape 10 : Forêts, grottes et minerais
 <!-- ws: {type: exercise, id: forets-grottes-minerais, points: 350, token_id: "7"} -->
 
 <!-- ws:toolbox -->
@@ -749,12 +749,12 @@ Vérifié automatiquement au clic sur « ▶ Générer » :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Des arbres partout où il y a de l'herbe, et aucun dans l'eau ni sur le sable.](img/etape7-resultat.png)
-<!-- ws:scene {src: scenes/etape7.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-18, 58, -18], to: [50, 20, 50]}} -->
+![Des arbres partout où il y a de l'herbe, et aucun dans l'eau ni sur le sable.](img/etape10-resultat.png)
+<!-- ws:scene {src: scenes/etape10.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-18, 58, -18], to: [50, 20, 50]}} -->
 
 Et sous tes pieds :
 
-![Dans une grotte, tout au fond : le charbon en points noirs, les diamants en bleu, et la bedrock sous tes pieds.](img/etape7-grotte.png)
+![Dans une grotte, tout au fond : le charbon en points noirs, les diamants en bleu, et la bedrock sous tes pieds.](img/etape10-grotte.png)
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
