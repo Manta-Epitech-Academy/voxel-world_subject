@@ -6,12 +6,6 @@ Sept étapes, dans l'ordre. Chacune te raconte un bout d'histoire, te donne les 
 <!-- ws: {type: exercise, id: premier-bloc, points: 150, token_id: "1"} -->
 <!-- étape de modelage : la ligne de code est donnée volontairement, dans l'indice 2 -->
 
-### Histoire
-
-Le serveur a planté. Quand tu te reconnectes, il ne reste **rien** : un ciel bleu, une grille au sol et trois flèches de couleur. Un message s'affiche : *« Monde introuvable. Mode architecte activé. »*
-
-Ici, pas de pioche. Les blocs apparaissent quand tu **écris du code**.
-
 <!-- ws:toolbox -->
 ### Boîte à outils
 
@@ -92,12 +86,6 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 
 ## Étape 2 : Le sol plat
 <!-- ws: {type: exercise, id: sol-plat, points: 200, token_id: "2"} -->
-
-### Histoire
-
-Un bloc flotte, tout seul dans le vide. Pour un monde entier, il en faudrait **16 384** rien que pour le sol. À la main, tu y serais encore à Noël.
-
-Heureusement, un ordinateur adore répéter.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
@@ -193,12 +181,6 @@ Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0
 ## Étape 3a : Une colonne
 <!-- ws: {type: exercise, id: une-colonne, points: 150, validation: checkpoint} -->
 
-### Histoire
-
-Creuse dans Minecraft : sous l'herbe il y a de la terre, puis de la pierre, et tout au fond la **bedrock** que rien ne peut casser.
-
-Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Un coup de pelle et on tombe dans le vide.
-
 <!-- ws:toolbox -->
 ### Boîte à outils
 
@@ -273,10 +255,6 @@ Ta colonne ne grandit pas quand tu changes `SOL` ? Cherche les nombres écrits e
 ## Étape 3b : Le monde en colonnes
 <!-- ws: {type: exercise, id: couches, points: 100, token_id: "3"} -->
 
-### Histoire
-
-Une colonne, c'est un bon début. Il en faut **16 384** pour couvrir ton monde. Heureusement, tu sais déjà faire répéter un ordinateur.
-
 <!-- ws:toolbox -->
 ### Boîte à outils
 
@@ -322,12 +300,6 @@ Vole sous ton monde (<kbd>Maj</kbd>) et regarde la tranche : on voit les couches
 ## Étape 4a : La fonction colonne
 <!-- ws: {type: exercise, id: colonne-fonction, points: 150, validation: checkpoint} -->
 <!-- étape de modelage : la fonction colonne est donnée volontairement dans la boîte à outils -->
-
-### Histoire
-
-Ton monde est aussi plat qu'une table de billard. Il est temps de le **froisser**.
-
-Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
@@ -405,10 +377,6 @@ Fais monter la pente en diagonale : que `h` dépende de x **et** de z.
 ## Étape 4b : La vague
 <!-- ws: {type: exercise, id: collines, points: 200, token_id: "4"} -->
 
-### Histoire
-
-Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et des creux : il est temps de **froisser** ton monde pour de bon.
-
 <!-- ws:toolbox -->
 ### Boîte à outils
 
@@ -425,6 +393,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 <!-- /ws:toolbox -->
 
 ![La vague, terme par terme : ÷ 8 l'élargit, × 4 la grandit, + 20 la monte, et les colonnes suivent la courbe.](img/etape4b-vague.webp)
+<!-- ws:anim {src: img/etape4b-vague.webm, chapters: img/etape4b-vague.vtt} -->
 
 ### Pièges
 
@@ -470,10 +439,6 @@ Si la vérification parle d'une marche trop haute, **divise** x par un plus gran
 <!-- ws: {type: exercise, id: collines-deux-sens, points: 150, validation: checkpoint} -->
 <!-- étape de modelage : la formule à deux vagues est donnée volontairement dans la boîte à outils -->
 
-### Histoire
-
-Vole vers le fond du monde, tout droit. Tu avances sans jamais monter ni descendre : tes vagues sont une **tôle ondulée**. Il manque les bosses dans l'autre sens.
-
 <!-- ws:toolbox -->
 ### Boîte à outils
 
@@ -489,6 +454,7 @@ Vole vers le fond du monde, tout droit. Tu avances sans jamais monter ni descend
 <!-- /ws:toolbox -->
 
 ![Avec une seule vague en x, le terrain est une tôle ondulée : rien ne change en avançant vers le fond. La vague en z s'ajoute, et les bosses apparaissent dans tous les sens.](img/etape4c-collines.webp)
+<!-- ws:anim {src: img/etape4c-collines.webm, chapters: img/etape4c-collines.vtt} -->
 
 ### Pièges
 
@@ -531,12 +497,6 @@ Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 ## Étape 5 : Le vrai relief
 <!-- ws: {type: exercise, id: relief, points: 250, token_id: "5"} -->
 
-### Histoire
-
-Vole tout en haut et regarde : tes collines sont alignées comme une boîte d'œufs. La nature ne se répète pas comme ça.
-
-En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit** qui ressemble au hasard tout en restant doux. Il reçoit un Oscar pour ça. Minecraft s'en sert pour dessiner tous ses terrains.
-
 <!-- ws:toolbox -->
 ### Boîte à outils
 
@@ -571,6 +531,7 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 <!-- /ws:toolbox -->
 
 ![Le bruit de Perlin : à chaque nombre entier il vaut 0, d'où le terrain plat ; ÷ 40 donne des collines larges, ÷ 10 des collines serrées, × 12 les rend douze fois plus hautes mais autour de 0, et + 24 les pose à la bonne hauteur.](img/etape5-perlin.webp)
+<!-- ws:anim {src: img/etape5-perlin.webm, chapters: img/etape5-perlin.vtt} -->
 
 ### Pièges
 
@@ -618,12 +579,6 @@ Mets `math.abs(perlin2d(...))` pour le grand bruit : tu obtiens des crêtes de m
 
 ## Étape 6 : Mers, plages et neige
 <!-- ws: {type: exercise, id: mers-plages-neige, points: 250, token_id: "6"} -->
-
-### Histoire
-
-Tes collines sont belles, mais tout est vert. Il manque la **mer**, des **plages** là où elle touche la terre, et des **sommets enneigés**.
-
-Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
@@ -714,12 +669,6 @@ Pose de la `GLACE` à la surface de l'eau quand la mer est entourée de neige.
 
 ## Étape 7 : Forêts, grottes et minerais
 <!-- ws: {type: exercise, id: forets-grottes-minerais, points: 350, token_id: "7"} -->
-
-### Histoire
-
-Ton monde a des mers, des plages et des montagnes. Il est prêt à accueillir la vie… et les mineurs.
-
-Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies de **trésors**. Dernière ligne droite avant un générateur complet !
 
 <!-- ws:toolbox -->
 ### Boîte à outils
