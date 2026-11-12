@@ -411,7 +411,7 @@ Fais monter la pente en diagonale : que `h` dépende de x **et** de z.
 > end
 > ```
 >
-> ![La vague, terme par terme : ÷ 8 l'élargit, × 4 la grandit, + 20 la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
+> ![La vague, terme par terme : ÷ 8 l'élargit, × 5 la grandit, + 20 la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
 > <!-- ws:anim {src: img/etape6-vague.webm, chapters: img/etape6-vague.vtt} -->
 
 <!-- /ws:toolbox -->

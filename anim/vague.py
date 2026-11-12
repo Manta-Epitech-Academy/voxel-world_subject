@@ -1,4 +1,4 @@
-# La vague, terme par terme : sin(x) → sin(x / 8) → 4 * sin(x / 8) → 20 + 4 * sin(x / 8),
+# La vague, terme par terme : sin(x) → sin(x / 8) → 5 * sin(x / 8) → 20 + 5 * sin(x / 8),
 # puis les blocs qui suivent la courbe. Style 3Blue1Brown : fond sombre, une courbe
 # qui se transforme, la formule qui change en haut, un mot pour chaque changement.
 #
@@ -60,23 +60,23 @@ class LaVague(Scene):
         self.play(Transform(f, f2), Transform(c, c2), FadeOut(n), run_time=1.4)
         self.play(FadeIn(n2)); self.wait(1.0)
 
-        # 3. × 4 : plus haute.
-        self.next_section("× 4 : plus haute")
-        f3 = formule("h = 4 * math.sin(x / 8)")
-        c3 = courbe(lambda x: 20 + 4 * math.sin(x / 8))
-        n3 = note("× 4 : la vague grandit", CIEL)
+        # 3. × 5 : plus haute.
+        self.next_section("× 5 : plus haute")
+        f3 = formule("h = 5 * math.sin(x / 8)")
+        c3 = courbe(lambda x: 20 + 5 * math.sin(x / 8))
+        n3 = note("× 5 : la vague grandit", CIEL)
         self.play(Transform(f, f3), Transform(c, c3), FadeOut(n2), run_time=1.4)
         self.play(FadeIn(n3)); self.wait(1.0)
 
         # 4. + 20 : à la bonne hauteur. Jusqu'ici la courbe était posée à 20 pour
         # qu'on la voie ; on la montre d'abord autour de 0, puis elle monte.
         self.next_section("+ 20 : à la bonne hauteur")
-        f4 = formule("h = 20 + 4 * math.sin(x / 8)")
-        c0 = courbe(lambda x: 4 * math.sin(x / 8))
+        f4 = formule("h = 20 + 5 * math.sin(x / 8)")
+        c0 = courbe(lambda x: 5 * math.sin(x / 8))
         n4 = note("sans + 20, la vague est au ras du sol…", ALERTE)
         self.play(Transform(c, c0), FadeOut(n3), run_time=1.0)
         self.play(FadeIn(n4)); self.wait(1.0)
-        c4 = courbe(lambda x: 20 + 4 * math.sin(x / 8))
+        c4 = courbe(lambda x: 20 + 5 * math.sin(x / 8))
         n5 = note("+ 20 : elle monte à la hauteur 20", CIEL)
         self.play(Transform(f, f4), Transform(c, c4), FadeOut(n4), run_time=1.4)
         self.play(FadeIn(n5)); self.wait(1.0)
@@ -85,7 +85,7 @@ class LaVague(Scene):
         # 5. Les blocs suivent la courbe : set_block arrondit vers le bas.
         blocs = VGroup()
         for x in range(0, 128, 2):
-            h = math.floor(20 + 4 * math.sin(x / 8))
+            h = math.floor(20 + 5 * math.sin(x / 8))
             bas, haut = axes.c2p(x, 0), axes.c2p(x + 2, h)
             r = Rectangle(width=haut[0] - bas[0], height=haut[1] - bas[1],
                           fill_color=HERBE, fill_opacity=0.85, stroke_width=0.5, stroke_color=FOND)
