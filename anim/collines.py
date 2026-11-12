@@ -2,7 +2,7 @@
 # vague en x (une tôle ondulée : rien ne change quand on avance en z), puis la
 # vague en z qui s'ajoute et fait la boîte d'œufs.
 #
-#   capture.py anim anim/collines.py LesCollines -o img/etape4c-collines.webp
+#   capture.py anim anim/collines.py LesCollines -o img/etape4c-collines.webp   # + .webm et .vtt
 import math
 from manim import *
 
@@ -53,6 +53,7 @@ class LesCollines(ThreeDScene):
             return m
 
         # 1. Une vague en x seulement.
+        self.next_section("une vague en x : la tôle ondulée")
         f1 = formule("h = 20 + 4 * math.sin(x / 8)")
         s1 = relief(lambda x, z: 20 + 4 * math.sin(x / 8))
         self.play(Create(s1), Write(f1), run_time=2)
@@ -64,6 +65,7 @@ class LesCollines(ThreeDScene):
         self.stop_ambient_camera_rotation()
 
         # 2. Plus une vague en z.
+        self.next_section("+ une vague en z : la boîte d'œufs")
         f2 = formule("h = 20 + 4 * math.sin(x / 8) + 4 * math.sin(z / 11)")
         s2 = relief(lambda x, z: 20 + 4 * math.sin(x / 8) + 4 * math.sin(z / 11))
         n2 = note("+ une vague en z : des bosses et des creux dans tous les sens", CIEL)

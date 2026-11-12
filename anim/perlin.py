@@ -3,7 +3,7 @@
 # multiplie le résultat, plus elles sont hautes. Même bruit que l'application
 # (prélude Lua), permutation tirée de la seed.
 #
-#   capture.py anim anim/perlin.py LePerlin -o img/etape5-perlin.webp
+#   capture.py anim anim/perlin.py LePerlin -o img/etape5-perlin.webp   # + .webm et .vtt
 import math
 import random
 from manim import *
@@ -76,6 +76,7 @@ class LePerlin(Scene):
         def courbe(f, couleur=CIEL):
             return axes.plot(f, x_range=[0, 127, 0.25], color=couleur, stroke_width=4)
 
+        self.next_section("avec des entiers : toujours 0")
         # 1. Avec des entiers : 0, toujours. Le bruit existe entre les entiers,
         # mais on ne l'y regarde jamais.
         f = formule("h = perlin2d(x, 7)")
@@ -89,12 +90,14 @@ class LePerlin(Scene):
         self.play(FadeIn(n2)); self.wait(1.6)
 
         # 2. Diviser x : on regarde le bruit entre les entiers, et large.
+        self.next_section("÷ 40 : des collines larges")
         f2 = formule("h = perlin2d(x / 40, 7)")
         c = courbe(lambda x: perlin2d(x / 40, 7))
         n3 = note("÷ 40 : les entiers sont loin l'un de l'autre, des collines larges", CIEL)
         self.play(FadeOut(points), FadeOut(vrai), FadeOut(n2), Transform(f, f2), Create(c), run_time=1.6)
         self.play(FadeIn(n3)); self.wait(1.4)
 
+        self.next_section("÷ 10 : des collines serrées")
         f3 = formule("h = perlin2d(x / 10, 7)")
         c3 = courbe(lambda x: perlin2d(x / 10, 7))
         n4 = note("÷ 10 : des collines plus serrées", CIEL)
@@ -117,6 +120,7 @@ class LePerlin(Scene):
         )
         sol = axes2.plot(lambda x: 0, x_range=[0, 128], color=DOUX, stroke_width=1.5, stroke_opacity=0.6)
 
+        self.next_section("× 12 : plus haut, autour de 0")
         f4 = formule("h = 12 * perlin2d(x / 40, 7)")
         c4 = axes2.plot(lambda x: 12 * perlin2d(x / 40, 7), x_range=[0, 127, 0.25], color=CIEL, stroke_width=4)
         n5 = note("× 12 : douze fois plus haut… mais autour de 0, à moitié sous le sol", ALERTE)
@@ -125,12 +129,14 @@ class LePerlin(Scene):
                   Transform(c, c4), FadeIn(sol), run_time=1.8)
         self.play(FadeIn(n5)); self.wait(1.4)
 
+        self.next_section("+ 24 : à la bonne hauteur")
         f5 = formule("h = 24 + 12 * perlin2d(x / 40, 7)")
         c5 = axes2.plot(lambda x: 24 + 12 * perlin2d(x / 40, 7), x_range=[0, 127, 0.25], color=CIEL, stroke_width=4)
         n6 = note("+ 24 : les collines montent, posées à la hauteur 24", CIEL)
         self.play(Transform(f, f5), Transform(c, c5), FadeOut(n5), run_time=1.4)
         self.play(FadeIn(n6)); self.wait(1.2)
 
+        self.next_section("les colonnes suivent la courbe")
         blocs = VGroup()
         for x in range(0, 128, 2):
             h = math.floor(24 + 12 * perlin2d(x / 40, 7))
