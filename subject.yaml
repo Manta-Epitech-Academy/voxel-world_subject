@@ -37,13 +37,13 @@ runtime:
 
 platform:
   mode_default: instructor_led
-  # INTERIM: a cross-origin runtime cannot receive the token secret, so each
-  # step is validated by the code the instructor reads out once the runtime's
-  # checks are green (convention §3.3b, `checkpoint`). Steps keep their
-  # token_id for when the runtime is served same-origin.
+  # Each step is validated by the code the instructor gives once the world is
+  # right (convention §3.3b, `checkpoint`): the runtime no longer checks the
+  # steps itself. Steps keep their token_id, which maps them to its steps.
   validation_default: checkpoint
   points_default: 25
 
 documents:
   - intro.md
-  - world-generator.md
+  - partie-1.md
+  - partie-2.md
