@@ -21,4 +21,4 @@ Moteur : **voxel-world** (lua).
 - Étape 9 : Mers, plages et neige (3 indices)
 - Étape 10 : Forêts, grottes et minerais (4 indices)
 
-**10 étapes**, 28 indices, 18 images, 10 scènes 3D, 3 animations à chapitres.
+**10 étapes**, 28 indices, 32 images, 10 scènes 3D, 17 animations à chapitres.
