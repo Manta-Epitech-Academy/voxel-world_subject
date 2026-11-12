@@ -586,6 +586,8 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 > La **seed** (la graine, en haut du monde) choisit un bruit parmi des milliards. Même code et même seed : exactement le même monde. Change-la pour en découvrir un autre.
 <!-- /ws:toolbox -->
 
+![Le bruit de Perlin : à chaque nombre entier il vaut 0, d'où le terrain plat ; ÷ 40 donne des collines larges, ÷ 10 des collines serrées, × 12 les rend douze fois plus hautes.](img/etape5-perlin.webp)
+
 ### Pièges
 
 - `perlin2d` avec des nombres **entiers** renvoie toujours 0 : `perlin2d(3, 7)` vaut 0. Divise toujours x et z.
