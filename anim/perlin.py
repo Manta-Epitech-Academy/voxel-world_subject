@@ -3,7 +3,7 @@
 # multiplie le résultat, plus elles sont hautes. Même bruit que l'application
 # (prélude Lua), permutation tirée de la seed.
 #
-#   capture.py anim anim/perlin.py LePerlin -o img/etape5-perlin.webp   # + .webm et .vtt
+#   capture.py anim anim/perlin.py LePerlin -o img/etape8-perlin.webp   # + .webm et .vtt
 import math
 import random
 from manim import *
