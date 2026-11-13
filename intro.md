@@ -12,8 +12,8 @@ Rien à installer : tout se passe dans ton navigateur, à côté de ces instruct
    <!-- ws:cue runtime -->
 2. Tu y trouves le monde en 3D, l'éditeur où tu écris ton code, et la **console** sous l'éditeur.
 3. Le bouton **▶ Générer** (ou <kbd>Ctrl</kbd> + <kbd>Entrée</kbd>) exécute ton code et construit le monde.
-4. Quand ton monde répond au défi, montre-le à l'animateur : il te donne le code qui valide l'étape, à écrire dans sa case.
+4. Quand tu es prêt à passer à l'étape suivante demande à un encadrant de valider ce que tu as fait.
 
 ![À gauche le monde en 3D. À droite l'éditeur de code et, dessous, la console. Le bouton Générer, encadré, construit le monde.](img/interface.png)
 
-Chaque étape te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi. Les indices sont là si tu bloques, et un bonus t'attend quand tu as fini en avance.
+Chaque étape te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi. Les indices sont là si tu bloques.

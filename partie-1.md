@@ -1,6 +1,6 @@
 # Partie 1 : du premier bloc à la fonction colonne
 
-Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi ; quand ton monde est prêt, l'animateur valide l'étape avec un code. Les indices sont là si tu bloques, et un bonus t'attend quand tu as fini en avance.
+Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi ; quand ton monde est prêt, l'encadrant valide l'étape avec un code. Les indices sont là si tu bloques.
 
 ## Étape 1 : Premier bloc
 <!-- ws: {type: exercise, id: premier-bloc, points: 150, token_id: "1"} -->
@@ -19,14 +19,14 @@ Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te pr
 
 > 🧰 **Les coordonnées x, y, z**
 > Regarde les flèches dans le monde : **x** et **z** avancent sur le sol, **y** monte vers le ciel.
-> Le monde va de `0` à `127` en x et en z, et de `0` à `63` en hauteur. Le coin des flèches, c'est (0, 0, 0).
+> Le monde va de `0` à `127` en x et en z, et de `0` à `63` en hauteur. Le coin avec les flèches, c'est (0, 0, 0).
 >
 > ```lua
 > set_block(0, 0, 0, HERBE)  -- dans le coin, au sol
 > set_block(0, 5, 0, HERBE)  -- 5 blocs plus haut
 > ```
 >
-> ![64 en x, 10 en y vers le ciel, 64 en z : le bloc de set_block(64, 10, 64, PIERRE).](img/outil-coordonnees.webp)
+> ![64 en x, 10 en y (en hauteur), 64 en z : le bloc de set_block(64, 10, 64, PIERRE).](img/outil-coordonnees.webp)
 > <!-- ws:anim {src: img/outil-coordonnees.webm, chapters: img/outil-coordonnees.vtt} -->
 
 > 🧰 **Voler et marcher dans le monde**
@@ -49,7 +49,7 @@ Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te pr
 
 - `PIERRE` s'écrit en majuscules et **sans guillemets**. `"pierre"` ne marche pas.
 - Le monde ne change que quand tu cliques sur **▶ Générer** (ou <kbd>Ctrl</kbd> + <kbd>Entrée</kbd>).
-- Tout ce qui suit `--` sur une ligne est un **commentaire** : Lua l'ignore. C'est pour les humains.
+- Tout ce qui suit `--` sur une ligne est un **commentaire** : Lua l'ignore.
 
 ### Défi
 <!-- ws:doit -->
@@ -61,11 +61,9 @@ Tu dois obtenir ceci :
 ![Ton bloc de pierre, posé en (64, 10, 64), flotte tout seul dans le ciel du monde.](img/etape1-resultat.png)
 <!-- ws:scene {src: scenes/etape1.glb, camera: {from: [59.5, 13.5, 57.5], to: [64.5, 9, 64.5]}} -->
 
-Ce que l'animateur vérifie :
+Ce que tu dois avoir pour valider cette étape :
 
 - Un bloc de pierre en (64, 10, 64)
-
-Quand c'est réussi, la vérification passe au vert :
 
 
 <!-- ws: {type: hint} -->
@@ -127,7 +125,7 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 > ```
 
 > 🧰 **`print` « écrire dans la console »**
-> `print` écrit dans la console, sous l'éditeur. C'est ta loupe : quand ton code ne fait pas ce que tu crois, affiche tes variables.
+> `print` écrit dans la console, sous l'éditeur. Quand ton code ne fait pas ce que tu crois, affiche tes variables.
 >
 > ```lua
 > for x = 0, 3 do
@@ -148,7 +146,7 @@ Recouvre tout le sol du monde (y = 0) d'`HERBE` : les 128 × 128 colonnes.
 
 Ce que l'animateur vérifie :
 
-- Les 16 384 colonnes ont un bloc à y = 0
+- Tout le sol (en y = 0) est recouvert d'un bloc d'herbe.
 
 Tu dois obtenir quelque chose comme ça :
 
@@ -217,7 +215,7 @@ Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0
 > <!-- ws:anim {src: img/outil-colonne.webm, chapters: img/outil-colonne.vtt} -->
 
 > 🧰 **Calculer avec les variables**
-> On peut faire des calculs partout où on attend un nombre : `+`, `-`, `*` (fois), `/` (divisé).
+> On peut faire des calculs partout où on attend un nombre : `+`, `-`, `*` (multiplication), `/` (division).
 >
 > ```lua
 > local SOL = 20
@@ -228,7 +226,7 @@ Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0
 ### Pièges
 
 - Si la pierre va jusqu'à `SOL - 4`, la terre commence à `SOL - 3`. Un chiffre de travers et les couches se chevauchent.
-- Si tu poses deux blocs au même endroit, c'est **le dernier** qui gagne.
+- Si tu poses deux blocs au même endroit, c'est **le dernier** bloc posé qui est gardé.
 
 ### Défi
 <!-- ws:doit -->
@@ -285,9 +283,9 @@ Ta colonne ne grandit pas quand tu changes `SOL` ? Cherche les nombres écrits e
 
 Dans chaque colonne, de bas en haut : `BEDROCK` à y = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet.
 
-Ce que l'animateur vérifie :
+Ce que tu dois avoir:
 
-- Bedrock, pierre, 3 terre, herbe
+- 1 Bedrock, un certain nombre de bloc de pierre, 3 terre, 1 herbe
 
 Pour vérifier encore : change `SOL` en 30, puis clique sur « ▶ Générer ». Tout ton monde doit monter d'un coup.
 
@@ -352,14 +350,14 @@ Vole sous ton monde (<kbd>Maj</kbd>) et regarde la tranche : on voit les couches
 ### Pièges
 
 - Une fonction doit être écrite **avant** la ligne qui l'appelle.
-- Dans ta fonction, toutes les couches se calculent à partir de `h` : l'herbe en `h`, la terre juste en dessous. Si un nombre fixe comme `20` reste dans ta fonction, ce n'est plus `h` qui commande.
+- Dans ta fonction, toutes les couches se calculent à partir de `h` : l'herbe en `h`, la terre juste en dessous.
 
 ### Défi
 <!-- ws:doit -->
 
 Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis fais monter ton terrain en **pente douce** le long de x : chaque colonne aussi haute que sa voisine, ou un bloc plus haut, avec au moins **8 hauteurs différentes**. Les couches de l'étape 4 restent obligatoires.
 
-L'application ne vérifie pas cette étape : c'est toi qui vérifies, en volant le long de ta pente.
+Vérifie en volant le long de ta pente.
 
 - elle monte d'un bord du monde à l'autre, sans marche de plus d'un bloc ;
 - sur la tranche, chaque colonne a toujours sa bedrock, sa pierre, ses 3 blocs de terre et son herbe.
