@@ -60,7 +60,7 @@ Commence avec une petite hauteur de vague, par exemple `2 * math.sin(x / 8)`, g�
 <!-- ws: {type: hint} -->
 <details><summary>Indice 3</summary>
 
-Si la vérification parle d'une marche trop haute, **divise** <var>x</var> par un plus grand nombre.
+Si une marche dépasse 2 blocs entre deux colonnes voisines, **divise** <var>x</var> par un plus grand nombre.
 
 </details>
 
@@ -97,7 +97,7 @@ Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bos
 
 Ajoute une deuxième vague qui dépend de <var>z</var>. Ton terrain doit onduler **dans les deux sens** : le long de <var>x</var>, et aussi quand tu voles vers le fond.
 
-L'application vérifie encore la douceur du terrain, pas le deuxième sens : c'est toi qui vérifies, en volant.
+Ce que tu dois avoir pour valider cette étape :
 
 - vole vers le fond du monde : ça monte et ça descend ;
 - vu du ciel, des bosses et des creux partout, comme une boîte d'œufs.
