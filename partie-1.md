@@ -336,7 +336,7 @@ Dans ta colonne de l'étape 3, <var>x</var> et <var>z</var> valaient 64. Dans la
 
 ### Bonus
 
-Vole sous ton monde (<kbd>Maj</kbd>) et regarde la tranche : on voit les couches sur les bords.
+Vole jusqu'au bord du monde et regarde la tranche : les couches sont visibles.
 
 ## Étape 5 : La fonction colonne
 <!-- ws: {type: exercise, id: colonne-fonction, points: 150, validation: checkpoint} -->
