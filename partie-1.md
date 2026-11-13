@@ -214,6 +214,7 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 
 > 🧰 **Les variables**
 > Une **variable** est une boîte avec un nom. Change la valeur de `SOL` une seule fois, et tout le code qui l'utilise suit.
+> `local` veut dire : je crée une nouvelle variable. Tu l'écris la première fois, pas quand tu changes ce qu'elle contient.
 >
 > ```lua
 > local SOL = 20
@@ -241,7 +242,7 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 >
 > ```lua
 > local SOL = 20
-> print(SOL - 4, SOL - 3, SOL - 1)
+> print(SOL - 4, SOL * 2, SOL / 2)
 > ```
 <!-- /ws:toolbox -->
 
@@ -253,7 +254,9 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 ### Défi
 <!-- ws:doit -->
 
-Construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet, à la hauteur `SOL`.
+Crée une variable `SOL`, puis construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet, à la hauteur `SOL`.
+
+Tu peux garder le sol de l'étape 2 ou le mettre en commentaire (`--` devant la ligne).
 
 Ce que tu dois avoir pour valider cette étape :
 
@@ -289,7 +292,7 @@ Ta colonne ne grandit pas quand tu changes `SOL` ? Cherche les nombres écrits e
 ## Étape 4 : Le monde en colonnes
 <!-- ws: {type: exercise, id: couches, points: 100, token_id: "3"} -->
 
-Une colonne, c'est un bon début. Il en faut **16 384** pour couvrir ton monde. Heureusement, tu sais déjà faire une boucle.
+Une colonne, c'est un bon début. Il en faut **16 384** (128 × 128) pour couvrir ton monde. Heureusement, tu sais déjà faire une boucle.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
