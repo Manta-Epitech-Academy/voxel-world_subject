@@ -11,7 +11,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Boîte à outils
 
 > 🧰 **`math.sin` « la vague »**
-> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent, regarde l'animation : la **hauteur** à laquelle elle flotte, sa **taille** (elle monte et descend d'autant), et sa **largeur**, le nombre qui divise <var>x</var>. À toi de choisir les trois.
+> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent, regarde l'animation : la **hauteur** à laquelle elle flotte, sa **taille** (elle monte et descend d'autant), et sa **largeur**, le nombre qui divise <var>x</var>. À toi de choisir les trois. Dans ta ligne `h`, ça fait trois retouches : <var>x</var> divisé par la largeur, à l'intérieur de `math.sin( )` ; le résultat multiplié par la taille ; et la hauteur ajoutée devant. `math.` est la boîte à outils de Lua ; `perlin2d`, lui, viendra de World Generator.
 >
 > ![La vague, terme par terme : ÷ largeur l'élargit, × taille la grandit, + hauteur la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
 > <!-- ws:anim {src: img/etape6-vague.webm, chapters: img/etape6-vague.vtt} -->
@@ -20,7 +20,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 
 ### Pièges
 
-- `math.sin(x)` tout seul ondule beaucoup trop vite : une vague tous les 6 blocs. Divise <var>x</var> pour élargir.
+- `math.sin(x)` tout seul ondule beaucoup trop vite : une vague tous les 6 blocs environ. Divise <var>x</var> pour élargir.
 - Avec une vague trop haute, `h` peut dépasser 63 (le ciel) ou descendre sous 5 (plus de place pour les couches).
 
 ### Défi
@@ -33,7 +33,7 @@ Ce que tu dois avoir pour valider cette étape :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Des vagues de plage : le terrain ondule de gauche à droite, et chaque vague traverse le monde d'un bord à l'autre.](img/etape6-resultat.png)
+![Comme des vagues : le terrain ondule de gauche à droite, et chaque vague traverse le monde d'un bord à l'autre.](img/etape6-resultat.png)
 <!-- ws:scene {src: scenes/etape6.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
@@ -46,7 +46,7 @@ Garde ta fonction `colonne` telle quelle : seule la ligne qui calcule `h` change
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Commence avec une petite hauteur de vague, par exemple `2 * math.sin(x / 8)`, génère, puis augmente-la.
+Commence avec une vague de petite taille, par exemple `2 * math.sin(x / 8)`, génère, puis augmente-la.
 
 </details>
 
