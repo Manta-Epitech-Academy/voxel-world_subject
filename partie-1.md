@@ -25,15 +25,15 @@ Ici, pas de pioche. Les blocs apparaissent quand tu **écris du code**.
 
 > 🧰 **Appeler une fonction : `set_block`**
 > Une **fonction** est une action toute prête. On l'appelle en écrivant son nom, puis ses **paramètres** entre parenthèses, séparés par des virgules.
-> `set_block` pose un bloc. Ses quatre paramètres : x, y, z, puis le type de bloc.
+> `set_block` pose un bloc. Ses quatre paramètres : <var>x</var>, <var>y</var>, <var>z</var>, puis le type de bloc.
 >
 > ```lua
 > set_block(64, 10, 64, PIERRE)
 > ```
 
-> 🧰 **Les coordonnées x, y, z**
-> Regarde les flèches dans le monde : **x** et **z** avancent sur le sol, **y** monte vers le ciel.
-> Le monde va de `0` à `127` en x et en z, et de `0` à `63` en hauteur. Le coin avec les flèches, c'est (0, 0, 0).
+> 🧰 **Les coordonnées <var>x</var>, <var>y</var>, <var>z</var>**
+> Regarde les flèches dans le monde : <var>x</var> et <var>z</var> avancent sur le sol, <var>y</var> monte vers le ciel.
+> Le monde va de `0` à `127` en <var>x</var> et en <var>z</var>, et de `0` à `63` en hauteur. Le coin avec les flèches, c'est (0, 0, 0).
 >
 > ```lua
 > set_block(0, 0, 0, HERBE)  -- dans le coin, au sol
@@ -83,7 +83,7 @@ Ce que tu dois avoir pour valider cette étape :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Les trois nombres sont toujours dans l'ordre x, y, z. La hauteur est le **deuxième**.
+Les trois nombres sont toujours dans l'ordre <var>x</var>, <var>y</var>, <var>z</var>. La hauteur est le **deuxième**.
 
 </details>
 
@@ -109,7 +109,7 @@ Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 ### Boîte à outils
 
 > 🧰 **La boucle `for`**
-> Une **boucle** répète le code écrit entre `do` et `end`. Ici, `x` vaut 0, puis 1, puis 2… jusqu'à 9 : une ligne de 10 blocs.
+> Une **boucle** répète le code écrit entre `do` et `end`. Ici, <var>x</var> vaut 0, puis 1, puis 2… jusqu'à 9 : une ligne de 10 blocs.
 >
 > ```lua
 > for x = 0, 9 do
@@ -121,7 +121,7 @@ Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 > <!-- ws:anim {src: img/outil-boucle.webm, chapters: img/outil-boucle.vtt} -->
 
 > 🧰 **Une boucle dans une boucle**
-> Pour chaque valeur de `x`, la boucle intérieure fait tous les `z`. 10 × 10 = un carré de 100 blocs.
+> Pour chaque valeur de <var>x</var>, la boucle intérieure fait tous les <var>z</var>. 10 × 10 = un carré de 100 blocs.
 >
 > ```lua
 > for x = 0, 9 do
@@ -160,10 +160,10 @@ Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 ### Défi
 <!-- ws:doit -->
 
-Recouvre tout le sol du monde (y = 0) d'`HERBE` : les 128 × 128 colonnes.
+Recouvre tout le sol du monde (<var>y</var> = 0) d'`HERBE` : les 128 × 128 colonnes.
 
 Ce que tu dois avoir pour valider cette étape :
-- Tout le sol (en y = 0) est recouvert d'un bloc d'herbe.
+- Tout le sol (en <var>y</var> = 0) est recouvert d'un bloc d'herbe.
 
 Tu dois obtenir quelque chose comme ça :
 
@@ -173,14 +173,14 @@ Tu dois obtenir quelque chose comme ça :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Commence par une seule ligne de 128 blocs le long de x. Vole pour vérifier qu'elle touche les deux bords.
+Commence par une seule ligne de 128 blocs le long de <var>x</var>. Vole pour vérifier qu'elle touche les deux bords.
 
 </details>
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Mets ensuite cette boucle **à l'intérieur** d'une autre boucle, sur z.
+Mets ensuite cette boucle **à l'intérieur** d'une autre boucle, sur <var>z</var>.
 
 </details>
 
@@ -224,7 +224,7 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 > <!-- ws:anim {src: img/outil-variables.webm, chapters: img/outil-variables.vtt} -->
 
 > 🧰 **Une boucle vers le haut**
-> La même boucle `for`, mais sur y : une colonne de pierre de y = 1 à y = 16.
+> La même boucle `for`, mais sur <var>y</var> : une colonne de pierre de <var>y</var> = 1 à <var>y</var> = 16.
 >
 > ```lua
 > for y = 1, 16 do
@@ -252,7 +252,7 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 ### Défi
 <!-- ws:doit -->
 
-Construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut : `BEDROCK` à y = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet, à la hauteur `SOL`.
+Construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet, à la hauteur `SOL`.
 
 L'application ne vérifie pas cette étape : c'est toi qui vérifies, avec cette liste.
 
@@ -274,7 +274,7 @@ Avec `SOL = 20` : bedrock à 0, pierre de 1 à 16, terre de 17 à 19, herbe à 2
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Il te faut une boucle sur y pour la pierre, et une autre pour la terre.
+Il te faut une boucle sur <var>y</var> pour la pierre, et une autre pour la terre.
 
 </details>
 
@@ -294,7 +294,7 @@ Une colonne, c'est un bon début. Il en faut **16 384** pour couvrir ton monde. 
 ### Boîte à outils
 
 > 🧰 **Penser en colonnes**
-> Ton monde, c'est 128 × 128 **colonnes**. Une colonne, c'est une pile de blocs posée en (x, z) : la bedrock tout en bas, puis la pierre, la terre, et l'herbe au sommet.
+> Ton monde, c'est 128 × 128 **colonnes**. Une colonne, c'est une pile de blocs posée en (<var>x</var>, <var>z</var>) : la bedrock tout en bas, puis la pierre, la terre, et l'herbe au sommet.
 > Si tu sais construire **une** colonne, la double boucle de l'étape 2 construit toutes les autres.
 >
 > ![Une colonne avec ses couches, puis la double boucle qui pose toutes les autres.](img/outil-colonnes.webp)
@@ -304,7 +304,7 @@ Une colonne, c'est un bon début. Il en faut **16 384** pour couvrir ton monde. 
 ### Défi
 <!-- ws:doit -->
 
-Dans chaque colonne, de bas en haut : `BEDROCK` à y = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet.
+Dans chaque colonne, de bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet.
 
 Ce que tu dois avoir pour valider cette étape :
 - 1 Bedrock, un certain nombre de bloc de pierre, 3 terre, 1 herbe
@@ -319,14 +319,14 @@ Tu dois obtenir quelque chose comme ça :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Tu as déjà les deux boucles x et z de l'étape 2. C'est **à l'intérieur** que tu empiles la colonne.
+Tu as déjà les deux boucles <var>x</var> et <var>z</var> de l'étape 2. C'est **à l'intérieur** que tu empiles la colonne.
 
 </details>
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Dans ta colonne de l'étape 3, x et z valaient 64. Dans la double boucle, ce sont les variables `x` et `z` qui prennent leur place.
+Dans ta colonne de l'étape 3, <var>x</var> et <var>z</var> valaient 64. Dans la double boucle, ce sont les variables <var>x</var> et <var>z</var> qui prennent leur place.
 
 </details>
 
@@ -346,7 +346,7 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 ### Boîte à outils
 
 > 🧰 **Écrire sa propre fonction avec `function`**
-> Tu peux ranger du code sous un nom, puis le réutiliser. `x`, `z` et `h` sont les **paramètres** : des variables qui reçoivent les valeurs données à l'appel.
+> Tu peux ranger du code sous un nom, puis le réutiliser. <var>x</var>, <var>z</var> et `h` sont les **paramètres** : des variables qui reçoivent les valeurs données à l'appel.
 >
 > ```lua
 > function colonne(x, z, h)
@@ -362,8 +362,8 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 > ![Deux appels de colonne(x, z, h) avec d'autres valeurs : deux colonnes.](img/outil-fonction.webp)
 > <!-- ws:anim {src: img/outil-fonction.webm, chapters: img/outil-fonction.vtt} -->
 
-> 🧰 **Une hauteur qui dépend de x**
-> Ici, plus x est grand, plus le bloc est haut : une ligne d'herbe qui monte, un bloc plus haut tous les 10 blocs. Pas besoin d'arrondir : un bloc ne peut pas être à la hauteur 10,7, `set_block` arrondit vers le bas tout seul.
+> 🧰 **Une hauteur qui dépend de <var>x</var>**
+> Ici, plus <var>x</var> est grand, plus le bloc est haut : une ligne d'herbe qui monte, un bloc plus haut tous les 10 blocs. Pas besoin d'arrondir : un bloc ne peut pas être à la hauteur 10,7, `set_block` arrondit vers le bas tout seul.
 >
 > ```lua
 > for x = 0, TAILLE - 1 do
@@ -381,7 +381,7 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 ### Défi
 <!-- ws:doit -->
 
-Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis fais monter ton terrain en **pente douce** le long de x : chaque colonne aussi haute que sa voisine, ou un bloc plus haut, avec au moins **8 hauteurs différentes**. Les couches de l'étape 4 restent obligatoires.
+Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis fais monter ton terrain en **pente douce** le long de <var>x</var> : chaque colonne aussi haute que sa voisine, ou un bloc plus haut, avec au moins **8 hauteurs différentes**. Les couches de l'étape 4 restent obligatoires.
 
 Vérifie en volant le long de ta pente.
 
@@ -403,17 +403,17 @@ Transforme le contenu de tes boucles en une fonction `colonne(x, z, h)`, où `SO
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Dans la double boucle, calcule `h` pour chaque colonne à partir de x, puis appelle `colonne(x, z, h)`.
+Dans la double boucle, calcule `h` pour chaque colonne à partir de <var>x</var>, puis appelle `colonne(x, z, h)`.
 
 </details>
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 3</summary>
 
-Ta pente monte trop vite ? **Divise** x par un plus grand nombre.
+Ta pente monte trop vite ? **Divise** <var>x</var> par un plus grand nombre.
 
 </details>
 
 ### Bonus
 
-Fais monter la pente en diagonale : que `h` dépende de x **et** de z.
+Fais monter la pente en diagonale : que `h` dépende de <var>x</var> **et** de <var>z</var>.

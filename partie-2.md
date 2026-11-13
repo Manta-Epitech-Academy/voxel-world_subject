@@ -27,13 +27,13 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 
 ### Pièges
 
-- `math.sin(x)` tout seul ondule beaucoup trop vite : une vague tous les 6 blocs. Divise x pour élargir.
+- `math.sin(x)` tout seul ondule beaucoup trop vite : une vague tous les 6 blocs. Divise <var>x</var> pour élargir.
 - Avec une vague trop haute, `h` peut dépasser 63 (le ciel) ou descendre sous 5 (plus de place pour les couches).
 
 ### Défi
 <!-- ws:doit -->
 
-Fais onduler ton terrain le long de x avec `math.sin` : au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines. Les couches de l'étape 4 restent obligatoires.
+Fais onduler ton terrain le long de <var>x</var> avec `math.sin` : au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines. Les couches de l'étape 4 restent obligatoires.
 
 Ce que tu dois avoir pour valider cette étape :
 - Des collines douces avec les bonnes couches
@@ -60,7 +60,7 @@ Commence avec une petite hauteur de vague, par exemple `2 * math.sin(x / 8)`, g�
 <!-- ws: {type: hint} -->
 <details><summary>Indice 3</summary>
 
-Si la vérification parle d'une marche trop haute, **divise** x par un plus grand nombre.
+Si la vérification parle d'une marche trop haute, **divise** <var>x</var> par un plus grand nombre.
 
 </details>
 
@@ -73,8 +73,8 @@ Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bos
 <!-- ws:toolbox -->
 ### Boîte à outils
 
-> 🧰 **Une vague en x, une vague en z**
-> Avec `math.sin(x / 8)` seul, toutes les colonnes qui ont le même x ont la même hauteur, quel que soit z : rien ne change quand tu avances vers le fond. Pour que ça bouge aussi dans ce sens, ajoute une deuxième vague qui, elle, regarde z. Les deux s'additionnent : la tôle ondulée devient une **boîte d'œufs**.
+> 🧰 **Une vague en <var>x</var>, une vague en <var>z</var>**
+> Avec `math.sin(x / 8)` seul, toutes les colonnes qui ont le même <var>x</var> ont la même hauteur, quel que soit <var>z</var> : rien ne change quand tu avances vers le fond. Pour que ça bouge aussi dans ce sens, ajoute une deuxième vague qui, elle, regarde <var>z</var>. Les deux s'additionnent : la tôle ondulée devient une **boîte d'œufs**.
 >
 > ```lua
 > local h = 20 + 4 * math.sin(x / 8) + 4 * math.sin(z / 11)
@@ -95,7 +95,7 @@ Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bos
 ### Défi
 <!-- ws:doit -->
 
-Ajoute une deuxième vague qui dépend de z. Ton terrain doit onduler **dans les deux sens** : le long de x, et aussi quand tu voles vers le fond.
+Ajoute une deuxième vague qui dépend de <var>z</var>. Ton terrain doit onduler **dans les deux sens** : le long de <var>x</var>, et aussi quand tu voles vers le fond.
 
 L'application vérifie encore la douceur du terrain, pas le deuxième sens : c'est toi qui vérifies, en volant.
 
@@ -110,7 +110,7 @@ Tu dois obtenir quelque chose comme ça :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Ta ligne `h` a déjà une vague qui dépend de x. Ajoute `+ 4 * math.sin(z / 11)` juste après.
+Ta ligne `h` a déjà une vague qui dépend de <var>x</var>. Ajoute `+ 4 * math.sin(z / 11)` juste après.
 
 </details>
 
@@ -136,7 +136,7 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 ### Boîte à outils
 
 > 🧰 **`perlin2d(x, z)` « un nombre qui varie doucement »**
-> `perlin2d` renvoie un nombre entre -1 et 1. Si x et z bougent *un peu*, le résultat bouge *un peu* : c'est ce qui rend les collines douces.
+> `perlin2d` renvoie un nombre entre -1 et 1. Si <var>x</var> et <var>z</var> bougent *un peu*, le résultat bouge *un peu* : c'est ce qui rend les collines douces.
 >
 > ```lua
 > print(perlin2d(10.5, 3.2))
@@ -173,8 +173,8 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 
 ### Pièges
 
-- `perlin2d` avec des nombres **entiers** renvoie toujours 0 : `perlin2d(3, 7)` vaut 0. Divise toujours x et z.
-- Plus tu divises x et z, plus les collines sont **larges**. Plus tu multiplies le résultat, plus elles sont **hautes**.
+- `perlin2d` avec des nombres **entiers** renvoie toujours 0 : `perlin2d(3, 7)` vaut 0. Divise toujours <var>x</var> et <var>z</var>.
+- Plus tu divises <var>x</var> et <var>z</var>, plus les collines sont **larges**. Plus tu multiplies le résultat, plus elles sont **hautes**.
 
 ### Défi
 <!-- ws:doit -->
@@ -401,7 +401,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 ### Défi
 <!-- ws:doit -->
 
-Trois défis : au moins **10 arbres** plantés sur l'herbe, des **grottes** creusées avec `perlin3d`, et des **minerais** : du `CHARBON`, et du `DIAMANT` seulement tout au fond (y < 12).
+Trois défis : au moins **10 arbres** plantés sur l'herbe, des **grottes** creusées avec `perlin3d`, et des **minerais** : du `CHARBON`, et du `DIAMANT` seulement tout au fond (<var>y</var> < 12).
 
 Ce que tu dois avoir pour valider cette étape :
 - Au moins 10 arbres
@@ -420,7 +420,7 @@ Et sous tes pieds :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Pour planter un arbre : tire x et z au hasard, cherche le sol avec `while`, et plante seulement si `get_block(x, y, z) == HERBE`.
+Pour planter un arbre : tire <var>x</var> et <var>z</var> au hasard, cherche le sol avec `while`, et plante seulement si `get_block(x, y, z) == HERBE`.
 
 </details>
 
