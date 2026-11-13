@@ -59,7 +59,6 @@ Si une marche dépasse 2 blocs entre deux colonnes voisines, **divise** <var>x</
 
 ## Étape 7 : Les collines
 <!-- ws: {type: exercise, id: collines-deux-sens, points: 150, validation: checkpoint} -->
-<!-- étape de modelage : la formule à deux vagues est donnée volontairement dans la boîte à outils -->
 
 Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bosses et des creux sur l'autre axe horizontal.
 
@@ -72,13 +71,13 @@ Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bos
 > ![Avec une seule vague en x, le terrain est une tôle ondulée : rien ne change en avançant vers le fond. La vague en z s'ajoute, et les bosses apparaissent dans tous les sens.](img/etape7-collines.webp)
 > <!-- ws:anim {src: img/etape7-collines.webm, chapters: img/etape7-collines.vtt} -->
 
-> 🧰 **Pourquoi 8 et 11 ?**
-> Deux largeurs différentes, pour que les bosses ne tombent pas toutes au même endroit. Essaie `8` et `8`, puis `8` et `11`, et regarde la différence depuis le ciel.
+> 🧰 **Pourquoi deux largeurs différentes ?**
+> Si les deux vagues ont la même largeur, leurs bosses tombent toutes au même endroit. Essaie la même largeur pour les deux, puis deux largeurs différentes, et regarde la différence depuis le ciel.
 <!-- /ws:toolbox -->
 
 ### Pièges
 
-- Deux vagues de hauteur 4 font une hauteur totale de 8 : vérifie que `h` reste entre 5 et 63.
+- Les deux vagues s'ajoutent : au pire, `h` monte de la somme des deux tailles, et descend d'autant. Vérifie que `h` reste entre 5 et 63.
 - Si tu écris `math.sin(x / 8 + z / 11)`, c'est **une seule** vague, en diagonale. Il faut deux `math.sin`.
 
 ### Défi
@@ -106,7 +105,7 @@ Ta ligne `h` a déjà une vague qui dépend de <var>x</var>. Ajoute-lui une deux
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Si le terrain fait des marches trop hautes, baisse les deux `4`, ou augmente les deux largeurs.
+Si le terrain fait des marches trop hautes, baisse les deux tailles, ou augmente les deux largeurs.
 
 </details>
 
