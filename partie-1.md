@@ -254,7 +254,7 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 
 Construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet, à la hauteur `SOL`.
 
-L'application ne vérifie pas cette étape : c'est toi qui vérifies, avec cette liste.
+Ce que tu dois avoir pour valider cette étape :
 
 - En volant autour, tu vois la bedrock, la pierre, 3 blocs de terre et l'herbe, dans cet ordre.
 - Change `SOL` en 30, puis clique sur « ▶ Générer » : toute la colonne grandit d'un coup, couches comprises.
