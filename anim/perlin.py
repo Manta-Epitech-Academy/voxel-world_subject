@@ -90,17 +90,17 @@ class LePerlin(Scene):
         self.play(FadeIn(n2)); self.wait(1.6)
 
         # 2. Diviser x : on regarde le bruit entre les entiers, et large.
-        self.next_section("÷ 40 : des collines larges")
-        f2 = formule("h = perlin2d(x / 40, 7)")
+        self.next_section("une grande largeur : des collines larges")
+        f2 = formule("h = perlin2d(x / largeur, 7)")
         c = courbe(lambda x: perlin2d(x / 40, 7))
-        n3 = note("÷ 40 : les entiers sont loin l'un de l'autre, des collines larges", CIEL)
+        n3 = note("largeur 40 : les entiers sont loin l'un de l'autre, des collines larges", CIEL)
         self.play(FadeOut(points), FadeOut(vrai), FadeOut(n2), Transform(f, f2), Create(c), run_time=1.6)
         self.play(FadeIn(n3)); self.wait(1.4)
 
-        self.next_section("÷ 10 : des collines serrées")
-        f3 = formule("h = perlin2d(x / 10, 7)")
+        self.next_section("une petite largeur : des collines serrées")
+        f3 = formule("h = perlin2d(x / largeur, 7)")
         c3 = courbe(lambda x: perlin2d(x / 10, 7))
-        n4 = note("÷ 10 : des collines plus serrées", CIEL)
+        n4 = note("largeur 10 : des collines plus serrées", CIEL)
         self.play(Transform(f, f3), Transform(c, c3), FadeOut(n3), run_time=1.4)
         self.play(FadeIn(n4)); self.wait(1.2)
 
@@ -120,19 +120,19 @@ class LePerlin(Scene):
         )
         sol = axes2.plot(lambda x: 0, x_range=[0, 128], color=DOUX, stroke_width=1.5, stroke_opacity=0.6)
 
-        self.next_section("× 12 : plus haut, autour de 0")
-        f4 = formule("h = 12 * perlin2d(x / 40, 7)")
+        self.next_section("× taille : plus haut, autour de 0")
+        f4 = formule("h = taille * perlin2d(x / largeur, 7)")
         c4 = axes2.plot(lambda x: 12 * perlin2d(x / 40, 7), x_range=[0, 127, 0.25], color=CIEL, stroke_width=4)
-        n5 = note("× 12 : douze fois plus haut… mais autour de 0, à moitié sous le sol", ALERTE)
+        n5 = note("× taille : plus haut… mais autour de 0, à moitié sous le sol", ALERTE)
         self.play(Transform(f, f4), FadeOut(n4), FadeOut(zero),
                   ReplacementTransform(axes, axes2), ReplacementTransform(grads, grads2),
                   Transform(c, c4), FadeIn(sol), run_time=1.8)
         self.play(FadeIn(n5)); self.wait(1.4)
 
-        self.next_section("+ 24 : à la bonne hauteur")
-        f5 = formule("h = 24 + 12 * perlin2d(x / 40, 7)")
+        self.next_section("+ hauteur : à la bonne hauteur")
+        f5 = formule("h = hauteur + taille * perlin2d(x / largeur, 7)")
         c5 = axes2.plot(lambda x: 24 + 12 * perlin2d(x / 40, 7), x_range=[0, 127, 0.25], color=CIEL, stroke_width=4)
-        n6 = note("+ 24 : les collines montent, posées à la hauteur 24", CIEL)
+        n6 = note("+ hauteur : les collines montent, posées à la bonne hauteur", CIEL)
         self.play(Transform(f, f5), Transform(c, c5), FadeOut(n5), run_time=1.4)
         self.play(FadeIn(n6)); self.wait(1.2)
 

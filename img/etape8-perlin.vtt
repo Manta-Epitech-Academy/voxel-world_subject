@@ -4,16 +4,16 @@ WEBVTT
 avec des entiers : toujours 0
 
 00:08.500 --> 00:12.400
-÷ 40 : des collines larges
+une grande largeur : des collines larges
 
 00:12.400 --> 00:15.900
-÷ 10 : des collines serrées
+une petite largeur : des collines serrées
 
 00:15.900 --> 00:20.000
-× 12 : plus haut, autour de 0
+× taille : plus haut, autour de 0
 
 00:20.000 --> 00:23.500
-+ 24 : à la bonne hauteur
++ hauteur : à la bonne hauteur
 
 00:23.500 --> 00:28.100
 les colonnes suivent la courbe

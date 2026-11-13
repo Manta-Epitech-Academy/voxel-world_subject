@@ -41,7 +41,7 @@ class LesCollines(ThreeDScene):
             return s
 
         def formule(t):
-            m = Text(t, font="DejaVu Sans Mono", font_size=30, color=WHITE).to_edge(UP, buff=0.4)
+            m = Text(t, font="DejaVu Sans", font_size=30, color=WHITE).to_edge(UP, buff=0.4)
             self.add_fixed_in_frame_mobjects(m)
             self.remove(m)          # fixé dans le cadre, mais montré seulement quand on l'anime
             return m
@@ -54,7 +54,7 @@ class LesCollines(ThreeDScene):
 
         # 1. Une vague en x seulement.
         self.next_section("une vague en x : la tôle ondulée")
-        f1 = formule("h = 20 + 4 * math.sin(x / 8)")
+        f1 = formule("une vague qui suit x")
         s1 = relief(lambda x, z: 20 + 4 * math.sin(x / 8))
         self.play(Create(s1), Write(f1), run_time=2)
         n1 = note("une vague en x : en avançant vers le fond (z), rien ne change", ALERTE)
@@ -66,7 +66,7 @@ class LesCollines(ThreeDScene):
 
         # 2. Plus une vague en z.
         self.next_section("+ une vague en z : la boîte d'œufs")
-        f2 = formule("h = 20 + 4 * math.sin(x / 8) + 4 * math.sin(z / 11)")
+        f2 = formule("une vague qui suit x  +  une vague qui suit z")
         s2 = relief(lambda x, z: 20 + 4 * math.sin(x / 8) + 4 * math.sin(z / 11))
         n2 = note("+ une vague en z : des bosses et des creux dans tous les sens", CIEL)
         # FadeOut / FadeIn plutôt que Transform : un texte fixé dans le cadre

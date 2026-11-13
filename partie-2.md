@@ -11,9 +11,9 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Boîte à outils
 
 > 🧰 **`math.sin` « la vague »**
-> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent, regarde l'animation : le `20` dit à quelle hauteur elle flotte, le `5` sa **hauteur**, le `/ 8` sa **largeur**.
+> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent, regarde l'animation : la **hauteur** à laquelle elle flotte, sa **taille** (elle monte et descend d'autant), et sa **largeur**, le nombre qui divise <var>x</var>. À toi de choisir les trois.
 >
-> ![La vague, terme par terme : ÷ 8 l'élargit, × 5 la grandit, + 20 la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
+> ![La vague, terme par terme : ÷ largeur l'élargit, × taille la grandit, + hauteur la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
 > <!-- ws:anim {src: img/etape6-vague.webm, chapters: img/etape6-vague.vtt} -->
 
 <!-- /ws:toolbox -->
@@ -99,7 +99,7 @@ Tu dois obtenir quelque chose comme ça :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Ta ligne `h` a déjà une vague qui dépend de <var>x</var>. Ajoute `+ 4 * math.sin(z / 11)` juste après.
+Ta ligne `h` a déjà une vague qui dépend de <var>x</var>. Ajoute-lui une deuxième vague, écrite de la même façon, mais avec <var>z</var> à la place de <var>x</var> et une autre largeur.
 
 </details>
 
@@ -133,25 +133,16 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 > print(perlin2d(50.1, 80.7))
 > ```
 >
-> ![Le bruit de Perlin : à chaque nombre entier il vaut 0, d'où le terrain plat ; ÷ 40 donne des collines larges, ÷ 10 des collines serrées, × 12 les rend douze fois plus hautes mais autour de 0, et + 24 les pose à la bonne hauteur.](img/etape8-perlin.webp)
+> ![Le bruit de Perlin : à chaque nombre entier il vaut 0, d'où le terrain plat ; une grande largeur donne des collines larges, une petite des collines serrées, × taille les rend plus hautes mais autour de 0, et + hauteur les pose à la bonne hauteur.](img/etape8-perlin.webp)
 > <!-- ws:anim {src: img/etape8-perlin.webm, chapters: img/etape8-perlin.vtt} -->
 
 > 🧰 **L'échelle**
-> Le `/ 40` règle la **largeur** des collines, le `* 12` leur **hauteur**.
->
-> ```lua
-> local h = 24 + math.floor(perlin2d(x / 40, z / 40) * 12)
-> ```
+> Comme pour la vague : le nombre qui divise <var>x</var> et <var>z</var> règle la **largeur** des collines, celui qui multiplie le résultat leur **taille**, et ce que tu ajoutes, leur **hauteur**. À toi de choisir les trois.
 
 > 🧰 **Les octaves**
 > Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chaque couche s'appelle une **octave**.
 >
-> ```lua
-> local n = perlin2d(x / 60, z / 60) * 24
->         + perlin2d(x / 24, z / 24) * 6
->         + perlin2d(x / 8, z / 8) * 1.5
-> local h = math.floor(26 + n)
-> ```
+> Chaque octave a sa propre largeur et sa propre taille : grandes pour les montagnes, petites pour les détails.
 >
 > ![Un grand bruit, un moyen, un petit, et leur somme.](img/outil-octaves.webp)
 > <!-- ws:anim {src: img/outil-octaves.webm, chapters: img/outil-octaves.vtt} -->
