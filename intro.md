@@ -17,14 +17,14 @@ Ces noms viennent de World Generator, pas de Lua. Ils existent déjà quand ton 
 
 | Terme | Signification |
 | --- | --- |
-| `set_block(x, y, z, BLOC)` | Pose un bloc du type `BLOC` à la position (x, y, z). Un nombre à virgule est arrondi vers le bas ; un bloc hors du monde est ignoré |
-| `get_block(x, y, z)` | Le type du bloc qui se trouve en (x, y, z). `AIR` s'il n'y a rien, ou si c'est hors du monde |
-| `perlin2d(x, z)` | Un nombre entre -1 et 1 qui varie doucement : si x ou z change un peu, le résultat change un peu. Même seed, même résultat |
+| `set_block(x, y, z, BLOC)` | Pose un bloc du type `BLOC` à la position (<var>x</var>, <var>y</var>, <var>z</var>). Un nombre à virgule est arrondi vers le bas ; un bloc hors du monde est ignoré |
+| `get_block(x, y, z)` | Le type du bloc qui se trouve en (<var>x</var>, <var>y</var>, <var>z</var>). `AIR` s'il n'y a rien, ou si c'est hors du monde |
+| `perlin2d(x, z)` | Un nombre entre -1 et 1 qui varie doucement : si <var>x</var> ou <var>z</var> change un peu, le résultat change un peu. Même seed, même résultat |
 | `perlin3d(x, y, z)` | Le même, en trois dimensions. C'est lui qui creuse les grottes |
 | `random(a, b)` | Un nombre entier entre a et b, comme un dé. `random(a)` tire entre 1 et a, `random()` un nombre à virgule entre 0 et 1. Dépend de la seed |
 | `print(...)` | Écrit dans la console, sous l'éditeur. Plusieurs valeurs séparées par des virgules s'affichent sur la même ligne |
-| `TAILLE` | La largeur du monde : 128. x et z vont de 0 à `TAILLE - 1` |
-| `HAUTEUR` | La hauteur du monde : 64. y va de 0 à `HAUTEUR - 1` |
+| `TAILLE` | La largeur du monde : 128. <var>x</var> et <var>z</var> vont de 0 à `TAILLE - 1` |
+| `HAUTEUR` | La hauteur du monde : 64. <var>y</var> va de 0 à `HAUTEUR - 1` |
 | `SEED` | Le nombre qui règle le hasard de `perlin2d`, `perlin3d` et `random`. Le bouton dé en tire un autre ; même seed, même monde |
 | `AIR` | Rien du tout. Poser `AIR` efface un bloc |
 | `BEDROCK` `PIERRE` `TERRE` `HERBE` `SABLE` `GRAVIER` `EAU` `GLACE` `NEIGE` | Les blocs du paysage |
