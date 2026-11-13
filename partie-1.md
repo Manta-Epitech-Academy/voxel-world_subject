@@ -1,6 +1,6 @@
 # Partie 1 : du premier bloc à la fonction colonne
 
-Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi ; quand ton monde est prêt, l'encadrant valide l'étape avec un code. Les indices sont là si tu bloques.
+Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi ; quand ton monde est prêt, l'encadrant valide l'étape avec un code de validation. Les indices sont là si tu bloques. D'une étape à l'autre, tu **gardes ton code** et tu le transformes.
 
 **Comment ça marche**
 
@@ -8,7 +8,7 @@ Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te pr
    <!-- ws:cue runtime -->
 2. Tu y trouves le monde en 3D, l'éditeur où tu écris ton code, et la **console** sous l'éditeur.
 3. Le bouton **▶ Générer** (ou <kbd>Ctrl</kbd> + <kbd>Entrée</kbd>) exécute ton code et construit le monde.
-4. Quand tu es prêt à passer à l'étape suivante demande à un encadrant de valider ce que tu as fait.
+4. Quand tu es prêt à passer à l'étape suivante, demande à un encadrant de valider ce que tu as fait.
 
 ![À gauche le monde en 3D. À droite l'éditeur de code et, dessous, la console. Le bouton Générer, encadré, construit le monde.](img/interface.png)
 

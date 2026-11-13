@@ -17,7 +17,7 @@ Ces noms viennent de World Generator, pas de Lua. Ils existent déjà quand ton 
 
 | Terme | Signification |
 | --- | --- |
-| `set_block(x, y, z, BLOC)` | Pose un bloc du type `BLOC` à la position (<var>x</var>, <var>y</var>, <var>z</var>). Un nombre à virgule est arrondi vers le bas ; un bloc hors du monde est ignoré |
+| `set_block(x, y, z, BLOC)` | Pose un bloc du type `BLOC` à la position (<var>x</var>, <var>y</var>, <var>z</var>). Un nombre à virgule est arrondi vers le bas ; un bloc hors du monde est ignoré, et la console te prévient |
 | `get_block(x, y, z)` | Le type du bloc qui se trouve en (<var>x</var>, <var>y</var>, <var>z</var>). `AIR` s'il n'y a rien, ou si c'est hors du monde |
 | `perlin2d(x, z)` | Un nombre entre -1 et 1 qui varie doucement : si <var>x</var> ou <var>z</var> change un peu, le résultat change un peu. Même seed, même résultat |
 | `perlin3d(x, y, z)` | Le même, en trois dimensions. C'est lui qui creuse les grottes |
