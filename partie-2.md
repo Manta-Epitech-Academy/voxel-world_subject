@@ -11,7 +11,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Boîte à outils
 
 > 🧰 **`math.sin` « la vague »**
-> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent, regarde l'animation : la **hauteur** à laquelle elle flotte, sa **taille** (elle monte et descend d'autant), et sa **largeur**, le nombre qui divise <var>x</var>. À toi de choisir les trois.
+> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent, regarde l'animation : la **hauteur** à laquelle elle flotte, sa **taille** (elle monte et descend d'autant), et sa **largeur**, le nombre qui divise <var>x</var>. À toi de choisir les trois. Dans ta ligne `h`, ça fait trois retouches : <var>x</var> divisé par la largeur, à l'intérieur de `math.sin( )` ; le résultat multiplié par la taille ; et la hauteur ajoutée devant. `math.` est la boîte à outils de Lua ; `perlin2d`, lui, viendra de World Generator.
 >
 > ![La vague, terme par terme : ÷ largeur l'élargit, × taille la grandit, + hauteur la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
 > <!-- ws:anim {src: img/etape6-vague.webm, chapters: img/etape6-vague.vtt} -->
@@ -20,7 +20,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 
 ### Pièges
 
-- `math.sin(x)` tout seul ondule beaucoup trop vite : une vague tous les 6 blocs. Divise <var>x</var> pour élargir.
+- `math.sin(x)` tout seul ondule beaucoup trop vite : une vague tous les 6 blocs environ. Divise <var>x</var> pour élargir.
 - Avec une vague trop haute, `h` peut dépasser 63 (le ciel) ou descendre sous 5 (plus de place pour les couches).
 
 ### Défi
@@ -33,7 +33,7 @@ Ce que tu dois avoir pour valider cette étape :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Des vagues de plage : le terrain ondule de gauche à droite, et chaque vague traverse le monde d'un bord à l'autre.](img/etape6-resultat.png)
+![Comme des vagues : le terrain ondule de gauche à droite, et chaque vague traverse le monde d'un bord à l'autre.](img/etape6-resultat.png)
 <!-- ws:scene {src: scenes/etape6.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
@@ -46,7 +46,7 @@ Garde ta fonction `colonne` telle quelle : seule la ligne qui calcule `h` change
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Commence avec une petite hauteur de vague, par exemple `2 * math.sin(x / 8)`, génère, puis augmente-la.
+Commence avec une vague de petite taille, par exemple `2 * math.sin(x / 8)`, génère, puis augmente-la.
 
 </details>
 
@@ -59,7 +59,6 @@ Si une marche dépasse 2 blocs entre deux colonnes voisines, **divise** <var>x</
 
 ## Étape 7 : Les collines
 <!-- ws: {type: exercise, id: collines-deux-sens, points: 150, validation: checkpoint} -->
-<!-- étape de modelage : la formule à deux vagues est donnée volontairement dans la boîte à outils -->
 
 Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bosses et des creux sur l'autre axe horizontal.
 
@@ -72,13 +71,13 @@ Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bos
 > ![Avec une seule vague en x, le terrain est une tôle ondulée : rien ne change en avançant vers le fond. La vague en z s'ajoute, et les bosses apparaissent dans tous les sens.](img/etape7-collines.webp)
 > <!-- ws:anim {src: img/etape7-collines.webm, chapters: img/etape7-collines.vtt} -->
 
-> 🧰 **Pourquoi 8 et 11 ?**
-> Deux largeurs différentes, pour que les bosses ne tombent pas toutes au même endroit. Essaie `8` et `8`, puis `8` et `11`, et regarde la différence depuis le ciel.
+> 🧰 **Pourquoi deux largeurs différentes ?**
+> Si les deux vagues ont la même largeur, leurs bosses tombent toutes au même endroit. Essaie la même largeur pour les deux, puis deux largeurs différentes, et regarde la différence depuis le ciel.
 <!-- /ws:toolbox -->
 
 ### Pièges
 
-- Deux vagues de hauteur 4 font une hauteur totale de 8 : vérifie que `h` reste entre 5 et 63.
+- Les deux vagues s'ajoutent : au pire, `h` monte de la somme des deux tailles, et descend d'autant. Vérifie que `h` reste entre 5 et 63.
 - Si tu écris `math.sin(x / 8 + z / 11)`, c'est **une seule** vague, en diagonale. Il faut deux `math.sin`.
 
 ### Défi
@@ -106,7 +105,7 @@ Ta ligne `h` a déjà une vague qui dépend de <var>x</var>. Ajoute-lui une deux
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Si le terrain fait des marches trop hautes, baisse les deux `4`, ou augmente les deux largeurs.
+Si le terrain fait des marches trop hautes, baisse les deux tailles, ou augmente les deux largeurs.
 
 </details>
 
@@ -159,14 +158,14 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 ### Défi
 <!-- ws:doit -->
 
-Calcule `h` avec `perlin2d(x, z)` au lieu de tes deux `math.sin` : un relief naturel d'au moins **15 blocs de dénivelé** entre le point le plus bas et le plus haut, sans falaise de plus de 3 blocs. Les couches restent obligatoires.
+Calcule `h` avec `perlin2d`, à la bonne échelle, au lieu de tes deux `math.sin` : un relief naturel d'au moins **15 blocs de dénivelé** entre le point le plus bas et le plus haut, sans falaise de plus de 3 blocs. Les couches restent obligatoires.
 
 Ce que tu dois avoir pour valider cette étape :
 - Un relief naturel fait avec perlin2d
 
 Tu dois obtenir quelque chose comme ça :
 
-![Avec bruit, les collines n'ont plus rien de régulier : des vallées, des sommets, des pentes douces.](img/etape8-resultat.png)
+![Avec le bruit, les collines n'ont plus rien de régulier : des vallées, des sommets, des pentes douces.](img/etape8-resultat.png)
 <!-- ws:scene {src: scenes/etape8.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
@@ -221,6 +220,9 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > ![Pour h = 30, 12 puis 40 : la première condition vraie l'emporte.](img/outil-if.webp)
 > <!-- ws:anim {src: img/outil-if.webm, chapters: img/outil-if.vtt} -->
 
+> 🧰 **Les comparaisons**
+> `<` plus petit, `>` plus grand, `<=` et `>=` « ou égal », `==` égal, `~=` différent.
+
 > 🧰 **Choisir le bloc du dessus**
 > On range le type de bloc dans une variable, et on la change si besoin avant de poser.
 >
@@ -239,7 +241,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > De l'eau de `h + 1` jusqu'au niveau de la mer. Si le sol est plus haut que la mer, la boucle ne fait **aucun tour** : pas d'eau. Pratique !
 >
 > ```lua
-> NIVEAU_MER = 22
+> local NIVEAU_MER = 22
 > for y = h + 1, NIVEAU_MER do
 >   set_block(x, y, z, EAU)
 > end
@@ -248,28 +250,27 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > ![De h + 1 jusqu'à NIVEAU_MER : sous la mer la boucle remplit, au-dessus elle ne fait aucun tour.](img/outil-eau.webp)
 > <!-- ws:anim {src: img/outil-eau.webm, chapters: img/outil-eau.vtt} -->
 
-> 🧰 **Les comparaisons**
-> `<` plus petit, `>` plus grand, `<=` et `>=` « ou égal », `==` égal, `~=` différent.
 <!-- /ws:toolbox -->
 
 ### Pièges
 
 - `=` range une valeur, `==` compare. On écrit `if h == 20 then`.
 - L'eau se pose **au-dessus** du sol, jamais à sa place.
+- `h` à virgule ? Si `h` vaut 20,5, la boucle `for y = h + 1, NIVEAU_MER` compte 21,5 puis 22,5, qui dépasse 22 : il manque la couche du dessus de la mer. Arrondis `h` avec `math.floor` dans ta fonction `hauteur`.
 - Si `NIVEAU_MER` est plus bas que tout ton terrain, il n'y aura pas de mer du tout.
 - Les noms de blocs sont déjà pris : `NEIGE`, c'est le bloc. Si tu écris `NEIGE = 30` pour ta hauteur de neige, `set_block` reçoit 30 au lieu du bloc et refuse. Appelle-la `NIVEAU_NEIGE`, comme `NIVEAU_MER`.
 
 ### Défi
 <!-- ws:doit -->
 
-Ajoute une **mer** à hauteur fixe, du `SABLE` partout où la terre touche l'eau, et de la `NEIGE` au sommet des montagnes.
+Ajoute une **mer** à hauteur fixe, du `SABLE` partout où le sol touche l'eau, et de la `NEIGE` au sommet des montagnes.
 
 Ce que tu dois avoir pour valider cette étape :
 - Une mer, des plages et de la neige
 
 Tu dois obtenir quelque chose comme ça :
 
-![Une mer à hauteur fixe, du sable là où la terre touche l'eau, et de la neige sur les sommets.](img/etape9-resultat.png)
+![Une mer à hauteur fixe, du sable là où le sol touche l'eau, et de la neige sur les sommets.](img/etape9-resultat.png)
 <!-- ws:scene {src: scenes/etape9.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: z}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
@@ -311,7 +312,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > ```
 
 > 🧰 **`get_block` et `while` « trouver le sol »**
-> `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au premier bloc.
+> `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au premier bloc. `local x, z = 64, 64` crée deux variables d'un coup ; `and` est vrai seulement si les deux conditions sont vraies.
 >
 > ```lua
 > local x, z = 64, 64
@@ -326,7 +327,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
 
 > 🧰 **Une fonction arbre**
-> Un tronc de 5 blocs, puis des feuilles autour du haut. À toi de compléter la couronne.
+> Un tronc de 5 blocs, puis des feuilles autour du haut. À toi de compléter la couronne. `y` est la case juste **au-dessus** de l'herbe : si ton `y` est le sol, appelle `arbre(x, y + 1, z)`, sinon le tronc remplace l'herbe.
 >
 > ```lua
 > function arbre(x, y, z)

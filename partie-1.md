@@ -1,6 +1,6 @@
 # Partie 1 : du premier bloc à la fonction colonne
 
-Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi ; quand ton monde est prêt, l'encadrant valide l'étape avec un code. Les indices sont là si tu bloques.
+Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi ; quand ton monde est prêt, l'encadrant valide l'étape avec un code de validation. Les indices sont là si tu bloques. D'une étape à l'autre, tu **gardes ton code** et tu le transformes.
 
 **Comment ça marche**
 
@@ -8,7 +8,7 @@ Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te pr
    <!-- ws:cue runtime -->
 2. Tu y trouves le monde en 3D, l'éditeur où tu écris ton code, et la **console** sous l'éditeur.
 3. Le bouton **▶ Générer** (ou <kbd>Ctrl</kbd> + <kbd>Entrée</kbd>) exécute ton code et construit le monde.
-4. Quand tu es prêt à passer à l'étape suivante demande à un encadrant de valider ce que tu as fait.
+4. Quand tu es prêt à passer à l'étape suivante, demande à un encadrant de valider ce que tu as fait.
 
 ![À gauche le monde en 3D. À droite l'éditeur de code et, dessous, la console. Le bouton Générer, encadré, construit le monde.](img/interface.png)
 
@@ -53,6 +53,7 @@ Ici, pas de pioche. Les blocs apparaissent quand tu **écris du code**.
 
 > 🧰 **Les types de bloc**
 > Le type de bloc s'écrit en **MAJUSCULES** : `PIERRE`, `TERRE`, `HERBE`, `SABLE`, `EAU`, `BOIS`, `FEUILLES`, `NEIGE`, `GLACE`, `GRAVIER`, `CHARBON`, `FER`, `DIAMANT`, `BEDROCK`, et `AIR` pour effacer.
+> Tu pourras écrire tes propres constantes en majuscules aussi (`SOL`), mais jamais avec le nom d'un bloc : `pierre` et `PIERRE` sont deux noms différents, et les noms du glossaire sont déjà pris.
 >
 > ```lua
 > set_block(64, 11, 64, DIAMANT)
@@ -101,7 +102,7 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 ## Étape 2 : Le sol plat
 <!-- ws: {type: exercise, id: sol-plat, points: 200, token_id: "2"} -->
 
-Un bloc flotte, tout seul dans le vide. Pour un monde entier, il en faudrait **16 384** rien que pour le sol. À la main, tu y serais encore à Noël.
+Un bloc flotte, tout seul dans le vide. Pour un monde entier, il en faudrait **16 384** (128 × 128) rien que pour le sol. À la main, tu y serais encore à Noël.
 
 Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 
@@ -135,7 +136,7 @@ Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 > <!-- ws:anim {src: img/outil-double-boucle.webm, chapters: img/outil-double-boucle.vtt} -->
 
 > 🧰 **`TAILLE` « la largeur du monde »**
-> `TAILLE` vaut 128, la largeur du monde. Les colonnes vont de `0` à `TAILLE - 1`, c'est-à-dire 127.
+> `TAILLE` vaut 128, la largeur du monde. <var>x</var> et <var>z</var> vont de `0` à `TAILLE - 1`, c'est-à-dire 127.
 >
 > ```lua
 > print(TAILLE)
@@ -154,7 +155,7 @@ Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 
 ### Pièges
 
-- `for x = 0, TAILLE do` fait **129** tours, pas 128 : le dernier bloc tombe hors du monde. La console te le signale.
+- `for x = 0, TAILLE do` fait **129** tours, pas 128 (de 0 à 128 compris, ça fait 129 nombres) : le dernier bloc tombe hors du monde. La console te le signale.
 - Chaque `for` a son `end`. Décale le code à l'intérieur vers la droite pour voir qui ferme quoi.
 
 ### Défi
@@ -199,7 +200,7 @@ end
 
 ### Bonus
 
-Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0 ou 1.
+Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `%` n'est pas un pourcentage, c'est le **reste de la division**. `7 % 2` vaut 1, et `(x + z) % 2` vaut 0 ou 1.
 
 ## Étape 3 : Une colonne
 <!-- ws: {type: exercise, id: une-colonne, points: 150, validation: checkpoint} -->
@@ -213,6 +214,7 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 
 > 🧰 **Les variables**
 > Une **variable** est une boîte avec un nom. Change la valeur de `SOL` une seule fois, et tout le code qui l'utilise suit.
+> `local` veut dire : je crée une nouvelle variable. Tu l'écris la première fois, pas quand tu changes ce qu'elle contient.
 >
 > ```lua
 > local SOL = 20
@@ -240,7 +242,7 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 >
 > ```lua
 > local SOL = 20
-> print(SOL - 4, SOL - 3, SOL - 1)
+> print(SOL - 4, SOL * 2, SOL / 2)
 > ```
 <!-- /ws:toolbox -->
 
@@ -252,12 +254,14 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 ### Défi
 <!-- ws:doit -->
 
-Construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet, à la hauteur `SOL`.
+Crée une variable `SOL`, puis construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet, à la hauteur `SOL`.
+
+Tu peux garder le sol de l'étape 2 ou le mettre en commentaire (`--` devant la ligne).
 
 Ce que tu dois avoir pour valider cette étape :
 
 - En volant autour, tu vois la bedrock, la pierre, 3 blocs de terre et l'herbe, dans cet ordre.
-- Change `SOL` en 30, puis clique sur « ▶ Générer » : toute la colonne grandit d'un coup, couches comprises.
+- Change `SOL` en 30, puis clique sur **▶ Générer** : toute la colonne grandit d'un coup, couches comprises.
 
 Tu dois obtenir quelque chose comme ça :
 
@@ -288,7 +292,7 @@ Ta colonne ne grandit pas quand tu changes `SOL` ? Cherche les nombres écrits e
 ## Étape 4 : Le monde en colonnes
 <!-- ws: {type: exercise, id: couches, points: 100, token_id: "3"} -->
 
-Une colonne, c'est un bon début. Il en faut **16 384** pour couvrir ton monde. Heureusement, tu sais déjà faire une boucle.
+Une colonne, c'est un bon début. Il en faut **16 384** (128 × 128) pour couvrir ton monde. Heureusement, tu sais déjà faire une boucle.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
@@ -309,7 +313,7 @@ Dans chaque colonne, de bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIER
 Ce que tu dois avoir pour valider cette étape :
 - 1 Bedrock, un certain nombre de bloc de pierre, 3 terre, 1 herbe
 
-Pour vérifier encore : change `SOL` en 30, puis clique sur « ▶ Générer ». Tout ton monde doit monter d'un coup.
+Pour vérifier encore : change `SOL` en 30, puis clique sur **▶ Générer**. Tout ton monde doit monter d'un coup.
 
 Tu dois obtenir quelque chose comme ça :
 
@@ -332,7 +336,7 @@ Dans ta colonne de l'étape 3, <var>x</var> et <var>z</var> valaient 64. Dans la
 
 ### Bonus
 
-Vole sous ton monde (<kbd>Maj</kbd>) et regarde la tranche : on voit les couches sur les bords.
+Vole jusqu'au bord du monde et regarde la tranche : les couches sont visibles.
 
 ## Étape 5 : La fonction colonne
 <!-- ws: {type: exercise, id: colonne-fonction, points: 150, validation: checkpoint} -->
