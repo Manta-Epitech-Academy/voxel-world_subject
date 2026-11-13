@@ -266,6 +266,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 - `=` range une valeur, `==` compare. On écrit `if h == 20 then`.
 - L'eau se pose **au-dessus** du sol, jamais à sa place.
 - Si `NIVEAU_MER` est plus bas que tout ton terrain, il n'y aura pas de mer du tout.
+- Les noms de blocs sont déjà pris : `NEIGE`, c'est le bloc. Si tu écris `NEIGE = 30` pour ta hauteur de neige, `set_block` reçoit 30 au lieu du bloc et refuse. Appelle-la `NIVEAU_NEIGE`, comme `NIVEAU_MER`.
 
 ### Défi
 <!-- ws:doit -->
