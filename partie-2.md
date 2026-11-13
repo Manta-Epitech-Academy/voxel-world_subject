@@ -135,7 +135,7 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 <!-- ws:toolbox -->
 ### Boîte à outils
 
-> 🧰 **`perlin2d(x, z)` « un hasard tout doux »**
+> 🧰 **`perlin2d(x, z)` « un nombre qui varie doucement »**
 > `perlin2d` renvoie un nombre entre -1 et 1. Si x et z bougent *un peu*, le résultat bouge *un peu* : c'est ce qui rend les collines douces.
 >
 > ```lua
