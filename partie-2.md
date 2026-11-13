@@ -302,10 +302,6 @@ Sous l'eau, mets aussi du sable à la place de l'herbe et de la terre.
 
 </details>
 
-### Bonus
-
-Pose de la `GLACE` à la surface de l'eau quand la mer est entourée de neige.
-
 ## Étape 10 : Forêts, grottes et minerais
 <!-- ws: {type: exercise, id: forets-grottes-minerais, points: 350, token_id: "7"} -->
 
