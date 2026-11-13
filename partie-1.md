@@ -6,6 +6,10 @@ Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te pr
 <!-- ws: {type: exercise, id: premier-bloc, points: 150, token_id: "1"} -->
 <!-- étape de modelage : la ligne de code est donnée volontairement, dans l'indice 2 -->
 
+Bienvenue dans ton monde. Il est encore vide : un ciel bleu, une grille au sol et trois flèches de couleur.
+
+Ici, pas de pioche. Les blocs apparaissent quand tu **écris du code**.
+
 <!-- ws:toolbox -->
 ### Boîte à outils
 
