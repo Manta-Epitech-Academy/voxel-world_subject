@@ -274,7 +274,7 @@ Avec `SOL = 20` : bedrock à 0, pierre de 1 à 16, terre de 17 à 19, herbe à 2
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Il te faut une boucle sur <var>y</var> pour la pierre, et une autre pour la terre.
+Pour la pierre, une boucle sur <var>y</var> t'évite d'écrire 16 lignes. Pour les 3 blocs de terre, trois `set_block` suffisent ; une boucle marche aussi, comme tu préfères.
 
 </details>
 
