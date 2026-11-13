@@ -312,7 +312,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > ```
 
 > 🧰 **`get_block` et `while` « trouver le sol »**
-> `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au premier bloc.
+> `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au premier bloc. `local x, z = 64, 64` crée deux variables d'un coup ; `and` est vrai seulement si les deux conditions sont vraies.
 >
 > ```lua
 > local x, z = 64, 64
@@ -327,7 +327,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
 
 > 🧰 **Une fonction arbre**
-> Un tronc de 5 blocs, puis des feuilles autour du haut. À toi de compléter la couronne.
+> Un tronc de 5 blocs, puis des feuilles autour du haut. À toi de compléter la couronne. `y` est la case juste **au-dessus** de l'herbe : si ton `y` est le sol, appelle `arbre(x, y + 1, z)`, sinon le tronc remplace l'herbe.
 >
 > ```lua
 > function arbre(x, y, z)
