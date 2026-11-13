@@ -2,6 +2,16 @@
 
 Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi ; quand ton monde est prêt, l'encadrant valide l'étape avec un code. Les indices sont là si tu bloques.
 
+**Comment ça marche**
+
+1. Clique sur le bouton **Ouvrir World Generator** : le monde s'ouvre à côté des instructions.
+   <!-- ws:cue runtime -->
+2. Tu y trouves le monde en 3D, l'éditeur où tu écris ton code, et la **console** sous l'éditeur.
+3. Le bouton **▶ Générer** (ou <kbd>Ctrl</kbd> + <kbd>Entrée</kbd>) exécute ton code et construit le monde.
+4. Quand tu es prêt à passer à l'étape suivante demande à un encadrant de valider ce que tu as fait.
+
+![À gauche le monde en 3D. À droite l'éditeur de code et, dessous, la console. Le bouton Générer, encadré, construit le monde.](img/interface.png)
+
 ## Étape 1 : Premier bloc
 <!-- ws: {type: exercise, id: premier-bloc, points: 150, token_id: "1"} -->
 <!-- étape de modelage : la ligne de code est donnée volontairement, dans l'indice 2 -->
@@ -63,7 +73,7 @@ Pose un bloc de `PIERRE` au centre du monde, à 10 blocs de hauteur : en (64, 10
 Tu dois obtenir ceci :
 
 ![Ton bloc de pierre, posé en (64, 10, 64), flotte tout seul dans le ciel du monde.](img/etape1-resultat.png)
-<!-- ws:scene {src: scenes/etape1.glb, camera: {from: [59.5, 13.5, 57.5], to: [64.5, 9, 64.5]}} -->
+<!-- ws:scene {src: scenes/etape1.glb, show_axis: true, camera: {from: [59.5, 13.5, 57.5], to: [64.5, 9, 64.5]}} -->
 
 Ce que tu dois avoir pour valider cette étape :
 
@@ -158,7 +168,7 @@ Ce que tu dois avoir pour valider cette étape :
 Tu dois obtenir quelque chose comme ça :
 
 ![Tout le sol du monde est recouvert d'herbe, d'un bord à l'autre.](img/etape2-resultat.png)
-<!-- ws:scene {src: scenes/etape2.glb, camera: {from: [-22, 52, -22], to: [64, 0, 64]}} -->
+<!-- ws:scene {src: scenes/etape2.glb, show_axis: true, camera: {from: [-22, 52, -22], to: [64, 0, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -252,7 +262,7 @@ L'application ne vérifie pas cette étape : c'est toi qui vérifies, avec cette
 Tu dois obtenir quelque chose comme ça :
 
 ![Une seule colonne au centre de la grille : la bedrock en bas, la pierre, trois blocs de terre et l'herbe au sommet.](img/etape3-resultat.png)
-<!-- ws:scene {src: scenes/etape3.glb, camera: {from: [50, 23, 46], to: [64.5, 10, 64.5]}} -->
+<!-- ws:scene {src: scenes/etape3.glb, show_axis: true, camera: {from: [50, 23, 46], to: [64.5, 10, 64.5]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -304,7 +314,7 @@ Pour vérifier encore : change `SOL` en 30, puis clique sur « ▶ Générer ».
 Tu dois obtenir quelque chose comme ça :
 
 ![Vu depuis le coin du monde : sur la tranche, la bedrock tout en bas, la pierre, trois blocs de terre, puis l'herbe.](img/etape4-resultat.png)
-<!-- ws:scene {src: scenes/etape4.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-14, 30, -14], to: [12, 12, 12]}} -->
+<!-- ws:scene {src: scenes/etape4.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-14, 30, -14], to: [12, 12, 12]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -381,7 +391,7 @@ Vérifie en volant le long de ta pente.
 Tu dois obtenir quelque chose comme ça :
 
 ![Le terrain monte en escalier doux d'un bord à l'autre du monde, avec les couches visibles sur la tranche.](img/etape5-resultat.png)
-<!-- ws:scene {src: scenes/etape5.glb, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+<!-- ws:scene {src: scenes/etape5.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
