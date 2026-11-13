@@ -53,31 +53,31 @@ class LaVague(Scene):
         self.play(FadeIn(n)); self.wait(1.0)
 
         # 2. / 8 : plus large.
-        self.next_section("÷ 8 : plus large")
-        f2 = formule("h = math.sin(x / 8)")
+        self.next_section("÷ largeur : plus large")
+        f2 = formule("h = math.sin(x / largeur)")
         c2 = courbe(lambda x: 20 + math.sin(x / 8))
-        n2 = note("÷ 8 : la vague s'élargit", CIEL)
+        n2 = note("÷ largeur : la vague s'élargit (ici, largeur = 8)", CIEL)
         self.play(Transform(f, f2), Transform(c, c2), FadeOut(n), run_time=1.4)
         self.play(FadeIn(n2)); self.wait(1.0)
 
         # 3. × 5 : plus haute.
-        self.next_section("× 5 : plus haute")
-        f3 = formule("h = 5 * math.sin(x / 8)")
+        self.next_section("× taille : plus haute")
+        f3 = formule("h = taille * math.sin(x / largeur)")
         c3 = courbe(lambda x: 20 + 5 * math.sin(x / 8))
-        n3 = note("× 5 : la vague grandit", CIEL)
+        n3 = note("× taille : la vague grandit (ici, taille = 5)", CIEL)
         self.play(Transform(f, f3), Transform(c, c3), FadeOut(n2), run_time=1.4)
         self.play(FadeIn(n3)); self.wait(1.0)
 
         # 4. + 20 : à la bonne hauteur. Jusqu'ici la courbe était posée à 20 pour
         # qu'on la voie ; on la montre d'abord autour de 0, puis elle monte.
-        self.next_section("+ 20 : à la bonne hauteur")
-        f4 = formule("h = 20 + 5 * math.sin(x / 8)")
+        self.next_section("+ hauteur : à la bonne hauteur")
+        f4 = formule("h = hauteur + taille * math.sin(x / largeur)")
         c0 = courbe(lambda x: 5 * math.sin(x / 8))
-        n4 = note("sans + 20, la vague est au ras du sol…", ALERTE)
+        n4 = note("sans + hauteur, la vague est au ras du sol…", ALERTE)
         self.play(Transform(c, c0), FadeOut(n3), run_time=1.0)
         self.play(FadeIn(n4)); self.wait(1.0)
         c4 = courbe(lambda x: 20 + 5 * math.sin(x / 8))
-        n5 = note("+ 20 : elle monte à la hauteur 20", CIEL)
+        n5 = note("+ hauteur : elle monte (ici, hauteur = 20)", CIEL)
         self.play(Transform(f, f4), Transform(c, c4), FadeOut(n4), run_time=1.4)
         self.play(FadeIn(n5)); self.wait(1.0)
 

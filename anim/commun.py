@@ -48,7 +48,11 @@ def bloc_code(lignes, taille=24, couleur=WHITE):
 
 
 def phrase(texte, couleur=CIEL, taille=26):
-    return Text(texte, font="DejaVu Sans", font_size=taille, color=couleur).to_edge(DOWN, buff=0.45)
+    t = Text(texte, font="DejaVu Sans", font_size=taille, color=couleur)
+    # Une phrase plus large que l'image serait coupée aux deux bords.
+    if t.width > config.frame_width - 1:
+        t.scale_to_fit_width(config.frame_width - 1)
+    return t.to_edge(DOWN, buff=0.45)
 
 
 class Grille:

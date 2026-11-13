@@ -4,13 +4,13 @@ WEBVTT
 math.sin(x) : trop serré
 
 00:04.300 --> 00:07.700
-÷ 8 : plus large
+÷ largeur : plus large
 
 00:07.700 --> 00:11.100
-× 5 : plus haute
+× taille : plus haute
 
 00:11.100 --> 00:17.500
-+ 20 : à la bonne hauteur
++ hauteur : à la bonne hauteur
 
 00:17.500 --> 00:22.300
 les colonnes suivent la courbe
