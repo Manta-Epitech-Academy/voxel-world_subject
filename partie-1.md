@@ -403,7 +403,7 @@ Transforme le contenu de tes boucles en une fonction `colonne(x, z, h)`, où `SO
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Dans la double boucle, calcule `h` pour chaque colonne à partir de <var>x</var>, puis appelle `colonne(x, z, h)`.
+Dans ta double boucle, juste avant `colonne(x, z, h)`, ajoute une ligne qui calcule `h`. Si `h` ne change pas avec <var>x</var>, toutes les colonnes ont la même hauteur. Si `h` grandit quand <var>x</var> grandit, le terrain monte.
 
 </details>
 
