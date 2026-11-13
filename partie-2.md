@@ -158,14 +158,14 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 ### Défi
 <!-- ws:doit -->
 
-Calcule `h` avec `perlin2d(x, z)` au lieu de tes deux `math.sin` : un relief naturel d'au moins **15 blocs de dénivelé** entre le point le plus bas et le plus haut, sans falaise de plus de 3 blocs. Les couches restent obligatoires.
+Calcule `h` avec `perlin2d`, à la bonne échelle, au lieu de tes deux `math.sin` : un relief naturel d'au moins **15 blocs de dénivelé** entre le point le plus bas et le plus haut, sans falaise de plus de 3 blocs. Les couches restent obligatoires.
 
 Ce que tu dois avoir pour valider cette étape :
 - Un relief naturel fait avec perlin2d
 
 Tu dois obtenir quelque chose comme ça :
 
-![Avec bruit, les collines n'ont plus rien de régulier : des vallées, des sommets, des pentes douces.](img/etape8-resultat.png)
+![Avec le bruit, les collines n'ont plus rien de régulier : des vallées, des sommets, des pentes douces.](img/etape8-resultat.png)
 <!-- ws:scene {src: scenes/etape8.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
