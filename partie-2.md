@@ -220,6 +220,9 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > ![Pour h = 30, 12 puis 40 : la première condition vraie l'emporte.](img/outil-if.webp)
 > <!-- ws:anim {src: img/outil-if.webm, chapters: img/outil-if.vtt} -->
 
+> 🧰 **Les comparaisons**
+> `<` plus petit, `>` plus grand, `<=` et `>=` « ou égal », `==` égal, `~=` différent.
+
 > 🧰 **Choisir le bloc du dessus**
 > On range le type de bloc dans une variable, et on la change si besoin avant de poser.
 >
@@ -238,7 +241,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > De l'eau de `h + 1` jusqu'au niveau de la mer. Si le sol est plus haut que la mer, la boucle ne fait **aucun tour** : pas d'eau. Pratique !
 >
 > ```lua
-> NIVEAU_MER = 22
+> local NIVEAU_MER = 22
 > for y = h + 1, NIVEAU_MER do
 >   set_block(x, y, z, EAU)
 > end
@@ -247,28 +250,27 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > ![De h + 1 jusqu'à NIVEAU_MER : sous la mer la boucle remplit, au-dessus elle ne fait aucun tour.](img/outil-eau.webp)
 > <!-- ws:anim {src: img/outil-eau.webm, chapters: img/outil-eau.vtt} -->
 
-> 🧰 **Les comparaisons**
-> `<` plus petit, `>` plus grand, `<=` et `>=` « ou égal », `==` égal, `~=` différent.
 <!-- /ws:toolbox -->
 
 ### Pièges
 
 - `=` range une valeur, `==` compare. On écrit `if h == 20 then`.
 - L'eau se pose **au-dessus** du sol, jamais à sa place.
+- `h` à virgule ? Si `h` vaut 20,5, la boucle `for y = h + 1, NIVEAU_MER` compte 21,5 puis 22,5, qui dépasse 22 : il manque la couche du dessus de la mer. Arrondis `h` avec `math.floor` dans ta fonction `hauteur`.
 - Si `NIVEAU_MER` est plus bas que tout ton terrain, il n'y aura pas de mer du tout.
 - Les noms de blocs sont déjà pris : `NEIGE`, c'est le bloc. Si tu écris `NEIGE = 30` pour ta hauteur de neige, `set_block` reçoit 30 au lieu du bloc et refuse. Appelle-la `NIVEAU_NEIGE`, comme `NIVEAU_MER`.
 
 ### Défi
 <!-- ws:doit -->
 
-Ajoute une **mer** à hauteur fixe, du `SABLE` partout où la terre touche l'eau, et de la `NEIGE` au sommet des montagnes.
+Ajoute une **mer** à hauteur fixe, du `SABLE` partout où le sol touche l'eau, et de la `NEIGE` au sommet des montagnes.
 
 Ce que tu dois avoir pour valider cette étape :
 - Une mer, des plages et de la neige
 
 Tu dois obtenir quelque chose comme ça :
 
-![Une mer à hauteur fixe, du sable là où la terre touche l'eau, et de la neige sur les sommets.](img/etape9-resultat.png)
+![Une mer à hauteur fixe, du sable là où le sol touche l'eau, et de la neige sur les sommets.](img/etape9-resultat.png)
 <!-- ws:scene {src: scenes/etape9.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: z}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
