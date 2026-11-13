@@ -19,7 +19,7 @@ Ces noms viennent de World Generator, pas de Lua. Ils existent déjà quand ton 
 | --- | --- |
 | `set_block(x, y, z, BLOC)` | Pose un bloc du type `BLOC` à la position (x, y, z). Un nombre à virgule est arrondi vers le bas ; un bloc hors du monde est ignoré |
 | `get_block(x, y, z)` | Le type du bloc qui se trouve en (x, y, z). `AIR` s'il n'y a rien, ou si c'est hors du monde |
-| `perlin2d(x, z)` | Un hasard tout doux : un nombre entre -1 et 1, qui change un peu quand x ou z change un peu. Même seed, même résultat |
+| `perlin2d(x, z)` | Un nombre entre -1 et 1 qui varie doucement : si x ou z change un peu, le résultat change un peu. Même seed, même résultat |
 | `perlin3d(x, y, z)` | Le même, en trois dimensions. C'est lui qui creuse les grottes |
 | `random(a, b)` | Un nombre entier entre a et b, comme un dé. `random(a)` tire entre 1 et a, `random()` un nombre à virgule entre 0 et 1. Dépend de la seed |
 | `print(...)` | Écrit dans la console, sous l'éditeur. Plusieurs valeurs séparées par des virgules s'affichent sur la même ligne |
