@@ -53,6 +53,7 @@ Ici, pas de pioche. Les blocs apparaissent quand tu **écris du code**.
 
 > 🧰 **Les types de bloc**
 > Le type de bloc s'écrit en **MAJUSCULES** : `PIERRE`, `TERRE`, `HERBE`, `SABLE`, `EAU`, `BOIS`, `FEUILLES`, `NEIGE`, `GLACE`, `GRAVIER`, `CHARBON`, `FER`, `DIAMANT`, `BEDROCK`, et `AIR` pour effacer.
+> Tu pourras écrire tes propres constantes en majuscules aussi (`SOL`), mais jamais avec le nom d'un bloc : `pierre` et `PIERRE` sont deux noms différents, et les noms du glossaire sont déjà pris.
 >
 > ```lua
 > set_block(64, 11, 64, DIAMANT)
@@ -257,7 +258,7 @@ Construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut 
 Ce que tu dois avoir pour valider cette étape :
 
 - En volant autour, tu vois la bedrock, la pierre, 3 blocs de terre et l'herbe, dans cet ordre.
-- Change `SOL` en 30, puis clique sur « ▶ Générer » : toute la colonne grandit d'un coup, couches comprises.
+- Change `SOL` en 30, puis clique sur **▶ Générer** : toute la colonne grandit d'un coup, couches comprises.
 
 Tu dois obtenir quelque chose comme ça :
 
@@ -309,7 +310,7 @@ Dans chaque colonne, de bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIER
 Ce que tu dois avoir pour valider cette étape :
 - 1 Bedrock, un certain nombre de bloc de pierre, 3 terre, 1 herbe
 
-Pour vérifier encore : change `SOL` en 30, puis clique sur « ▶ Générer ». Tout ton monde doit monter d'un coup.
+Pour vérifier encore : change `SOL` en 30, puis clique sur **▶ Générer**. Tout ton monde doit monter d'un coup.
 
 Tu dois obtenir quelque chose comme ça :
 
