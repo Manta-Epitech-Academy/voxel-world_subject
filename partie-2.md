@@ -69,10 +69,6 @@ Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bos
 > 🧰 **Une vague en <var>x</var>, une vague en <var>z</var>**
 > Avec `math.sin(x / 8)` seul, toutes les colonnes qui ont le même <var>x</var> ont la même hauteur, quel que soit <var>z</var> : rien ne change quand tu avances vers le fond. Pour que ça bouge aussi dans ce sens, ajoute une deuxième vague qui, elle, regarde <var>z</var>. Les deux s'additionnent : la tôle ondulée devient une **boîte d'œufs**.
 >
-> ```lua
-> local h = 20 + 4 * math.sin(x / 8) + 4 * math.sin(z / 11)
-> ```
->
 > ![Avec une seule vague en x, le terrain est une tôle ondulée : rien ne change en avançant vers le fond. La vague en z s'ajoute, et les bosses apparaissent dans tous les sens.](img/etape7-collines.webp)
 > <!-- ws:anim {src: img/etape7-collines.webm, chapters: img/etape7-collines.vtt} -->
 
