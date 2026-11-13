@@ -41,7 +41,7 @@ Ce que tu dois avoir pour valider cette étape :
 Tu dois obtenir quelque chose comme ça :
 
 ![Des vagues de plage : le terrain ondule de gauche à droite, et chaque vague traverse le monde d'un bord à l'autre.](img/etape6-resultat.png)
-<!-- ws:scene {src: scenes/etape6.glb, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+<!-- ws:scene {src: scenes/etape6.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -105,7 +105,7 @@ L'application vérifie encore la douceur du terrain, pas le deuxième sens : c'e
 Tu dois obtenir quelque chose comme ça :
 
 ![Des collines rondes et régulières, alignées comme une boîte d'œufs.](img/etape7-resultat.png)
-<!-- ws:scene {src: scenes/etape7.glb, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+<!-- ws:scene {src: scenes/etape7.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -187,7 +187,7 @@ Ce que tu dois avoir pour valider cette étape :
 Tu dois obtenir quelque chose comme ça :
 
 ![Avec bruit, les collines n'ont plus rien de régulier : des vallées, des sommets, des pentes douces.](img/etape8-resultat.png)
-<!-- ws:scene {src: scenes/etape8.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+<!-- ws:scene {src: scenes/etape8.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -289,7 +289,7 @@ Ce que tu dois avoir pour valider cette étape :
 Tu dois obtenir quelque chose comme ça :
 
 ![Une mer à hauteur fixe, du sable là où la terre touche l'eau, et de la neige sur les sommets.](img/etape9-resultat.png)
-<!-- ws:scene {src: scenes/etape9.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: z}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+<!-- ws:scene {src: scenes/etape9.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: z}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -411,7 +411,7 @@ Ce que tu dois avoir pour valider cette étape :
 Tu dois obtenir quelque chose comme ça :
 
 ![Des arbres partout où il y a de l'herbe, et aucun dans l'eau ni sur le sable.](img/etape10-resultat.png)
-<!-- ws:scene {src: scenes/etape10.glb, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-18, 58, -18], to: [50, 20, 50]}} -->
+<!-- ws:scene {src: scenes/etape10.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-18, 58, -18], to: [50, 20, 50]}} -->
 
 Et sous tes pieds :
 
