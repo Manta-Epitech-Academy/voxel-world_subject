@@ -87,6 +87,10 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 ## Étape 2 : Le sol plat
 <!-- ws: {type: exercise, id: sol-plat, points: 200, token_id: "2"} -->
 
+Un bloc flotte, tout seul dans le vide. Pour un monde entier, il en faudrait **16 384** rien que pour le sol. À la main, tu y serais encore à Noël.
+
+Heureusement, un ordinateur sait très bien répéter des actions en boucle.
+
 <!-- ws:toolbox -->
 ### Boîte à outils
 
@@ -186,6 +190,10 @@ Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0
 ## Étape 3 : Une colonne
 <!-- ws: {type: exercise, id: une-colonne, points: 150, validation: checkpoint} -->
 
+Creuse dans Minecraft : sous l'herbe il y a de la terre, puis de la pierre, et tout au fond la **bedrock** que rien ne peut casser.
+
+Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et on tombe dans le vide.
+
 <!-- ws:toolbox -->
 ### Boîte à outils
 
@@ -266,6 +274,8 @@ Ta colonne ne grandit pas quand tu changes `SOL` ? Cherche les nombres écrits e
 ## Étape 4 : Le monde en colonnes
 <!-- ws: {type: exercise, id: couches, points: 100, token_id: "3"} -->
 
+Une colonne, c'est un bon début. Il en faut **16 384** pour couvrir ton monde. Heureusement, tu sais déjà faire une boucle.
+
 <!-- ws:toolbox -->
 ### Boîte à outils
 
@@ -313,6 +323,10 @@ Vole sous ton monde (<kbd>Maj</kbd>) et regarde la tranche : on voit les couches
 ## Étape 5 : La fonction colonne
 <!-- ws: {type: exercise, id: colonne-fonction, points: 150, validation: checkpoint} -->
 <!-- étape de modelage : la fonction colonne est donnée volontairement dans la boîte à outils -->
+
+Ton monde est totalement plat. Il est temps de lui donner du **relief**.
+
+Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 
 <!-- ws:toolbox -->
 ### Boîte à outils

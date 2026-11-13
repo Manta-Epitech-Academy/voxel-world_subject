@@ -5,6 +5,8 @@ Cinq étapes de plus : les vagues, le vrai relief, la mer et la neige, puis les 
 ## Étape 6 : La vague
 <!-- ws: {type: exercise, id: collines, points: 200, token_id: "4"} -->
 
+Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et des creux : il est temps d'améliorer le relief de ton monde.
+
 <!-- ws:toolbox -->
 ### Boîte à outils
 
@@ -66,6 +68,8 @@ Si la vérification parle d'une marche trop haute, **divise** x par un plus gran
 <!-- ws: {type: exercise, id: collines-deux-sens, points: 150, validation: checkpoint} -->
 <!-- étape de modelage : la formule à deux vagues est donnée volontairement dans la boîte à outils -->
 
+Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bosses et des creux sur l'autre axe horizontal.
+
 <!-- ws:toolbox -->
 ### Boîte à outils
 
@@ -123,6 +127,10 @@ Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 
 ## Étape 8 : Le vrai relief
 <!-- ws: {type: exercise, id: relief, points: 250, token_id: "5"} -->
+
+Vole tout en haut et regarde : tes collines sont alignées comme une boîte d'œufs. La nature ne se répète pas comme ça.
+
+En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit** qui ressemble au hasard tout en restant doux. Il reçoit un Oscar pour ça. Minecraft s'en sert pour dessiner tous ses terrains.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
@@ -208,6 +216,10 @@ Mets `math.abs(perlin2d(...))` pour le grand bruit : tu obtiens des crêtes de m
 
 ## Étape 9 : Mers, plages et neige
 <!-- ws: {type: exercise, id: mers-plages-neige, points: 250, token_id: "6"} -->
+
+Tu as de jolies collines en relief, mais avec de l'herbe partout en surface. Il manque la **mer**, des **plages** et des **sommets enneigés**.
+
+Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
@@ -306,6 +318,10 @@ Pose de la `GLACE` à la surface de l'eau quand la mer est entourée de neige.
 
 ## Étape 10 : Forêts, grottes et minerais
 <!-- ws: {type: exercise, id: forets-grottes-minerais, points: 350, token_id: "7"} -->
+
+Ton monde a des mers, des plages et des montagnes. Il est prêt à accueillir la vie… et les mineurs.
+
+Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies de **trésors**. Dernière ligne droite avant un générateur complet !
 
 <!-- ws:toolbox -->
 ### Boîte à outils
