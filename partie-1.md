@@ -102,7 +102,7 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 ## Étape 2 : Le sol plat
 <!-- ws: {type: exercise, id: sol-plat, points: 200, token_id: "2"} -->
 
-Un bloc flotte, tout seul dans le vide. Pour un monde entier, il en faudrait **16 384** rien que pour le sol. À la main, tu y serais encore à Noël.
+Un bloc flotte, tout seul dans le vide. Pour un monde entier, il en faudrait **16 384** (128 × 128) rien que pour le sol. À la main, tu y serais encore à Noël.
 
 Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 
@@ -136,7 +136,7 @@ Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 > <!-- ws:anim {src: img/outil-double-boucle.webm, chapters: img/outil-double-boucle.vtt} -->
 
 > 🧰 **`TAILLE` « la largeur du monde »**
-> `TAILLE` vaut 128, la largeur du monde. Les colonnes vont de `0` à `TAILLE - 1`, c'est-à-dire 127.
+> `TAILLE` vaut 128, la largeur du monde. <var>x</var> et <var>z</var> vont de `0` à `TAILLE - 1`, c'est-à-dire 127.
 >
 > ```lua
 > print(TAILLE)
@@ -155,7 +155,7 @@ Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 
 ### Pièges
 
-- `for x = 0, TAILLE do` fait **129** tours, pas 128 : le dernier bloc tombe hors du monde. La console te le signale.
+- `for x = 0, TAILLE do` fait **129** tours, pas 128 (de 0 à 128 compris, ça fait 129 nombres) : le dernier bloc tombe hors du monde. La console te le signale.
 - Chaque `for` a son `end`. Décale le code à l'intérieur vers la droite pour voir qui ferme quoi.
 
 ### Défi
@@ -200,7 +200,7 @@ end
 
 ### Bonus
 
-Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `(x + z) % 2` vaut 0 ou 1.
+Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `%` n'est pas un pourcentage, c'est le **reste de la division**. `7 % 2` vaut 1, et `(x + z) % 2` vaut 0 ou 1.
 
 ## Étape 3 : Une colonne
 <!-- ws: {type: exercise, id: une-colonne, points: 150, validation: checkpoint} -->
