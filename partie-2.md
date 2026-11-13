@@ -11,14 +11,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Boîte à outils
 
 > 🧰 **`math.sin` « la vague »**
-> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent : le `20` dit à quelle hauteur elle flotte, le `5` sa **hauteur**, le `/ 8` sa **largeur**.
->
-> ```lua
-> for x = 0, TAILLE - 1 do
->   local h = 20 + 5 * math.sin(x / 8)
->   set_block(x, h, 0, HERBE)
-> end
-> ```
+> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent, regarde l'animation : le `20` dit à quelle hauteur elle flotte, le `5` sa **hauteur**, le `/ 8` sa **largeur**.
 >
 > ![La vague, terme par terme : ÷ 8 l'élargit, × 5 la grandit, + 20 la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
 > <!-- ws:anim {src: img/etape6-vague.webm, chapters: img/etape6-vague.vtt} -->

@@ -15,3 +15,6 @@ math.sin(x) : trop serré
 00:17.500 --> 00:22.300
 les colonnes suivent la courbe
 
+00:22.300 --> 00:25.300
+la hauteur du sol vient de math.sin(x)
+
