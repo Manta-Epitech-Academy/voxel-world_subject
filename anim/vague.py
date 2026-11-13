@@ -94,3 +94,10 @@ class LaVague(Scene):
         n6 = note("chaque colonne prend la hauteur de la vague, arrondie vers le bas", HERBE)
         self.play(FadeOut(n5), LaggedStart(*[GrowFromEdge(b, DOWN) for b in blocs], lag_ratio=0.01), run_time=2.2)
         self.play(FadeIn(n6)); self.wait(1.6)
+
+        # 6. La conclusion, pour que l'idée reste : le sol, c'est math.sin(x).
+        self.next_section("la hauteur du sol vient de math.sin(x)")
+        fin = Text("La hauteur du sol est calculée grâce à math.sin(x)",
+                   font="DejaVu Sans", font_size=30, color=WHITE).next_to(axes, DOWN, buff=0.35)
+        self.play(FadeOut(n6), FadeIn(fin), run_time=1.0)
+        self.wait(2.0)
