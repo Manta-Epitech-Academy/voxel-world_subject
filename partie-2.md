@@ -1,6 +1,6 @@
 # Partie 2 : des collines au monde entier
 
-Cinq étapes de plus : les vagues, le vrai relief, la mer et la neige, puis les forêts, les grottes et les minerais. Même fonctionnement : les outils, les pièges, le défi, et le code de l'encadrant quand c'est réussi.
+Cinq étapes de plus : les vagues, le vrai relief, la mer et la neige, puis les forêts, les grottes et les minerais. Même fonctionnement : les outils, les pièges, le défi, et le code de validation quand c'est réussi.
 
 ## Étape 6 : La vague
 <!-- ws: {type: exercise, id: collines, points: 200, token_id: "4"} -->
