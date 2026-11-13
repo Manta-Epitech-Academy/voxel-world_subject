@@ -1,6 +1,6 @@
 # Partie 2 : des collines au monde entier
 
-Cinq étapes de plus : les vagues, le vrai relief, la mer et la neige, puis les forêts, les grottes et les minerais. Même fonctionnement : les outils, les pièges, le défi, et le code de l'animateur quand c'est réussi.
+Cinq étapes de plus : les vagues, le vrai relief, la mer et la neige, puis les forêts, les grottes et les minerais. Même fonctionnement : les outils, les pièges, le défi, et le code de l'encadrant quand c'est réussi.
 
 ## Étape 6 : La vague
 <!-- ws: {type: exercise, id: collines, points: 200, token_id: "4"} -->
@@ -33,8 +33,7 @@ Cinq étapes de plus : les vagues, le vrai relief, la mer et la neige, puis les 
 
 Fais onduler ton terrain le long de x avec `math.sin` : au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines. Les couches de l'étape 4 restent obligatoires.
 
-Ce que l'animateur vérifie :
-
+Ce que tu dois avoir pour valider cette étape :
 - Des collines douces avec les bonnes couches
 
 Tu dois obtenir quelque chose comme ça :
@@ -174,8 +173,7 @@ Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 
 Remplace `math.sin` par `perlin2d` : un relief naturel d'au moins **15 blocs de dénivelé** entre le point le plus bas et le plus haut, sans falaise de plus de 3 blocs. Les couches restent obligatoires.
 
-Ce que l'animateur vérifie :
-
+Ce que tu dois avoir pour valider cette étape :
 - Un relief naturel fait avec perlin2d
 
 Tu dois obtenir quelque chose comme ça :
@@ -273,8 +271,7 @@ Mets `math.abs(perlin2d(...))` pour le grand bruit : tu obtiens des crêtes de m
 
 Ajoute une **mer** à hauteur fixe, du `SABLE` partout où la terre touche l'eau, et de la `NEIGE` au sommet des montagnes.
 
-Ce que l'animateur vérifie :
-
+Ce que tu dois avoir pour valider cette étape :
 - Une mer, des plages et de la neige
 
 Tu dois obtenir quelque chose comme ça :
@@ -390,8 +387,7 @@ Pose de la `GLACE` à la surface de l'eau quand la mer est entourée de neige.
 
 Trois défis : au moins **10 arbres** plantés sur l'herbe, des **grottes** creusées avec `perlin3d`, et des **minerais** : du `CHARBON`, et du `DIAMANT` seulement tout au fond (y < 12).
 
-Ce que l'animateur vérifie :
-
+Ce que tu dois avoir pour valider cette étape :
 - Au moins 10 arbres
 - Des grottes creusées avec perlin3d
 - Charbon, et diamants tout au fond

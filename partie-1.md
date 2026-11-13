@@ -144,8 +144,7 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 
 Recouvre tout le sol du monde (y = 0) d'`HERBE` : les 128 × 128 colonnes.
 
-Ce que l'animateur vérifie :
-
+Ce que tu dois avoir pour valider cette étape :
 - Tout le sol (en y = 0) est recouvert d'un bloc d'herbe.
 
 Tu dois obtenir quelque chose comme ça :
@@ -283,8 +282,7 @@ Ta colonne ne grandit pas quand tu changes `SOL` ? Cherche les nombres écrits e
 
 Dans chaque colonne, de bas en haut : `BEDROCK` à y = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet.
 
-Ce que tu dois avoir:
-
+Ce que tu dois avoir pour valider cette étape :
 - 1 Bedrock, un certain nombre de bloc de pierre, 3 terre, 1 herbe
 
 Pour vérifier encore : change `SOL` en 30, puis clique sur « ▶ Générer ». Tout ton monde doit monter d'un coup.
