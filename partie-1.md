@@ -319,7 +319,7 @@ Tu dois obtenir quelque chose comme ça :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Tu as déjà les deux boucles <var>x</var> et <var>z</var> de l'étape 2. C'est **à l'intérieur** que tu empiles la colonne.
+Tu as déjà utilisé les boucles imbriquées avec <var>x</var> et <var>z</var> à l'étape 2.
 
 </details>
 
