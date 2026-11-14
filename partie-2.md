@@ -11,9 +11,9 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Boîte à outils
 
 > 🧰 **`math.sin` « la vague »**
-> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent : la **hauteur**, la **taille**, la **largeur**. L'animation les montre un par un. Dans ta ligne `h` : <var>x</var> divisé par la largeur dans `math.sin( )`, le résultat multiplié par la taille, la hauteur ajoutée devant. `math.` est la boîte à outils de Lua.
+> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent : le **niveau**, l'**amplitude**, la **largeur**. L'animation les montre un par un. Dans ta ligne `h` : <var>x</var> divisé par la largeur dans `math.sin( )`, le résultat multiplié par l'amplitude, le niveau ajouté devant. `math.` est la boîte à outils de Lua.
 >
-> ![La vague, terme par terme : ÷ largeur l'élargit, × taille la grandit, + hauteur la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
+> ![La vague, terme par terme : ÷ largeur l'élargit, × amplitude la grandit, + niveau la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
 > <!-- ws:anim {src: img/etape6-vague.webm, chapters: img/etape6-vague.vtt} -->
 
 <!-- /ws:toolbox -->
@@ -46,7 +46,7 @@ Garde ta fonction `colonne` telle quelle : seule la ligne qui calcule `h` change
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Commence avec une vague de petite taille, par exemple `2 * math.sin(x / 8)`, génère, puis augmente-la.
+Commence avec une vague de petite amplitude, par exemple `2 * math.sin(x / 8)`, génère, puis augmente-la.
 
 </details>
 
@@ -117,7 +117,7 @@ Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 
 Vole tout en haut et regarde : la nature ne se répète pas comme ça.
 
-En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit** qui ressemble au hasard tout en restant doux. Il reçoit un Oscar pour ça. Minecraft s'en sert pour dessiner tous ses terrains.
+Après avoir travaillé sur les effets spéciaux de *Tron* (1982), Ken Perlin trouve les images de synthèse trop lisses, trop « machine ». En 1983, il invente un **bruit** qui ressemble au hasard tout en restant doux : une suite de nombres qui a l'air tirée au sort. Il reçoit un Oscar technique pour ça. Minecraft s'en sert pour dessiner tous ses terrains.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
@@ -131,14 +131,25 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 > print(perlin2d(50.1, 80.7))
 > ```
 >
-> ![Le bruit de Perlin : 0 à chaque nombre entier, puis la largeur, la taille et la hauteur, une par une.](img/etape8-perlin.webp)
+> ![Le bruit de Perlin : 0 à chaque nombre entier, puis la largeur, l'amplitude et le niveau, une par une.](img/etape8-perlin.webp)
 > <!-- ws:anim {src: img/etape8-perlin.webm, chapters: img/etape8-perlin.vtt} -->
 
 > 🧰 **L'échelle**
-> Mêmes réglages que la vague. Le nombre qui divise <var>x</var> et <var>z</var> fait la **largeur**, celui qui multiplie fait la **taille**, celui que tu ajoutes fait la **hauteur**.
+> Mêmes réglages que la vague. Le nombre qui divise <var>x</var> et <var>z</var> fait la **largeur**, celui qui multiplie fait l'**amplitude**, celui que tu ajoutes fait le **niveau**.
+
+> 🧰 **`return` « une fonction qui répond »**
+> Une fonction peut **renvoyer** une valeur avec `return` : celui qui l'appelle la récupère. `perlin2d` donne un nombre à virgule : pour `h`, termine par `return math.floor(…)`, les boucles de l'étape suivante en ont besoin.
+>
+> ```lua
+> function double(n)
+>   return n * 2
+> end
+>
+> print(double(21))
+> ```
 
 > 🧰 **Les octaves**
-> Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chacun s'appelle une **octave**, avec sa largeur et sa taille.
+> Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chacun s'appelle une **octave**, avec sa largeur et son amplitude.
 >
 > ![Un grand bruit, un moyen, un petit, et leur somme.](img/outil-octaves.webp)
 > <!-- ws:anim {src: img/outil-octaves.webm, chapters: img/outil-octaves.vtt} -->
@@ -203,7 +214,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > `if` exécute du code seulement si une condition est vraie. `elseif` teste une autre condition, `else` s'occupe de tous les autres cas.
 >
 > ```lua
-> local h = 30
+> h = 30
 > if h < 20 then
 >   print("bas")
 > elseif h > 35 then
@@ -223,7 +234,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > On range le type de bloc dans une variable, et on la change si besoin avant de poser.
 >
 > ```lua
-> local dessus = HERBE
+> dessus = HERBE
 > if h >= 34 then
 >   dessus = NEIGE
 > end
@@ -237,7 +248,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > De l'eau de `h + 1` jusqu'au niveau de la mer.
 >
 > ```lua
-> local NIVEAU_MER = 22
+> NIVEAU_MER = 22
 > for y = h + 1, NIVEAU_MER do
 >   set_block(x, y, z, EAU)
 > end
@@ -311,8 +322,8 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au sol.
 >
 > ```lua
-> local x, z = 64, 64
-> local y = HAUTEUR - 1
+> x, z = 64, 64
+> y = HAUTEUR - 1
 > while y > 0 and get_block(x, y, z) == AIR do
 >   y = y - 1
 > end
@@ -353,8 +364,8 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > ![Un nombre par case ; au-dessus du seuil, on ne pose rien, et baisser le seuil agrandit les grottes.](img/outil-grottes.webp)
 > <!-- ws:anim {src: img/outil-grottes.webm, chapters: img/outil-grottes.vtt} -->
 
-> 🧰 **`return` « une fonction qui répond »**
-> Une fonction peut **renvoyer** une valeur. Ici, elle choisit quel bloc poser.
+> 🧰 **Une fonction qui choisit le bloc**
+> La fonction renvoie le bloc à poser : parfois un diamant, sinon de la pierre.
 >
 > ```lua
 > function choisir_bloc(y)

@@ -214,10 +214,9 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 
 > 🧰 **Les variables**
 > Une **variable** est une boîte avec un nom. Change la valeur de `SOL` une seule fois, et tout le code qui l'utilise suit.
-> `local` veut dire : je crée une nouvelle variable. Tu l'écris la première fois, pas quand tu changes ce qu'elle contient.
 >
 > ```lua
-> local SOL = 20
+> SOL = 20
 > set_block(64, SOL, 64, HERBE)
 > set_block(64, SOL - 1, 64, TERRE)
 > ```
@@ -241,7 +240,7 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 > On peut faire des calculs partout où on attend un nombre : `+`, `-`, `*` (multiplication), `/` (division).
 >
 > ```lua
-> local SOL = 20
+> SOL = 20
 > print(SOL - 4, SOL * 2, SOL / 2)
 > ```
 <!-- /ws:toolbox -->
@@ -371,7 +370,7 @@ Chaque colonne doit avoir *sa propre* hauteur.
 >
 > ```lua
 > for x = 0, TAILLE - 1 do
->   local h = 10 + x / 10
+>   h = 10 + x / 10
 >   set_block(x, h, 0, HERBE)
 > end
 > ```

@@ -120,19 +120,19 @@ class LePerlin(Scene):
         )
         sol = axes2.plot(lambda x: 0, x_range=[0, 128], color=DOUX, stroke_width=1.5, stroke_opacity=0.6)
 
-        self.next_section("× taille : plus haut, autour de 0")
-        f4 = formule("h = taille * perlin2d(x / largeur, 7)")
+        self.next_section("× amplitude : plus haut, autour de 0")
+        f4 = formule("h = amplitude * perlin2d(x / largeur, 7)")
         c4 = axes2.plot(lambda x: 12 * perlin2d(x / 40, 7), x_range=[0, 127, 0.25], color=CIEL, stroke_width=4)
-        n5 = note("× taille : plus haut… mais autour de 0, à moitié sous le sol", ALERTE)
+        n5 = note("× amplitude : plus haut… mais autour de 0, à moitié sous le sol", ALERTE)
         self.play(Transform(f, f4), FadeOut(n4), FadeOut(zero),
                   ReplacementTransform(axes, axes2), ReplacementTransform(grads, grads2),
                   Transform(c, c4), FadeIn(sol), run_time=1.8)
         self.play(FadeIn(n5)); self.wait(1.4)
 
-        self.next_section("+ hauteur : à la bonne hauteur")
-        f5 = formule("h = hauteur + taille * perlin2d(x / largeur, 7)")
+        self.next_section("+ niveau : à la bonne hauteur")
+        f5 = formule("h = niveau + amplitude * perlin2d(x / largeur, 7)")
         c5 = axes2.plot(lambda x: 24 + 12 * perlin2d(x / 40, 7), x_range=[0, 127, 0.25], color=CIEL, stroke_width=4)
-        n6 = note("+ hauteur : les collines montent, posées à la bonne hauteur", CIEL)
+        n6 = note("+ niveau : les collines montent, posées au bon niveau", CIEL)
         self.play(Transform(f, f5), Transform(c, c5), FadeOut(n5), run_time=1.4)
         self.play(FadeIn(n6)); self.wait(1.2)
 
