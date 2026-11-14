@@ -1,11 +1,11 @@
 # Partie 2 : des collines au monde entier
 
-Cinq étapes de plus : les vagues, le vrai relief, la mer et la neige, puis les forêts, les grottes et les minerais. Même fonctionnement : les outils, les pièges, le défi, et le code de validation quand c'est réussi.
+Cinq étapes de plus : les vagues, le vrai relief, la mer et la neige, puis les forêts, les grottes et les minerais. Même fonctionnement : les outils, les pièges, le défi, et le code de validation quand c'est réussi. Les couches restent obligatoires à chaque étape.
 
 ## Étape 6 : La vague
 <!-- ws: {type: exercise, id: collines, points: 200, token_id: "4"} -->
 
-Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et des creux : il est temps d'améliorer le relief de ton monde.
+Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et des creux.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
@@ -26,7 +26,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Défi
 <!-- ws:doit -->
 
-Fais onduler ton terrain le long de <var>x</var> avec `math.sin`. Il te faut au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines. Les couches de l'étape 4 restent obligatoires.
+Fais onduler ton terrain le long de <var>x</var> avec `math.sin`. Il te faut au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines.
 
 Ce que tu dois avoir pour valider cette étape :
 - Des collines douces avec les bonnes couches
@@ -60,7 +60,7 @@ Si une marche dépasse 2 blocs entre deux colonnes voisines, **divise** <var>x</
 ## Étape 7 : Les collines
 <!-- ws: {type: exercise, id: collines-deux-sens, points: 150, validation: checkpoint} -->
 
-Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bosses et des creux sur l'autre axe horizontal.
+Ton monde ressemble à une **tôle ondulée** : du relief sur un seul axe.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
@@ -154,7 +154,7 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 ### Défi
 <!-- ws:doit -->
 
-Calcule `h` avec `perlin2d`, à la bonne échelle, au lieu de tes deux `math.sin`. Il te faut un relief naturel : au moins **15 blocs** entre le point le plus bas et le plus haut, et aucune falaise de plus de **3 blocs**. Les couches restent obligatoires.
+Calcule `h` avec `perlin2d`, à la bonne échelle, au lieu de tes deux `math.sin`. Il te faut un relief naturel : au moins **15 blocs** entre le point le plus bas et le plus haut, et aucune falaise de plus de **3 blocs**.
 
 Ce que tu dois avoir pour valider cette étape :
 - Un relief naturel fait avec perlin2d

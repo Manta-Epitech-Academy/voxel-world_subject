@@ -308,10 +308,10 @@ Une colonne, c'est un bon début. Il en faut **16 384** (128 × 128) pour couvri
 ### Défi
 <!-- ws:doit -->
 
-Dans chaque colonne, de bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet.
+Dans chaque colonne, les couches de l'étape 3.
 
 Ce que tu dois avoir pour valider cette étape :
-- 1 Bedrock, un certain nombre de bloc de pierre, 3 terre, 1 herbe
+- Chaque colonne a ses couches
 
 Pour vérifier : comme à l'étape précédente, change la valeur de `SOL`. Tout ton monde doit monter d'un coup.
 
@@ -390,7 +390,7 @@ Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis f
 Vérifie en volant le long de ta pente.
 
 - elle monte d'un bord du monde à l'autre, sans marche de plus d'un bloc ;
-- sur la tranche, chaque colonne a toujours sa bedrock, sa pierre, ses 3 blocs de terre et son herbe.
+- sur la tranche, chaque colonne a ses couches.
 
 Tu dois obtenir quelque chose comme ça :
 
