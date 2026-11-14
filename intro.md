@@ -1,6 +1,6 @@
 # World Generator
 
-Minecraft ne range pas ses mondes bloc par bloc : il les **calcule**. Quelques formules décident où se dressent les montagnes, où s'arrête la mer, où poussent les arbres et où se cachent les diamants.
+Minecraft ne dessine pas ses mondes à la main : il les **calcule**. Quelques formules décident où se dressent les montagnes, où s'arrête la mer, où poussent les arbres et où se cachent les diamants.
 
 Tu vas écrire ce générateur toi-même, en **Lua**. Tu commences par poser un seul bloc. Ton code dessine des collines, des mers bordées de plages, des sommets enneigés, des forêts, des grottes et des minerais. Et tu peux te promener dedans.
 
