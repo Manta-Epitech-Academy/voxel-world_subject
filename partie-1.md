@@ -122,7 +122,7 @@ Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 > <!-- ws:anim {src: img/outil-boucle.webm, chapters: img/outil-boucle.vtt} -->
 
 > 🧰 **Une boucle dans une boucle**
-> Pour chaque valeur de <var>x</var>, la boucle intérieure fait tous les <var>z</var>. 10 × 10 = un carré de 100 blocs.
+> 10 × 10 = un carré de 100 blocs.
 >
 > ```lua
 > for x = 0, 9 do
@@ -298,7 +298,7 @@ Une colonne, c'est un bon début. Il en faut **16 384** (128 × 128) pour couvri
 ### Boîte à outils
 
 > 🧰 **Penser en colonnes**
-> Ton monde, c'est 128 × 128 **colonnes**. Une colonne, c'est une pile de blocs posée en (<var>x</var>, <var>z</var>) : la bedrock tout en bas, puis la pierre, la terre, et l'herbe au sommet.
+> Ton monde, c'est 128 × 128 **colonnes**. Une colonne, c'est une pile de blocs posée en (<var>x</var>, <var>z</var>).
 > Si tu sais construire **une** colonne, la double boucle de l'étape 2 construit toutes les autres.
 >
 > ![Une colonne avec ses couches, puis la double boucle qui pose toutes les autres.](img/outil-colonnes.webp)

@@ -11,7 +11,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Boîte à outils
 
 > 🧰 **`math.sin` « la vague »**
-> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent, regarde l'animation : la **hauteur** à laquelle elle flotte, sa **taille** (elle monte et descend d'autant), et sa **largeur**, le nombre qui divise <var>x</var>. À toi de choisir les trois. Dans ta ligne `h`, ça fait trois retouches : <var>x</var> divisé par la largeur, à l'intérieur de `math.sin( )` ; le résultat multiplié par la taille ; et la hauteur ajoutée devant. `math.` est la boîte à outils de Lua ; `perlin2d`, lui, viendra de World Generator.
+> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent : la **hauteur**, la **taille**, la **largeur**. L'animation les montre un par un. Dans ta ligne `h` : <var>x</var> divisé par la largeur dans `math.sin( )`, le résultat multiplié par la taille, la hauteur ajoutée devant. `math.` est la boîte à outils de Lua.
 >
 > ![La vague, terme par terme : ÷ largeur l'élargit, × taille la grandit, + hauteur la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
 > <!-- ws:anim {src: img/etape6-vague.webm, chapters: img/etape6-vague.vtt} -->
@@ -66,9 +66,9 @@ Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bos
 ### Boîte à outils
 
 > 🧰 **Une vague en <var>x</var>, une vague en <var>z</var>**
-> Avec `math.sin(x / 8)` seul, toutes les colonnes qui ont le même <var>x</var> ont la même hauteur, quel que soit <var>z</var> : rien ne change quand tu avances vers le fond. Pour que ça bouge aussi dans ce sens, ajoute une deuxième vague qui, elle, regarde <var>z</var>. Les deux s'additionnent : la tôle ondulée devient une **boîte d'œufs**.
+> Une seule vague en <var>x</var> : rien ne change quand tu avances vers le fond, c'est une tôle ondulée. Ajoute une deuxième vague, qui regarde <var>z</var>. Les deux s'additionnent : la tôle devient une **boîte d'œufs**.
 >
-> ![Avec une seule vague en x, le terrain est une tôle ondulée : rien ne change en avançant vers le fond. La vague en z s'ajoute, et les bosses apparaissent dans tous les sens.](img/etape7-collines.webp)
+> ![Une vague en x : une tôle ondulée. Plus une vague en z : des bosses dans tous les sens.](img/etape7-collines.webp)
 > <!-- ws:anim {src: img/etape7-collines.webm, chapters: img/etape7-collines.vtt} -->
 
 > 🧰 **Pourquoi deux largeurs différentes ?**
@@ -131,16 +131,14 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 > print(perlin2d(50.1, 80.7))
 > ```
 >
-> ![Le bruit de Perlin : à chaque nombre entier il vaut 0, d'où le terrain plat ; une grande largeur donne des collines larges, une petite des collines serrées, × taille les rend plus hautes mais autour de 0, et + hauteur les pose à la bonne hauteur.](img/etape8-perlin.webp)
+> ![Le bruit de Perlin : 0 à chaque nombre entier, puis la largeur, la taille et la hauteur, une par une.](img/etape8-perlin.webp)
 > <!-- ws:anim {src: img/etape8-perlin.webm, chapters: img/etape8-perlin.vtt} -->
 
 > 🧰 **L'échelle**
 > Comme pour la vague : le nombre qui divise <var>x</var> et <var>z</var> règle la **largeur** des collines, celui qui multiplie le résultat leur **taille**, et ce que tu ajoutes, leur **hauteur**. À toi de choisir les trois.
 
 > 🧰 **Les octaves**
-> Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chaque couche s'appelle une **octave**.
->
-> Chaque octave a sa propre largeur et sa propre taille : grandes pour les montagnes, petites pour les détails.
+> Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chacun s'appelle une **octave**, avec sa largeur et sa taille.
 >
 > ![Un grand bruit, un moyen, un petit, et leur somme.](img/outil-octaves.webp)
 > <!-- ws:anim {src: img/outil-octaves.webm, chapters: img/outil-octaves.vtt} -->
@@ -152,7 +150,6 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 ### Pièges
 
 - `perlin2d` avec des nombres **entiers** renvoie toujours 0 : `perlin2d(3, 7)` vaut 0. Divise toujours <var>x</var> et <var>z</var>.
-- Plus tu divises <var>x</var> et <var>z</var>, plus les collines sont **larges**. Plus tu multiplies le résultat, plus elles sont **hautes**.
 
 ### Défi
 <!-- ws:doit -->
@@ -237,7 +234,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > <!-- ws:anim {src: img/outil-dessus.webm, chapters: img/outil-dessus.vtt} -->
 
 > 🧰 **Remplir d'eau**
-> De l'eau de `h + 1` jusqu'au niveau de la mer. Si le sol est plus haut que la mer, la boucle ne fait **aucun tour** : pas d'eau. Pratique !
+> De l'eau de `h + 1` jusqu'au niveau de la mer.
 >
 > ```lua
 > local NIVEAU_MER = 22
@@ -341,7 +338,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > <!-- ws:anim {src: img/outil-arbre.webm, chapters: img/outil-arbre.vtt} -->
 
 > 🧰 **`perlin3d` « creuser des grottes »**
-> Même idée que `perlin2d`, mais en 3D. Là où il dépasse un seuil, on **ne pose pas** de pierre : ça fait un trou. Plus le seuil est bas, plus les grottes sont grandes.
+> Même idée que `perlin2d`, mais en 3D. Là où il dépasse un seuil, on **ne pose pas** de pierre : ça fait un trou.
 >
 > ```lua
 > if perlin3d(x / 16, y / 10, z / 16) > 0.3 then
