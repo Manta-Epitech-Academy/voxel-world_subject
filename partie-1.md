@@ -367,7 +367,7 @@ Chaque colonne doit avoir *sa propre* hauteur.
 > <!-- ws:anim {src: img/outil-fonction.webm, chapters: img/outil-fonction.vtt} -->
 
 > 🧰 **Une hauteur qui dépend de <var>x</var>**
-> Ici, plus <var>x</var> est grand, plus le bloc est haut : une ligne d'herbe qui monte, un bloc plus haut tous les 10 blocs. Pas besoin d'arrondir : un bloc ne peut pas être à la hauteur 10,7, `set_block` arrondit vers le bas tout seul.
+> Ici, plus <var>x</var> est grand, plus le bloc est haut : une ligne d'herbe qui monte, un bloc plus haut tous les 10 blocs. Pas besoin d'arrondir : `set_block` arrondit vers le bas tout seul.
 >
 > ```lua
 > for x = 0, TAILLE - 1 do

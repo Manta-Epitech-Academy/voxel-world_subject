@@ -115,7 +115,7 @@ Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 ## Étape 8 : Le vrai relief
 <!-- ws: {type: exercise, id: relief, points: 250, token_id: "5"} -->
 
-Vole tout en haut et regarde : tes collines sont alignées comme une boîte d'œufs. La nature ne se répète pas comme ça.
+Vole tout en haut et regarde : la nature ne se répète pas comme ça.
 
 En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit** qui ressemble au hasard tout en restant doux. Il reçoit un Oscar pour ça. Minecraft s'en sert pour dessiner tous ses terrains.
 
@@ -308,7 +308,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > ```
 
 > 🧰 **`get_block` et `while` « trouver le sol »**
-> `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au sol. `and` est vrai seulement si les deux conditions sont vraies.
+> `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au sol.
 >
 > ```lua
 > local x, z = 64, 64
@@ -318,6 +318,8 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > end
 > print("le sol est à y =", y)
 > ```
+>
+> `and` est vrai seulement si les deux conditions sont vraies.
 >
 > ![y descend du ciel tant que la case est de l'air, et s'arrête sur l'herbe.](img/outil-sol.webp)
 > <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
