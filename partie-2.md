@@ -1,17 +1,17 @@
 # Partie 2 : des collines au monde entier
 
-Cinq étapes de plus : les vagues, le vrai relief, la mer et la neige, puis les forêts, les grottes et les minerais. Même fonctionnement : les outils, les pièges, le défi, et le code de validation quand c'est réussi.
+Cinq étapes de plus : les vagues, le vrai relief, la mer et la neige, puis les forêts, les grottes et les minerais. Même fonctionnement : les outils, les pièges, le défi, et le code de validation quand c'est réussi. Les couches restent obligatoires à chaque étape.
 
 ## Étape 6 : La vague
 <!-- ws: {type: exercise, id: collines, points: 200, token_id: "4"} -->
 
-Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et des creux : il est temps d'améliorer le relief de ton monde.
+Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et des creux.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
 
 > 🧰 **`math.sin` « la vague »**
-> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent, regarde l'animation : la **hauteur** à laquelle elle flotte, sa **taille** (elle monte et descend d'autant), et sa **largeur**, le nombre qui divise <var>x</var>. À toi de choisir les trois. Dans ta ligne `h`, ça fait trois retouches : <var>x</var> divisé par la largeur, à l'intérieur de `math.sin( )` ; le résultat multiplié par la taille ; et la hauteur ajoutée devant. `math.` est la boîte à outils de Lua ; `perlin2d`, lui, viendra de World Generator.
+> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent : la **hauteur**, la **taille**, la **largeur**. L'animation les montre un par un. Dans ta ligne `h` : <var>x</var> divisé par la largeur dans `math.sin( )`, le résultat multiplié par la taille, la hauteur ajoutée devant. `math.` est la boîte à outils de Lua.
 >
 > ![La vague, terme par terme : ÷ largeur l'élargit, × taille la grandit, + hauteur la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
 > <!-- ws:anim {src: img/etape6-vague.webm, chapters: img/etape6-vague.vtt} -->
@@ -21,12 +21,12 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Pièges
 
 - `math.sin(x)` tout seul ondule beaucoup trop vite : une vague tous les 6 blocs environ. Divise <var>x</var> pour élargir.
-- Avec une vague trop haute, `h` peut dépasser 63 (le ciel) ou descendre sous 5 (plus de place pour les couches).
+- Une vague trop haute envoie `h` au-dessus de 63 (le ciel) ou sous 5 (plus de place pour les couches).
 
 ### Défi
 <!-- ws:doit -->
 
-Fais onduler ton terrain le long de <var>x</var> avec `math.sin` : au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines. Les couches de l'étape 4 restent obligatoires.
+Fais onduler ton terrain le long de <var>x</var> avec `math.sin`. Il te faut au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines.
 
 Ce que tu dois avoir pour valider cette étape :
 - Des collines douces avec les bonnes couches
@@ -60,15 +60,15 @@ Si une marche dépasse 2 blocs entre deux colonnes voisines, **divise** <var>x</
 ## Étape 7 : Les collines
 <!-- ws: {type: exercise, id: collines-deux-sens, points: 150, validation: checkpoint} -->
 
-Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bosses et des creux sur l'autre axe horizontal.
+Ton monde ressemble à une **tôle ondulée** : du relief sur un seul axe.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
 
 > 🧰 **Une vague en <var>x</var>, une vague en <var>z</var>**
-> Avec `math.sin(x / 8)` seul, toutes les colonnes qui ont le même <var>x</var> ont la même hauteur, quel que soit <var>z</var> : rien ne change quand tu avances vers le fond. Pour que ça bouge aussi dans ce sens, ajoute une deuxième vague qui, elle, regarde <var>z</var>. Les deux s'additionnent : la tôle ondulée devient une **boîte d'œufs**.
+> Une seule vague en <var>x</var> : rien ne change quand tu avances vers le fond, c'est une tôle ondulée. Ajoute une deuxième vague, qui regarde <var>z</var>. Les deux s'additionnent : la tôle devient une **boîte d'œufs**.
 >
-> ![Avec une seule vague en x, le terrain est une tôle ondulée : rien ne change en avançant vers le fond. La vague en z s'ajoute, et les bosses apparaissent dans tous les sens.](img/etape7-collines.webp)
+> ![Une vague en x : une tôle ondulée. Plus une vague en z : des bosses dans tous les sens.](img/etape7-collines.webp)
 > <!-- ws:anim {src: img/etape7-collines.webm, chapters: img/etape7-collines.vtt} -->
 
 > 🧰 **Pourquoi deux largeurs différentes ?**
@@ -115,7 +115,7 @@ Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 ## Étape 8 : Le vrai relief
 <!-- ws: {type: exercise, id: relief, points: 250, token_id: "5"} -->
 
-Vole tout en haut et regarde : tes collines sont alignées comme une boîte d'œufs. La nature ne se répète pas comme ça.
+Vole tout en haut et regarde : la nature ne se répète pas comme ça.
 
 En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit** qui ressemble au hasard tout en restant doux. Il reçoit un Oscar pour ça. Minecraft s'en sert pour dessiner tous ses terrains.
 
@@ -131,16 +131,14 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 > print(perlin2d(50.1, 80.7))
 > ```
 >
-> ![Le bruit de Perlin : à chaque nombre entier il vaut 0, d'où le terrain plat ; une grande largeur donne des collines larges, une petite des collines serrées, × taille les rend plus hautes mais autour de 0, et + hauteur les pose à la bonne hauteur.](img/etape8-perlin.webp)
+> ![Le bruit de Perlin : 0 à chaque nombre entier, puis la largeur, la taille et la hauteur, une par une.](img/etape8-perlin.webp)
 > <!-- ws:anim {src: img/etape8-perlin.webm, chapters: img/etape8-perlin.vtt} -->
 
 > 🧰 **L'échelle**
-> Comme pour la vague : le nombre qui divise <var>x</var> et <var>z</var> règle la **largeur** des collines, celui qui multiplie le résultat leur **taille**, et ce que tu ajoutes, leur **hauteur**. À toi de choisir les trois.
+> Mêmes réglages que la vague. Le nombre qui divise <var>x</var> et <var>z</var> fait la **largeur**, celui qui multiplie fait la **taille**, celui que tu ajoutes fait la **hauteur**.
 
 > 🧰 **Les octaves**
-> Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chaque couche s'appelle une **octave**.
->
-> Chaque octave a sa propre largeur et sa propre taille : grandes pour les montagnes, petites pour les détails.
+> Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chacun s'appelle une **octave**, avec sa largeur et sa taille.
 >
 > ![Un grand bruit, un moyen, un petit, et leur somme.](img/outil-octaves.webp)
 > <!-- ws:anim {src: img/outil-octaves.webm, chapters: img/outil-octaves.vtt} -->
@@ -152,12 +150,11 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 ### Pièges
 
 - `perlin2d` avec des nombres **entiers** renvoie toujours 0 : `perlin2d(3, 7)` vaut 0. Divise toujours <var>x</var> et <var>z</var>.
-- Plus tu divises <var>x</var> et <var>z</var>, plus les collines sont **larges**. Plus tu multiplies le résultat, plus elles sont **hautes**.
 
 ### Défi
 <!-- ws:doit -->
 
-Calcule `h` avec `perlin2d`, à la bonne échelle, au lieu de tes deux `math.sin` : un relief naturel d'au moins **15 blocs de dénivelé** entre le point le plus bas et le plus haut, sans falaise de plus de 3 blocs. Les couches restent obligatoires.
+Calcule `h` avec `perlin2d`, à la bonne échelle, au lieu de tes deux `math.sin`. Il te faut un relief naturel : au moins **15 blocs** entre le point le plus bas et le plus haut, et aucune falaise de plus de **3 blocs**.
 
 Ce que tu dois avoir pour valider cette étape :
 - Un relief naturel fait avec perlin2d
@@ -237,7 +234,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > <!-- ws:anim {src: img/outil-dessus.webm, chapters: img/outil-dessus.vtt} -->
 
 > 🧰 **Remplir d'eau**
-> De l'eau de `h + 1` jusqu'au niveau de la mer. Si le sol est plus haut que la mer, la boucle ne fait **aucun tour** : pas d'eau. Pratique !
+> De l'eau de `h + 1` jusqu'au niveau de la mer.
 >
 > ```lua
 > local NIVEAU_MER = 22
@@ -255,9 +252,9 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 
 - `=` range une valeur, `==` compare. On écrit `if h == 20 then`.
 - L'eau se pose **au-dessus** du sol, jamais à sa place.
-- `h` à virgule ? Si `h` vaut 20,5, la boucle `for y = h + 1, NIVEAU_MER` compte 21,5 puis 22,5, qui dépasse 22 : il manque la couche du dessus de la mer. Arrondis `h` avec `math.floor` dans ta fonction `hauteur`.
+- `h` à virgule ? `for y = 21.5, 22` ne fait qu'un tour : il manque la couche du dessus de la mer. Arrondis `h` avec `math.floor` dans ta fonction `hauteur`.
 - Si `NIVEAU_MER` est plus bas que tout ton terrain, il n'y aura pas de mer du tout.
-- Les noms de blocs sont déjà pris : `NEIGE`, c'est le bloc. Si tu écris `NEIGE = 30` pour ta hauteur de neige, `set_block` reçoit 30 au lieu du bloc et refuse. Appelle-la `NIVEAU_NEIGE`, comme `NIVEAU_MER`.
+- `NEIGE`, c'est le bloc. Écris `NEIGE = 30` et `set_block` reçoit 30 à la place du bloc. Appelle ta hauteur de neige `NIVEAU_NEIGE`, comme `NIVEAU_MER`.
 
 ### Défi
 <!-- ws:doit -->
@@ -289,7 +286,7 @@ Une plage, c'est une colonne à peine plus haute que la mer : `h <= NIVEAU_MER +
 <!-- ws: {type: hint} -->
 <details><summary>Indice 3</summary>
 
-Sous l'eau, mets aussi du sable à la place de l'herbe et de la terre.
+Mets aussi du sable sous l'eau, à la place de l'herbe et de la terre.
 
 </details>
 
@@ -311,7 +308,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > ```
 
 > 🧰 **`get_block` et `while` « trouver le sol »**
-> `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au sol. `and` est vrai seulement si les deux conditions sont vraies.
+> `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au sol.
 >
 > ```lua
 > local x, z = 64, 64
@@ -322,11 +319,13 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > print("le sol est à y =", y)
 > ```
 >
+> `and` est vrai seulement si les deux conditions sont vraies.
+>
 > ![y descend du ciel tant que la case est de l'air, et s'arrête sur l'herbe.](img/outil-sol.webp)
 > <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
 
 > 🧰 **Une fonction arbre**
-> Un tronc de 5 blocs, puis des feuilles autour du haut. À toi de compléter la couronne. `y` est la case juste **au-dessus** de l'herbe : si ton `y` est le sol, appelle `arbre(x, y + 1, z)`, sinon le tronc remplace l'herbe.
+> Un tronc de 5 blocs, puis des feuilles autour du haut. À toi de compléter la couronne. `y` est la case juste **au-dessus** de l'herbe : appelle `arbre(x, y + 1, z)` quand ton `y` est le sol.
 >
 > ```lua
 > function arbre(x, y, z)
@@ -341,7 +340,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > <!-- ws:anim {src: img/outil-arbre.webm, chapters: img/outil-arbre.vtt} -->
 
 > 🧰 **`perlin3d` « creuser des grottes »**
-> Même idée que `perlin2d`, mais en 3D. Là où il dépasse un seuil, on **ne pose pas** de pierre : ça fait un trou. Plus le seuil est bas, plus les grottes sont grandes.
+> Même idée que `perlin2d`, mais en 3D. Là où il dépasse un seuil, on **ne pose pas** de pierre : ça fait un trou.
 >
 > ```lua
 > if perlin3d(x / 16, y / 10, z / 16) > 0.3 then
@@ -378,7 +377,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 ### Défi
 <!-- ws:doit -->
 
-Trois défis : au moins **10 arbres** plantés sur l'herbe, des **grottes** creusées avec `perlin3d`, et des **minerais** : du `CHARBON`, et du `DIAMANT` seulement tout au fond (<var>y</var> < 12).
+Trois défis. Au moins **10 arbres** plantés sur l'herbe. Des **grottes** creusées avec `perlin3d`. Des **minerais** : du `CHARBON` partout, du `DIAMANT` seulement tout au fond (<var>y</var> < 12).
 
 Ce que tu dois avoir pour valider cette étape :
 - Au moins 10 arbres
@@ -397,7 +396,7 @@ Et sous tes pieds :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Pour planter un arbre : tire <var>x</var> et <var>z</var> au hasard, cherche le sol avec `while`, et plante seulement si `get_block(x, y, z) == HERBE`.
+Tire <var>x</var> et <var>z</var> au hasard, cherche le sol avec `while`, et plante seulement si `get_block(x, y, z) == HERBE`.
 
 </details>
 
@@ -411,14 +410,14 @@ Plante les arbres **après** la double boucle du terrain, sinon il n'y a pas enc
 <!-- ws: {type: hint} -->
 <details><summary>Indice 3</summary>
 
-Pour les grottes, ne creuse pas trop près de la surface : par exemple seulement si `y < h - 5`.
+Ne creuse pas trop près de la surface : seulement si `y < h - 5`, par exemple.
 
 </details>
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 4</summary>
 
-Pour les minerais, remplace `PIERRE` par l'appel d'une fonction qui renvoie parfois un minerai.
+Remplace `PIERRE` par l'appel d'une fonction qui renvoie parfois un minerai.
 
 </details>
 
