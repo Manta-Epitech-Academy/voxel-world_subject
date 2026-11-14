@@ -357,14 +357,14 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > Une fonction peut **renvoyer** une valeur. Ici, elle choisit quel bloc poser.
 >
 > ```lua
-> function pierre(y)
+> function choisir_bloc(y)
 >   if y < 12 and random(1, 200) == 1 then
 >     return DIAMANT
 >   end
 >   return PIERRE
 > end
 >
-> print(pierre(5))
+> print(choisir_bloc(5))
 > ```
 <!-- /ws:toolbox -->
 
