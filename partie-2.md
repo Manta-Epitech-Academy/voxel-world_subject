@@ -137,6 +137,17 @@ Après avoir travaillé sur les effets spéciaux de *Tron* (1982), Ken Perlin tr
 > 🧰 **L'échelle**
 > Mêmes réglages que la vague. Le nombre qui divise <var>x</var> et <var>z</var> fait la **largeur**, celui qui multiplie fait la **taille**, celui que tu ajoutes fait la **hauteur**.
 
+> 🧰 **`return` « une fonction qui répond »**
+> Une fonction peut **renvoyer** une valeur avec `return` : celui qui l'appelle la récupère. `perlin2d` donne un nombre à virgule : pour `h`, termine par `return math.floor(…)`, les boucles de l'étape suivante en ont besoin.
+>
+> ```lua
+> function double(n)
+>   return n * 2
+> end
+>
+> print(double(21))
+> ```
+
 > 🧰 **Les octaves**
 > Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chacun s'appelle une **octave**, avec sa largeur et sa taille.
 >
@@ -353,8 +364,8 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > ![Un nombre par case ; au-dessus du seuil, on ne pose rien, et baisser le seuil agrandit les grottes.](img/outil-grottes.webp)
 > <!-- ws:anim {src: img/outil-grottes.webm, chapters: img/outil-grottes.vtt} -->
 
-> 🧰 **`return` « une fonction qui répond »**
-> Une fonction peut **renvoyer** une valeur. Ici, elle choisit quel bloc poser.
+> 🧰 **Une fonction qui choisit le bloc**
+> La fonction renvoie le bloc à poser : parfois un diamant, sinon de la pierre.
 >
 > ```lua
 > function choisir_bloc(y)
