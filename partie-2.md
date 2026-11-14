@@ -11,9 +11,9 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Boîte à outils
 
 > 🧰 **`math.sin` « la vague »**
-> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent : la **hauteur**, la **taille**, la **largeur**. L'animation les montre un par un. Dans ta ligne `h` : <var>x</var> divisé par la largeur dans `math.sin( )`, le résultat multiplié par la taille, la hauteur ajoutée devant. `math.` est la boîte à outils de Lua.
+> `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent : le **niveau**, l'**amplitude**, la **largeur**. L'animation les montre un par un. Dans ta ligne `h` : <var>x</var> divisé par la largeur dans `math.sin( )`, le résultat multiplié par l'amplitude, le niveau ajouté devant. `math.` est la boîte à outils de Lua.
 >
-> ![La vague, terme par terme : ÷ largeur l'élargit, × taille la grandit, + hauteur la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
+> ![La vague, terme par terme : ÷ largeur l'élargit, × amplitude la grandit, + niveau la monte, et les colonnes suivent la courbe.](img/etape6-vague.webp)
 > <!-- ws:anim {src: img/etape6-vague.webm, chapters: img/etape6-vague.vtt} -->
 
 <!-- /ws:toolbox -->
@@ -46,7 +46,7 @@ Garde ta fonction `colonne` telle quelle : seule la ligne qui calcule `h` change
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Commence avec une vague de petite taille, par exemple `2 * math.sin(x / 8)`, génère, puis augmente-la.
+Commence avec une vague de petite amplitude, par exemple `2 * math.sin(x / 8)`, génère, puis augmente-la.
 
 </details>
 
@@ -131,11 +131,11 @@ Après avoir travaillé sur les effets spéciaux de *Tron* (1982), Ken Perlin tr
 > print(perlin2d(50.1, 80.7))
 > ```
 >
-> ![Le bruit de Perlin : 0 à chaque nombre entier, puis la largeur, la taille et la hauteur, une par une.](img/etape8-perlin.webp)
+> ![Le bruit de Perlin : 0 à chaque nombre entier, puis la largeur, l'amplitude et le niveau, une par une.](img/etape8-perlin.webp)
 > <!-- ws:anim {src: img/etape8-perlin.webm, chapters: img/etape8-perlin.vtt} -->
 
 > 🧰 **L'échelle**
-> Mêmes réglages que la vague. Le nombre qui divise <var>x</var> et <var>z</var> fait la **largeur**, celui qui multiplie fait la **taille**, celui que tu ajoutes fait la **hauteur**.
+> Mêmes réglages que la vague. Le nombre qui divise <var>x</var> et <var>z</var> fait la **largeur**, celui qui multiplie fait l'**amplitude**, celui que tu ajoutes fait le **niveau**.
 
 > 🧰 **`return` « une fonction qui répond »**
 > Une fonction peut **renvoyer** une valeur avec `return` : celui qui l'appelle la récupère. `perlin2d` donne un nombre à virgule : pour `h`, termine par `return math.floor(…)`, les boucles de l'étape suivante en ont besoin.
@@ -149,7 +149,7 @@ Après avoir travaillé sur les effets spéciaux de *Tron* (1982), Ken Perlin tr
 > ```
 
 > 🧰 **Les octaves**
-> Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chacun s'appelle une **octave**, avec sa largeur et sa taille.
+> Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chacun s'appelle une **octave**, avec sa largeur et son amplitude.
 >
 > ![Un grand bruit, un moyen, un petit, et leur somme.](img/outil-octaves.webp)
 > <!-- ws:anim {src: img/outil-octaves.webm, chapters: img/outil-octaves.vtt} -->
