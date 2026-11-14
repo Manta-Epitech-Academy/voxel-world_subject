@@ -1,4 +1,4 @@
-# Étape 10, « get_block et while : trouver le sol » : y part du ciel, et
+# Étape 6, « get_block et while : trouver le sol » : y part du ciel, et
 # descend tant que la case est de l'AIR.
 #
 #   capture.py anim anim/sol.py TrouverLeSol -o img/outil-sol.webp
@@ -9,7 +9,7 @@ from commun import *
 class TrouverLeSol(Scene):
     def construct(self):
         self.next_section("on part du ciel")
-        prog = bloc_code(["local y = HAUTEUR - 1", "while y > 0 and get_block(x, y, z) == AIR do", "  y = y - 1", "end", 'print("le sol est à y =", y)'], 22).to_edge(LEFT, buff=0.5).shift(UP * 0.9)
+        prog = bloc_code(["y = HAUTEUR - 1", "while y > 0 and get_block(x, y, z) == AIR do", "  y = y - 1", "end", 'print("le sol est à y =", y)'], 22).to_edge(LEFT, buff=0.5).shift(UP * 0.9)
         self.play(Write(prog), run_time=1.4)
         g = Grille(cases=7, hauteur=24, largeur=3.2, haut=4.6, origine=RIGHT * 3.6 + DOWN * 0.4, y0=40)
         self.play(FadeIn(g.lignes(opacite=0.15)), FadeIn(g.axe_y(pas=4)), run_time=0.6)

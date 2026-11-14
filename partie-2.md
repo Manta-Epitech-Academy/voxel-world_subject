@@ -138,7 +138,7 @@ Après avoir travaillé sur les effets spéciaux de *Tron* (1982), Ken Perlin tr
 > Mêmes réglages que la vague. Le nombre qui divise <var>x</var> et <var>z</var> fait la **largeur**, celui qui multiplie fait l'**amplitude**, celui que tu ajoutes fait le **niveau**.
 
 > 🧰 **`return` « une fonction qui répond »**
-> Une fonction peut **renvoyer** une valeur avec `return` : celui qui l'appelle la récupère. `perlin2d` donne un nombre à virgule : pour `h`, termine par `return math.floor(…)`, les boucles de l'étape suivante en ont besoin.
+> Une fonction peut **renvoyer** une valeur avec `return` : celui qui l'appelle la récupère.
 >
 > ```lua
 > function double(n)
@@ -241,7 +241,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > set_block(x, h, z, dessus)
 > ```
 >
-> ![Au-dessus de 34, le dessus devient NEIGE.](img/outil-dessus.webp)
+> ![À partir de 34, le dessus devient NEIGE.](img/outil-dessus.webp)
 > <!-- ws:anim {src: img/outil-dessus.webm, chapters: img/outil-dessus.vtt} -->
 
 > 🧰 **Remplir d'eau**
@@ -263,7 +263,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 
 - `=` range une valeur, `==` compare. On écrit `if h == 20 then`.
 - L'eau se pose **au-dessus** du sol, jamais à sa place.
-- `h` à virgule ? `for y = 21.5, 22` ne fait qu'un tour : il manque la couche du dessus de la mer. Arrondis `h` avec `math.floor` dans ta fonction `hauteur`.
+- `h` à virgule ? `for y = 21.5, 22` ne fait qu'un tour : il manque la couche du dessus de la mer. Arrondis `h` dans ta fonction `hauteur` : `math.floor(21.5)` vaut 21.
 - Si `NIVEAU_MER` est plus bas que tout ton terrain, il n'y aura pas de mer du tout.
 - Tes arbres de l'étape 6 restent plantés après la double boucle : grâce au test `== HERBE`, aucun ne pousse dans la mer ni sur le sable.
 - `NEIGE`, c'est le bloc. Écris `NEIGE = 30` et `set_block` reçoit 30 à la place du bloc. Appelle ta hauteur de neige `NIVEAU_NEIGE`, comme `NIVEAU_MER`.
@@ -307,7 +307,7 @@ Mets aussi du sable sous l'eau, à la place de l'herbe et de la terre.
 
 Ton monde a des mers, des plages et des montagnes. Il est prêt à accueillir la vie… et les mineurs.
 
-Il manque, sous tes pieds, des **grottes** remplies de **trésors**. Dernière ligne droite avant un générateur complet !
+Il manque, sous tes pieds, des **grottes** remplies de **minerais**. Dernière ligne droite avant un générateur complet !
 
 <!-- ws:toolbox -->
 ### Boîte à outils

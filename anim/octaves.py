@@ -1,4 +1,4 @@
-# Étape 8, « Les octaves » : un grand bruit pour les montagnes, un moyen pour
+# Étape 9, « Les octaves » : un grand bruit pour les montagnes, un moyen pour
 # les bosses, un petit pour les détails, et leur somme.
 #
 #   capture.py anim anim/octaves.py LesOctaves -o img/outil-octaves.webp
@@ -42,7 +42,7 @@ class LesOctaves(Scene):
         self.play(FadeIn(ph)); self.wait(1.2)
 
         self.next_section("on les additionne")
-        f4 = formule("n = grand + moyen + petit", 26)
+        f4 = formule("h = grand + moyen + petit", 26)
         somme = courbe(lambda x: perlin2d(x / 60, 7) * 24 + perlin2d(x / 24, 7) * 6 + perlin2d(x / 8, 7) * 1.5, WHITE, 5)
         self.play(Transform(f1, f4), FadeOut(ph), c1.animate.set_stroke(opacity=0.3), c2.animate.set_stroke(opacity=0.3), c3.animate.set_stroke(opacity=0.3), run_time=0.8)
         self.play(Create(somme), run_time=1.6)

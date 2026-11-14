@@ -53,7 +53,6 @@ Ici, pas de pioche. Les blocs apparaissent quand tu **écris du code**.
 
 > 🧰 **Les types de bloc**
 > Le type de bloc s'écrit en **MAJUSCULES** : `PIERRE`, `TERRE`, `HERBE`, `SABLE`, `EAU`, `BOIS`, `FEUILLES`, `NEIGE`, `GLACE`, `GRAVIER`, `CHARBON`, `FER`, `DIAMANT`, `BEDROCK`, et `AIR` pour effacer.
-> Tes propres constantes peuvent être en majuscules aussi, comme `SOL`. Mais ne reprends jamais le nom d'un bloc : `pierre` et `PIERRE` sont deux noms différents.
 >
 > ```lua
 > set_block(64, 11, 64, DIAMANT)
@@ -445,7 +444,8 @@ Ta pente est nue. Plante-lui quelques arbres.
 > `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au sol.
 >
 > ```lua
-> x, z = 64, 64
+> x = 64
+> z = 64
 > y = HAUTEUR - 1
 > while y > 0 and get_block(x, y, z) == AIR do
 >   y = y - 1
@@ -459,7 +459,7 @@ Ta pente est nue. Plante-lui quelques arbres.
 > <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
 
 > 🧰 **Une fonction arbre**
-> Un tronc de 5 blocs, puis des feuilles autour du haut. À toi de compléter la couronne. `y` est la case juste **au-dessus** de l'herbe : appelle `arbre(x, y + 1, z)` quand ton `y` est le sol.
+> Un tronc de 5 blocs et un bloc de feuilles au sommet. À toi de rajouter quelques blocs de feuilles autour du sommet du tronc. `y` est la case juste **au-dessus** de l'herbe : appelle `arbre(x, y + 1, z)` quand ton `y` est le sol.
 >
 > ```lua
 > function arbre(x, y, z)
@@ -470,7 +470,7 @@ Ta pente est nue. Plante-lui quelques arbres.
 > end
 > ```
 >
-> ![Un tronc de cinq blocs, une feuille au sommet, puis une couronne.](img/outil-arbre.webp)
+> ![Un tronc de cinq blocs, une feuille au sommet, puis les feuilles autour.](img/outil-arbre.webp)
 > <!-- ws:anim {src: img/outil-arbre.webm, chapters: img/outil-arbre.vtt} -->
 <!-- /ws:toolbox -->
 

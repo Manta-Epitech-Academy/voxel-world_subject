@@ -9,7 +9,7 @@ from commun import *
 class LesVariables(Scene):
     def construct(self):
         self.next_section("SOL = 20")
-        prog = bloc_code(["local SOL = 20", "set_block(64, SOL, 64, HERBE)", "set_block(64, SOL - 1, 64, TERRE)"], 26).to_edge(UP, buff=0.5).to_edge(LEFT, buff=0.6)
+        prog = bloc_code(["SOL = 20", "set_block(64, SOL, 64, HERBE)", "set_block(64, SOL - 1, 64, TERRE)"], 26).to_edge(UP, buff=0.5).to_edge(LEFT, buff=0.6)
         self.play(Write(prog), run_time=1.4)
         boite = RoundedRectangle(width=2.2, height=1.1, corner_radius=0.15, stroke_color=ALERTE, fill_color=PANNEAU, fill_opacity=1).to_edge(RIGHT, buff=1.2).shift(UP * 1.6)
         nom = Text("SOL", font="DejaVu Sans Mono", font_size=22, color=DOUX).next_to(boite, UP, buff=0.1)
@@ -27,7 +27,7 @@ class LesVariables(Scene):
         self.wait(1.4)
 
         self.next_section("on change SOL une seule fois")
-        self.play(Transform(prog[0], code("local SOL = 26", 26).move_to(prog[0], aligned_edge=LEFT)),
+        self.play(Transform(prog[0], code("SOL = 26", 26).move_to(prog[0], aligned_edge=LEFT)),
                   Transform(val, code("26", 34, ALERTE).move_to(boite)), run_time=0.8)
         herbe2 = g.bloc(3, 26, "HERBE"); terre2 = g.bloc(3, 25, "TERRE")
         self.play(Transform(herbe, herbe2), Transform(terre, terre2),
