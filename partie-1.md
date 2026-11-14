@@ -200,7 +200,7 @@ end
 
 ### Bonus
 
-Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `%` n'est pas un pourcentage, c'est le **reste de la division**. `7 % 2` vaut 1, et `(x + z) % 2` vaut 0 ou 1.
+Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `%` correspond à l'opérateur "modulo", c'est le **reste de la division**. `7 % 2` vaut 1, et `(x + z) % 2` vaut 0 ou 1.
 
 ## Étape 3 : Une colonne
 <!-- ws: {type: exercise, id: une-colonne, points: 150, validation: checkpoint} -->
@@ -313,7 +313,7 @@ Dans chaque colonne, de bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIER
 Ce que tu dois avoir pour valider cette étape :
 - 1 Bedrock, un certain nombre de bloc de pierre, 3 terre, 1 herbe
 
-Pour vérifier encore : change `SOL` en 30, puis clique sur **▶ Générer**. Tout ton monde doit monter d'un coup.
+Pour vérifier: comme pour l'étape précedente, change la valeur de SOL. Tout ton monde doit monter d'un coup.
 
 Tu dois obtenir quelque chose comme ça :
 

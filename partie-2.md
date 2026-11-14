@@ -77,7 +77,6 @@ Ton monde ressemble à une **tôle ondulée** sur un seul axe. Il manque des bos
 
 ### Pièges
 
-- Les deux vagues s'ajoutent : au pire, `h` monte de la somme des deux tailles, et descend d'autant. Vérifie que `h` reste entre 5 et 63.
 - Si tu écris `math.sin(x / 8 + z / 11)`, c'est **une seule** vague, en diagonale. Il faut deux `math.sin`.
 
 ### Défi
@@ -105,7 +104,7 @@ Ta ligne `h` a déjà une vague qui dépend de <var>x</var>. Ajoute-lui une deux
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Si le terrain fait des marches trop hautes, baisse les deux tailles, ou augmente les deux largeurs.
+Si le terrain fait des marches trop hautes: ajuste les paramètres de ta vague.
 
 </details>
 
@@ -165,7 +164,7 @@ Ce que tu dois avoir pour valider cette étape :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Avec le bruit, les collines n'ont plus rien de régulier : des vallées, des sommets, des pentes douces.](img/etape8-resultat.png)
+![Avec le bruit, les collines sont beaucoup moins régulières : des vallées, des sommets, des pentes douces.](img/etape8-resultat.png)
 <!-- ws:scene {src: scenes/etape8.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
@@ -312,7 +311,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > ```
 
 > 🧰 **`get_block` et `while` « trouver le sol »**
-> `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au premier bloc. `local x, z = 64, 64` crée deux variables d'un coup ; `and` est vrai seulement si les deux conditions sont vraies.
+> `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au sol. `and` est vrai seulement si les deux conditions sont vraies.
 >
 > ```lua
 > local x, z = 64, 64
