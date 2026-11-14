@@ -214,7 +214,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > `if` exécute du code seulement si une condition est vraie. `elseif` teste une autre condition, `else` s'occupe de tous les autres cas.
 >
 > ```lua
-> local h = 30
+> h = 30
 > if h < 20 then
 >   print("bas")
 > elseif h > 35 then
@@ -234,7 +234,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > On range le type de bloc dans une variable, et on la change si besoin avant de poser.
 >
 > ```lua
-> local dessus = HERBE
+> dessus = HERBE
 > if h >= 34 then
 >   dessus = NEIGE
 > end
@@ -248,7 +248,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > De l'eau de `h + 1` jusqu'au niveau de la mer.
 >
 > ```lua
-> local NIVEAU_MER = 22
+> NIVEAU_MER = 22
 > for y = h + 1, NIVEAU_MER do
 >   set_block(x, y, z, EAU)
 > end
@@ -322,8 +322,8 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au sol.
 >
 > ```lua
-> local x, z = 64, 64
-> local y = HAUTEUR - 1
+> x, z = 64, 64
+> y = HAUTEUR - 1
 > while y > 0 and get_block(x, y, z) == AIR do
 >   y = y - 1
 > end
