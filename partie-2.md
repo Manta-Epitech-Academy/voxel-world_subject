@@ -117,7 +117,7 @@ Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 
 Vole tout en haut et regarde : la nature ne se répète pas comme ça.
 
-En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit** qui ressemble au hasard tout en restant doux. Il reçoit un Oscar pour ça. Minecraft s'en sert pour dessiner tous ses terrains.
+Après avoir travaillé sur les effets spéciaux de *Tron* (1982), Ken Perlin trouve les images de synthèse trop lisses, trop « machine ». En 1983, il invente un **bruit** qui ressemble au hasard tout en restant doux : une suite de nombres qui a l'air tirée au sort. Il reçoit un Oscar technique pour ça. Minecraft s'en sert pour dessiner tous ses terrains.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
