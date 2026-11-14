@@ -26,7 +26,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Défi
 <!-- ws:doit -->
 
-Fais onduler ton terrain le long de <var>x</var> avec `math.sin` : au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines. Les couches de l'étape 4 restent obligatoires.
+Fais onduler ton terrain le long de <var>x</var> avec `math.sin`. Il te faut au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines. Les couches de l'étape 4 restent obligatoires.
 
 Ce que tu dois avoir pour valider cette étape :
 - Des collines douces avec les bonnes couches
@@ -135,7 +135,7 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 > <!-- ws:anim {src: img/etape8-perlin.webm, chapters: img/etape8-perlin.vtt} -->
 
 > 🧰 **L'échelle**
-> Comme pour la vague : le nombre qui divise <var>x</var> et <var>z</var> règle la **largeur** des collines, celui qui multiplie le résultat leur **taille**, et ce que tu ajoutes, leur **hauteur**. À toi de choisir les trois.
+> Mêmes réglages que la vague. Le nombre qui divise <var>x</var> et <var>z</var> fait la **largeur**, celui qui multiplie fait la **taille**, celui que tu ajoutes fait la **hauteur**.
 
 > 🧰 **Les octaves**
 > Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chacun s'appelle une **octave**, avec sa largeur et sa taille.
@@ -154,7 +154,7 @@ En 1983, pour les effets spéciaux du film *Tron*, Ken Perlin invente un **bruit
 ### Défi
 <!-- ws:doit -->
 
-Calcule `h` avec `perlin2d`, à la bonne échelle, au lieu de tes deux `math.sin` : un relief naturel d'au moins **15 blocs de dénivelé** entre le point le plus bas et le plus haut, sans falaise de plus de 3 blocs. Les couches restent obligatoires.
+Calcule `h` avec `perlin2d`, à la bonne échelle, au lieu de tes deux `math.sin`. Il te faut un relief naturel : au moins **15 blocs** entre le point le plus bas et le plus haut, et aucune falaise de plus de **3 blocs**. Les couches restent obligatoires.
 
 Ce que tu dois avoir pour valider cette étape :
 - Un relief naturel fait avec perlin2d
@@ -252,9 +252,9 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 
 - `=` range une valeur, `==` compare. On écrit `if h == 20 then`.
 - L'eau se pose **au-dessus** du sol, jamais à sa place.
-- `h` à virgule ? Si `h` vaut 20,5, la boucle `for y = h + 1, NIVEAU_MER` compte 21,5 puis 22,5, qui dépasse 22 : il manque la couche du dessus de la mer. Arrondis `h` avec `math.floor` dans ta fonction `hauteur`.
+- `h` à virgule ? `for y = 21.5, 22` ne fait qu'un tour : il manque la couche du dessus de la mer. Arrondis `h` avec `math.floor` dans ta fonction `hauteur`.
 - Si `NIVEAU_MER` est plus bas que tout ton terrain, il n'y aura pas de mer du tout.
-- Les noms de blocs sont déjà pris : `NEIGE`, c'est le bloc. Si tu écris `NEIGE = 30` pour ta hauteur de neige, `set_block` reçoit 30 au lieu du bloc et refuse. Appelle-la `NIVEAU_NEIGE`, comme `NIVEAU_MER`.
+- `NEIGE`, c'est le bloc. Écris `NEIGE = 30` et `set_block` reçoit 30 à la place du bloc. Appelle ta hauteur de neige `NIVEAU_NEIGE`, comme `NIVEAU_MER`.
 
 ### Défi
 <!-- ws:doit -->
@@ -323,7 +323,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 > <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
 
 > 🧰 **Une fonction arbre**
-> Un tronc de 5 blocs, puis des feuilles autour du haut. À toi de compléter la couronne. `y` est la case juste **au-dessus** de l'herbe : si ton `y` est le sol, appelle `arbre(x, y + 1, z)`, sinon le tronc remplace l'herbe.
+> Un tronc de 5 blocs, puis des feuilles autour du haut. À toi de compléter la couronne. `y` est la case juste **au-dessus** de l'herbe : appelle `arbre(x, y + 1, z)` quand ton `y` est le sol.
 >
 > ```lua
 > function arbre(x, y, z)
@@ -375,7 +375,7 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 ### Défi
 <!-- ws:doit -->
 
-Trois défis : au moins **10 arbres** plantés sur l'herbe, des **grottes** creusées avec `perlin3d`, et des **minerais** : du `CHARBON`, et du `DIAMANT` seulement tout au fond (<var>y</var> < 12).
+Trois défis. Au moins **10 arbres** plantés sur l'herbe. Des **grottes** creusées avec `perlin3d`. Des **minerais** : du `CHARBON` partout, du `DIAMANT` seulement tout au fond (<var>y</var> < 12).
 
 Ce que tu dois avoir pour valider cette étape :
 - Au moins 10 arbres

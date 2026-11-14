@@ -1,6 +1,6 @@
 # Partie 1 : du premier bloc à la fonction colonne
 
-Cinq étapes, dans l'ordre. Chacune te donne les outils dont tu as besoin, te prévient des pièges, puis te lance un défi ; quand ton monde est prêt, l'encadrant valide l'étape avec un code de validation. Les indices sont là si tu bloques. D'une étape à l'autre, tu **gardes ton code** et tu le transformes.
+Cinq étapes, dans l'ordre. Chacune te donne les outils, te prévient des pièges, puis te lance un défi. Quand ton monde est prêt, l'encadrant valide l'étape avec un code de validation. Les indices sont là si tu bloques. D'une étape à l'autre, tu **gardes ton code** et tu le transformes.
 
 **Comment ça marche**
 
@@ -53,7 +53,7 @@ Ici, pas de pioche. Les blocs apparaissent quand tu **écris du code**.
 
 > 🧰 **Les types de bloc**
 > Le type de bloc s'écrit en **MAJUSCULES** : `PIERRE`, `TERRE`, `HERBE`, `SABLE`, `EAU`, `BOIS`, `FEUILLES`, `NEIGE`, `GLACE`, `GRAVIER`, `CHARBON`, `FER`, `DIAMANT`, `BEDROCK`, et `AIR` pour effacer.
-> Tu pourras écrire tes propres constantes en majuscules aussi (`SOL`), mais jamais avec le nom d'un bloc : `pierre` et `PIERRE` sont deux noms différents, et les noms du glossaire sont déjà pris.
+> Tes propres constantes peuvent être en majuscules aussi, comme `SOL`. Mais ne reprends jamais le nom d'un bloc : `pierre` et `PIERRE` sont deux noms différents.
 >
 > ```lua
 > set_block(64, 11, 64, DIAMANT)
@@ -205,7 +205,7 @@ Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `%` correspond à l'
 ## Étape 3 : Une colonne
 <!-- ws: {type: exercise, id: une-colonne, points: 150, validation: checkpoint} -->
 
-Creuse dans Minecraft : sous l'herbe il y a de la terre, puis de la pierre, et tout au fond la **bedrock** que rien ne peut casser.
+Dans Minecraft, sous l'herbe il y a de la terre, puis de la pierre. Tout au fond, la **bedrock** : incassable.
 
 Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et on tombe dans le vide.
 
@@ -350,7 +350,7 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 ### Boîte à outils
 
 > 🧰 **Écrire sa propre fonction avec `function`**
-> Tu peux ranger du code sous un nom, puis le réutiliser. <var>x</var>, <var>z</var> et `h` sont les **paramètres** : des variables qui reçoivent les valeurs données à l'appel.
+> Tu ranges du code sous un nom, puis tu le réutilises. <var>x</var>, <var>z</var> et `h` sont les **paramètres** : ils reçoivent les valeurs données à l'appel.
 >
 > ```lua
 > function colonne(x, z, h)
@@ -385,7 +385,7 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 ### Défi
 <!-- ws:doit -->
 
-Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis fais monter ton terrain en **pente douce** le long de <var>x</var> : chaque colonne aussi haute que sa voisine, ou un bloc plus haut, avec au moins **8 hauteurs différentes**. Les couches de l'étape 4 restent obligatoires.
+Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis fais monter ton terrain en **pente douce** le long de <var>x</var> : chaque colonne est aussi haute que sa voisine, ou un bloc plus haut. Il te faut au moins **8 hauteurs différentes**. Les couches de l'étape 4 restent obligatoires.
 
 Vérifie en volant le long de ta pente.
 
