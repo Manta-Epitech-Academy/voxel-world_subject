@@ -104,7 +104,7 @@ Ta ligne `h` a déjà une vague qui dépend de <var>x</var>. Ajoute-lui une deux
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Si le terrain fait des marches trop hautes: ajuste les paramètres de ta vague.
+Si le terrain fait des marches trop hautes : ajuste les paramètres de ta vague.
 
 </details>
 
