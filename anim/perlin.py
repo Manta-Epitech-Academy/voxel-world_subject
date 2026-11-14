@@ -76,15 +76,20 @@ class LePerlin(Scene):
         def courbe(f, couleur=CIEL):
             return axes.plot(f, x_range=[0, 127, 0.25], color=couleur, stroke_width=4)
 
-        self.next_section("avec des entiers : toujours 0")
-        # 1. Avec des entiers : 0, toujours. Le bruit existe entre les entiers,
-        # mais on ne l'y regarde jamais.
+        # 0. Le 7 de la formule : z ne bouge pas, on regarde une seule ligne.
+        self.next_section("z reste fixe : une seule ligne du monde")
         f = formule("h = perlin2d(x, 7)")
         vrai = courbe(lambda x: perlin2d(x, 7), couleur=CIEL).set_stroke(opacity=0.35)
         points = VGroup(*[Dot(axes.c2p(x, perlin2d(x, 7)), radius=0.05, color=ALERTE) for x in range(0, 128)])
         self.play(Write(f), Create(vrai), run_time=1.3)
+        n0 = note("z reste fixe à 7, pour voir une seule ligne du monde", CIEL)
+        self.play(FadeIn(n0)); self.wait(1.8)
+
+        self.next_section("avec des entiers : toujours 0")
+        # 1. Avec des entiers : 0, toujours. Le bruit existe entre les entiers,
+        # mais on ne l'y regarde jamais.
         n = note("entre deux nombres entiers, le bruit ondule…", DOUX)
-        self.play(FadeIn(n)); self.wait(1.0)
+        self.play(FadeOut(n0), FadeIn(n)); self.wait(1.0)
         n2 = note("mais à chaque nombre entier, il vaut exactement 0 : terrain plat", ALERTE)
         self.play(FadeOut(n), LaggedStart(*[FadeIn(d, scale=0.3) for d in points], lag_ratio=0.01), run_time=1.6)
         self.play(FadeIn(n2)); self.wait(1.6)

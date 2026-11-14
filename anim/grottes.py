@@ -1,4 +1,4 @@
-# Étape 10, « perlin3d : creuser des grottes » : sur une tranche du monde, le
+# Étape 11, « perlin3d : creuser des grottes » : sur une tranche du monde, le
 # bruit 3D donne un nombre par case ; là où il dépasse le seuil, on ne pose
 # rien, et un trou apparaît. Plus le seuil baisse, plus les grottes grandissent.
 #
@@ -31,7 +31,7 @@ class LesGrottes(Scene):
                 c = Square(side_length=g.pas, fill_color=teinte, fill_opacity=0.9, stroke_width=0).move_to(g.centre(x, y))
                 cases.add(c)
         self.play(FadeIn(cases), run_time=1.2)
-        ph = phrase("perlin3d donne un nombre entre -1 et 1 à chaque case : clair, c'est haut", CIEL)
+        ph = phrase("perlin3d donne un nombre entre -1 et 1 à chaque case : clair, nombre élevé", CIEL)
         self.play(FadeIn(ph)); self.wait(1.4)
 
         def creuser(seuil, section, texte):
@@ -41,15 +41,15 @@ class LesGrottes(Scene):
                 (vide if v > seuil else pierre).add(g.bloc(x, y, "PIERRE"))
             return pierre, vide
 
-        pierre, vide = creuser(0.3, "seuil 0,3 : au-dessus, on ne pose rien", "")
+        pierre, vide = creuser(0.3, "seuil 0.3 : si le nombre le dépasse, on ne pose rien", "")
         self.play(FadeOut(ph), FadeIn(pierre), run_time=1.0)
         trous = VGroup(*[Square(side_length=g.pas, stroke_color=ALERTE, stroke_width=1.5).move_to(c.get_center()) for c in vide])
         self.play(Create(trous), run_time=0.8); self.wait(0.4)
         self.play(FadeOut(trous), FadeOut(cases), run_time=0.5)
-        ph = phrase("seuil 0,3 : les cases au-dessus restent vides, ce sont les grottes", ALERTE)
+        ph = phrase("les cases dont le nombre dépasse 0.3 restent vides, ce sont les grottes", ALERTE)
         self.play(FadeIn(ph)); self.wait(1.4)
 
-        pierre2, vide2 = creuser(0.1, "seuil 0,1 : des grottes plus grandes", "")
+        pierre2, vide2 = creuser(0.1, "seuil 0.1 : des grottes plus grandes", "")
         self.play(FadeOut(ph), Transform(pierre, pierre2), run_time=1.0)
-        self.play(FadeIn(phrase("seuil 0,1 : plus de cases dépassent, les grottes grandissent", CIEL)))
+        self.play(FadeIn(phrase("seuil 0.1 : plus de cases dépassent, les grottes grandissent", CIEL)))
         self.wait(1.8)

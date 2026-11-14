@@ -52,5 +52,5 @@ class LesColonnes(Scene):
             if cx == x: continue
             autres.add(VGroup(*[g.bloc(cx, y, t) for y, t in couches]))
         self.play(LaggedStart(*[FadeIn(c, shift=UP * 0.1) for c in autres], lag_ratio=0.08), run_time=2.2)
-        self.play(FadeIn(phrase("si tu sais construire une colonne, la double boucle construit les 16 384 autres", ALERTE)))
+        self.play(FadeIn(phrase("si tu sais construire une colonne, la double boucle construit toutes les autres", ALERTE)))
         self.wait(1.8)

@@ -1,4 +1,4 @@
-# Étape 9, « if : faire un choix » et « Choisir le bloc du dessus » : une
+# Étape 10, « if : faire un choix » et « Choisir le bloc du dessus » : une
 # condition vraie ou fausse décide ce qui est exécuté ; puis le bloc du dessus
 # qui dépend de la hauteur.
 #
@@ -10,14 +10,15 @@ from commun import *
 
 class LeChoix(Scene):
     def construct(self):
-        prog = bloc_code(["local h = 30", "if h < 20 then", '  print("bas")', "elseif h > 35 then", '  print("haut")', "else", '  print("au milieu")', "end"], 24).to_edge(LEFT, buff=0.8).shift(UP * 0.3)
+        prog = bloc_code(["h = 30", "if h < 20 then", '  print("bas")', "elseif h > 35 then", '  print("haut")', "else", '  print("au milieu")', "end"], 24).to_edge(LEFT, buff=0.8).shift(UP * 0.3)
         self.play(Write(prog), run_time=1.6)
         hval = code("h = 30", 34, ALERTE).to_edge(RIGHT, buff=1.4).shift(UP * 2.2)
         self.play(FadeIn(hval))
 
         def essai(h, tests, elu, texte, section):
             self.next_section(section)
-            self.play(Transform(hval, code(f"h = {h}", 34, ALERTE).move_to(hval)), run_time=0.5)
+            self.play(Transform(hval, code(f"h = {h}", 34, ALERTE).move_to(hval)),
+                      Transform(prog[0], code(f"h = {h}", 24).move_to(prog[0], aligned_edge=LEFT)), run_time=0.5)
             resultat = None
             for ligne, verdict in tests:
                 cadre = SurroundingRectangle(prog[ligne], color=ALERTE, buff=0.06)
@@ -39,7 +40,7 @@ class LeChoix(Scene):
 class LeBlocDuDessus(Scene):
     def construct(self):
         self.next_section("dessus = HERBE, sauf si h ≥ 34")
-        prog = bloc_code(["local dessus = HERBE", "if h >= 34 then", "  dessus = NEIGE", "end", "set_block(x, h, z, dessus)"], 24).to_edge(LEFT, buff=0.7).shift(UP * 0.4)
+        prog = bloc_code(["dessus = HERBE", "if h >= 34 then", "  dessus = NEIGE", "end", "set_block(x, h, z, dessus)"], 24).to_edge(LEFT, buff=0.7).shift(UP * 0.4)
         self.play(Write(prog), run_time=1.4)
         g = Grille(cases=14, hauteur=40, largeur=6.2, haut=4.6, origine=RIGHT * 3.2 + DOWN * 0.4)
         self.play(FadeIn(g.lignes(opacite=0.12)), FadeIn(g.axe_y(pas=8)), run_time=0.6)
@@ -54,5 +55,5 @@ class LeBlocDuDessus(Scene):
             col = VGroup(*[g.bloc(x, y, "TERRE") for y in range(h - 3, h)] + [g.bloc(x, y, "PIERRE") for y in range(1, h - 3)] + [g.bloc(x, 0, "BEDROCK")])
             self.play(FadeIn(col), Create(cadre), run_time=0.25)
             self.play(FadeIn(g.bloc(x, h, dessus), scale=0.6), FadeOut(cadre), run_time=0.25)
-        self.play(FadeIn(phrase("au-dessus de 34, le dessus devient NEIGE ; ailleurs, il reste HERBE", CIEL)))
+        self.play(FadeIn(phrase("à partir de 34, le dessus devient NEIGE ; ailleurs, il reste HERBE", CIEL)))
         self.wait(1.8)
