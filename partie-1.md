@@ -384,17 +384,22 @@ Chaque colonne doit avoir *sa propre* hauteur.
 ### Défi
 <!-- ws:doit -->
 
-Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis fais monter ton terrain en **pente douce** le long de <var>x</var> : chaque colonne est aussi haute que sa voisine, ou un bloc plus haut. Il te faut au moins **8 hauteurs différentes**. Les couches de l'étape 4 restent obligatoires.
+Range la construction d'une colonne dans une fonction `colonne(x, z, h)`. Puis fais monter ton terrain d'un bord à l'autre, en **pente régulière**, sans falaise. Les couches de l'étape 4 restent obligatoires.
 
-Vérifie en volant le long de ta pente.
+Ce que tu dois avoir pour valider cette étape :
 
-- elle monte d'un bord du monde à l'autre, sans marche de plus d'un bloc ;
+- ton terrain monte d'un côté à l'autre, sans falaise ;
 - sur la tranche, chaque colonne a ses couches.
 
 Tu dois obtenir quelque chose comme ça :
 
 ![Le terrain monte en escalier doux d'un bord à l'autre du monde, avec les couches visibles sur la tranche.](img/etape5-resultat.png)
 <!-- ws:scene {src: scenes/etape5.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+
+Et voilà ce qu'on ne veut **pas** : des falaises.
+
+![Un escalier de marches de six blocs : à chaque marche, une falaise. Ce n'est pas une pente.](img/etape5-falaise.png)
+<!-- ws:scene {src: scenes/etape5-falaise.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
