@@ -8,20 +8,21 @@ Moteur : **voxel-world** (lua).
 
 ## Parcours
 
-### Partie 1 : du premier bloc à la fonction colonne
+### Partie 1 : du premier bloc aux premiers arbres
 
 - Étape 1 : Premier bloc (2 indices)
 - Étape 2 : Le sol plat (3 indices)
 - Étape 3 : Une colonne (3 indices)
 - Étape 4 : Le monde en colonnes (2 indices)
 - Étape 5 : La fonction colonne (3 indices)
+- Étape 6 : Les arbres (2 indices)
 
 ### Partie 2 : des collines au monde entier
 
-- Étape 6 : La vague (3 indices)
-- Étape 7 : Les collines (2 indices)
-- Étape 8 : Le vrai relief (3 indices)
-- Étape 9 : Mers, plages et neige (3 indices)
-- Étape 10 : Forêts, grottes et minerais (4 indices)
+- Étape 7 : La vague (3 indices)
+- Étape 8 : Les collines (2 indices)
+- Étape 9 : Le vrai relief (3 indices)
+- Étape 10 : Mers, plages et neige (3 indices)
+- Étape 11 : Grottes et minerais (2 indices)
 
-**10 étapes**, 28 indices, 31 images, 10 scènes 3D, 17 animations à chapitres.
+**11 étapes**, 28 indices, 33 images, 12 scènes 3D, 17 animations à chapitres.

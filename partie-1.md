@@ -1,6 +1,6 @@
-# Partie 1 : du premier bloc à la fonction colonne
+# Partie 1 : du premier bloc aux premiers arbres
 
-Cinq étapes, dans l'ordre. Chacune te donne les outils, te prévient des pièges, puis te lance un défi. Quand ton monde est prêt, l'encadrant valide l'étape avec un code de validation. Les indices sont là si tu bloques. D'une étape à l'autre, tu **gardes ton code** et tu le transformes.
+Six étapes, dans l'ordre. Chacune te donne les outils, te prévient des pièges, puis te lance un défi. Quand ton monde est prêt, l'encadrant valide l'étape avec un code de validation. Les indices sont là si tu bloques. D'une étape à l'autre, tu **gardes ton code** et tu le transformes.
 
 **Comment ça marche**
 
@@ -425,3 +425,87 @@ Ta pente monte trop vite ? **Divise** <var>x</var> par un plus grand nombre.
 ### Bonus
 
 Fais monter la pente en diagonale : que `h` dépende de <var>x</var> **et** de <var>z</var>.
+
+## Étape 6 : Les arbres
+<!-- ws: {type: exercise, id: arbres, points: 150, validation: checkpoint} -->
+
+Ta pente est nue. Plante-lui quelques arbres.
+
+<!-- ws:toolbox -->
+### Boîte à outils
+
+> 🧰 **`random(a, b)` « lancer un dé »**
+> `random(1, 6)` donne un nombre entier entre 1 et 6, comme un dé. Il dépend de la **seed**, le nombre en haut du monde : même seed, mêmes tirages, donc même monde.
+>
+> ```lua
+> print(random(1, 6), random(1, 6), random(0, TAILLE - 1))
+> ```
+
+> 🧰 **`get_block` et `while` « trouver le sol »**
+> `get_block(x, y, z)` dit quel bloc se trouve à un endroit. `while` répète *tant que* la condition est vraie : on descend depuis le ciel jusqu'au sol.
+>
+> ```lua
+> x, z = 64, 64
+> y = HAUTEUR - 1
+> while y > 0 and get_block(x, y, z) == AIR do
+>   y = y - 1
+> end
+> print("le sol est à y =", y)
+> ```
+>
+> `and` est vrai seulement si les deux conditions sont vraies.
+>
+> ![y descend du ciel tant que la case est de l'air, et s'arrête sur l'herbe.](img/outil-sol.webp)
+> <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
+
+> 🧰 **Une fonction arbre**
+> Un tronc de 5 blocs, puis des feuilles autour du haut. À toi de compléter la couronne. `y` est la case juste **au-dessus** de l'herbe : appelle `arbre(x, y + 1, z)` quand ton `y` est le sol.
+>
+> ```lua
+> function arbre(x, y, z)
+>   for i = 0, 4 do
+>     set_block(x, y + i, z, BOIS)
+>   end
+>   set_block(x, y + 5, z, FEUILLES)
+> end
+> ```
+>
+> ![Un tronc de cinq blocs, une feuille au sommet, puis une couronne.](img/outil-arbre.webp)
+> <!-- ws:anim {src: img/outil-arbre.webm, chapters: img/outil-arbre.vtt} -->
+<!-- /ws:toolbox -->
+
+### Pièges
+
+- Une boucle `while` dont la condition reste toujours vraie ne s'arrête jamais : ton code est coupé au bout de 5 secondes.
+- Un arbre pousse sur l'herbe : pas dans le vide, pas dans la pierre.
+
+### Défi
+<!-- ws:doit -->
+
+Place quelques **arbres** sur ta pente, debout sur l'herbe.
+
+Ce que tu dois avoir pour valider cette étape :
+- Des arbres debout sur l'herbe, ni enterrés, ni en l'air
+
+Tu dois obtenir quelque chose comme ça :
+
+![Quelques arbres plantés au hasard sur la pente, chacun debout sur l'herbe.](img/etape6-resultat.png)
+<!-- ws:scene {src: scenes/etape6.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 1</summary>
+
+Tire <var>x</var> et <var>z</var> au hasard, cherche le sol avec `while`, et plante seulement si `get_block(x, y, z) == HERBE`.
+
+</details>
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 2</summary>
+
+Plante les arbres **après** la double boucle du terrain, sinon il n'y a pas encore de sol.
+
+</details>
+
+### Bonus
+
+Varie la hauteur du tronc d'un arbre à l'autre, avec `random`.
