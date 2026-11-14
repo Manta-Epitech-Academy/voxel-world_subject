@@ -21,7 +21,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Pièges
 
 - `math.sin(x)` tout seul ondule beaucoup trop vite : une vague tous les 6 blocs environ. Divise <var>x</var> pour élargir.
-- Avec une vague trop haute, `h` peut dépasser 63 (le ciel) ou descendre sous 5 (plus de place pour les couches).
+- Une vague trop haute envoie `h` au-dessus de 63 (le ciel) ou sous 5 (plus de place pour les couches).
 
 ### Défi
 <!-- ws:doit -->
@@ -286,7 +286,7 @@ Une plage, c'est une colonne à peine plus haute que la mer : `h <= NIVEAU_MER +
 <!-- ws: {type: hint} -->
 <details><summary>Indice 3</summary>
 
-Sous l'eau, mets aussi du sable à la place de l'herbe et de la terre.
+Mets aussi du sable sous l'eau, à la place de l'herbe et de la terre.
 
 </details>
 
@@ -394,7 +394,7 @@ Et sous tes pieds :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Pour planter un arbre : tire <var>x</var> et <var>z</var> au hasard, cherche le sol avec `while`, et plante seulement si `get_block(x, y, z) == HERBE`.
+Tire <var>x</var> et <var>z</var> au hasard, cherche le sol avec `while`, et plante seulement si `get_block(x, y, z) == HERBE`.
 
 </details>
 
@@ -408,14 +408,14 @@ Plante les arbres **après** la double boucle du terrain, sinon il n'y a pas enc
 <!-- ws: {type: hint} -->
 <details><summary>Indice 3</summary>
 
-Pour les grottes, ne creuse pas trop près de la surface : par exemple seulement si `y < h - 5`.
+Ne creuse pas trop près de la surface : seulement si `y < h - 5`, par exemple.
 
 </details>
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 4</summary>
 
-Pour les minerais, remplace `PIERRE` par l'appel d'une fonction qui renvoie parfois un minerai.
+Remplace `PIERRE` par l'appel d'une fonction qui renvoie parfois un minerai.
 
 </details>
 

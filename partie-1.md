@@ -102,7 +102,7 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 ## Étape 2 : Le sol plat
 <!-- ws: {type: exercise, id: sol-plat, points: 200, token_id: "2"} -->
 
-Un bloc flotte, tout seul dans le vide. Pour un monde entier, il en faudrait **16 384** (128 × 128) rien que pour le sol. À la main, tu y serais encore à Noël.
+Un bloc flotte, tout seul dans le vide. Un monde entier en demande **16 384** (128 × 128) rien que pour le sol. Tu y serais encore à Noël.
 
 Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 
@@ -144,7 +144,7 @@ Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 > ```
 
 > 🧰 **`print` « écrire dans la console »**
-> `print` écrit dans la console, sous l'éditeur. Quand ton code ne fait pas ce que tu crois, affiche tes variables.
+> `print` écrit dans la console, sous l'éditeur. Affiche tes variables quand ton code ne fait pas ce que tu veux.
 >
 > ```lua
 > for x = 0, 3 do
@@ -260,7 +260,7 @@ Tu peux garder le sol de l'étape 2 ou le mettre en commentaire (`--` devant la 
 
 Ce que tu dois avoir pour valider cette étape :
 
-- En volant autour, tu vois la bedrock, la pierre, 3 blocs de terre et l'herbe, dans cet ordre.
+- Vole autour : tu vois la bedrock, la pierre, 3 blocs de terre et l'herbe, dans cet ordre.
 - Change `SOL` en 30, puis clique sur **▶ Générer** : toute la colonne grandit d'un coup, couches comprises.
 
 Tu dois obtenir quelque chose comme ça :
@@ -278,7 +278,7 @@ Avec `SOL = 20` : bedrock à 0, pierre de 1 à 16, terre de 17 à 19, herbe à 2
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Pour la pierre, une boucle sur <var>y</var> t'évite d'écrire 16 lignes. Pour les 3 blocs de terre, trois `set_block` suffisent ; une boucle marche aussi, comme tu préfères.
+Une boucle sur <var>y</var> t'évite d'écrire 16 lignes de pierre. Trois `set_block` suffisent pour la terre ; une boucle marche aussi.
 
 </details>
 
@@ -330,7 +330,7 @@ Tu as déjà utilisé les boucles imbriquées avec <var>x</var> et <var>z</var> 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Dans ta colonne de l'étape 3, <var>x</var> et <var>z</var> valaient 64. Dans la double boucle, ce sont les variables <var>x</var> et <var>z</var> qui prennent leur place.
+Ta colonne de l'étape 3 avait <var>x</var> = 64 et <var>z</var> = 64. Les variables <var>x</var> et <var>z</var> de la double boucle prennent leur place.
 
 </details>
 
@@ -344,7 +344,7 @@ Vole jusqu'au bord du monde et regarde la tranche : les couches sont visibles.
 
 Ton monde est totalement plat. Il est temps de lui donner du **relief**.
 
-Pour ça, chaque colonne doit avoir *sa propre* hauteur.
+Chaque colonne doit avoir *sa propre* hauteur.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
@@ -380,7 +380,7 @@ Pour ça, chaque colonne doit avoir *sa propre* hauteur.
 ### Pièges
 
 - Une fonction doit être écrite **avant** la ligne qui l'appelle.
-- Dans ta fonction, toutes les couches se calculent à partir de `h` : l'herbe en `h`, la terre juste en dessous.
+- Toutes les couches de ta fonction se calculent à partir de `h` : l'herbe en `h`, la terre juste en dessous.
 
 ### Défi
 <!-- ws:doit -->
@@ -407,7 +407,7 @@ Transforme le contenu de tes boucles en une fonction `colonne(x, z, h)`, où `SO
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Dans ta double boucle, juste avant `colonne(x, z, h)`, ajoute une ligne qui calcule `h`. Si `h` ne change pas avec <var>x</var>, toutes les colonnes ont la même hauteur. Si `h` grandit quand <var>x</var> grandit, le terrain monte.
+Ajoute une ligne qui calcule `h` dans ta double boucle, juste avant `colonne(x, z, h)`. `h` ne change pas avec <var>x</var> ? Toutes les colonnes ont la même hauteur. `h` grandit avec <var>x</var> ? Le terrain monte.
 
 </details>
 
