@@ -26,7 +26,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 ### Défi
 <!-- ws:doit -->
 
-Fais onduler ton terrain le long de <var>x</var> avec `math.sin`. Il te faut au moins **8 hauteurs différentes**, et jamais une marche de plus de **2 blocs** entre deux colonnes voisines.
+Fais onduler ton terrain le long de <var>x</var> avec `math.sin` : des bosses et des creux qui se répètent, sans falaise.
 
 Ce que tu dois avoir pour valider cette étape :
 - Des collines douces avec les bonnes couches
@@ -53,7 +53,7 @@ Commence avec une vague de petite amplitude, par exemple `2 * math.sin(x / 8)`, 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 3</summary>
 
-Si une marche dépasse 2 blocs entre deux colonnes voisines, **divise** <var>x</var> par un plus grand nombre.
+Des falaises ? **Divise** <var>x</var> par un plus grand nombre.
 
 </details>
 
@@ -165,10 +165,10 @@ Après avoir travaillé sur les effets spéciaux de *Tron* (1982), Ken Perlin tr
 ### Défi
 <!-- ws:doit -->
 
-Calcule `h` avec `perlin2d`, à la bonne échelle, au lieu de tes deux `math.sin`. Il te faut un relief naturel : au moins **15 blocs** entre le point le plus bas et le plus haut, et aucune falaise de plus de **3 blocs**.
+Calcule `h` avec `perlin2d`, à la bonne échelle, au lieu de tes deux `math.sin`. Tu veux un relief qui ressemble à un vrai paysage : des vallées et des sommets bien marqués, et des pentes qu'on peut descendre à pied.
 
 Ce que tu dois avoir pour valider cette étape :
-- Un relief naturel fait avec perlin2d
+- Un relief naturel fait avec perlin2d : des sommets, des vallées, pas de falaise
 
 Tu dois obtenir quelque chose comme ça :
 
@@ -192,7 +192,7 @@ Si ton terrain est plat, affiche `perlin2d(x, z)` : as-tu oublié de diviser ?
 <!-- ws: {type: hint} -->
 <details><summary>Indice 3</summary>
 
-Pas assez de dénivelé ? Multiplie davantage le grand bruit.
+Ton relief est trop plat ? Multiplie davantage.
 
 </details>
 
@@ -290,7 +290,7 @@ Choisis `NIVEAU_MER` pour qu'une partie de ton terrain soit dessous. Affiche que
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Une plage, c'est une colonne à peine plus haute que la mer : `h <= NIVEAU_MER + 1`.
+Une plage, c'est une colonne à peine plus haute que la mer.
 
 </details>
 
@@ -388,12 +388,12 @@ Il manque des **arbres** en surface et, sous tes pieds, des **grottes** remplies
 ### Défi
 <!-- ws:doit -->
 
-Trois défis. Au moins **10 arbres** plantés sur l'herbe. Des **grottes** creusées avec `perlin3d`. Des **minerais** : du `CHARBON` partout, du `DIAMANT` seulement tout au fond (<var>y</var> < 12).
+Trois défis. Place quelques **arbres** sur l'herbe. Creuse des **grottes** avec `perlin3d`. Glisse des **minerais** dans la pierre : du charbon un peu partout, du diamant seulement tout au fond.
 
 Ce que tu dois avoir pour valider cette étape :
-- Au moins 10 arbres
-- Des grottes creusées avec perlin3d
-- Charbon, et diamants tout au fond
+- Des arbres sur l'herbe, aucun dans l'eau ni sur le sable
+- Des grottes sous tes pieds
+- Du charbon, et des diamants tout au fond
 
 Tu dois obtenir quelque chose comme ça :
 
