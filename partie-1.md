@@ -461,9 +461,9 @@ Ta pente est nue. Plante-lui quelques arbres.
 > <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
 
 > 🧰 **Une fonction arbre**
-> Un arbre, c'est un tronc de 5 blocs de `BOIS` et des `FEUILLES` au sommet. Écris une fonction `arbre(x, y, z)`, comme tu l'as fait pour `colonne`. Le tronc commence une case **au-dessus** de l'herbe.
+> Un arbre, c'est un tronc de 5 blocs de `BOIS` et des `FEUILLES` au sommet : deux étages de 3 × 3 autour du haut du tronc, et une feuille tout en haut. Écris une fonction `arbre(x, y, z)`, comme tu l'as fait pour `colonne`. Le tronc commence une case **au-dessus** de l'herbe.
 >
-> ![Le tronc monte bloc par bloc, de « y » à « y + 4 ». Puis les feuilles : « à toi de choisir leur forme ».](img/outil-arbre.webp)
+> ![Le tronc monte de y à y + 4. Puis les feuilles, un étage à la fois : chaque étage se pose vu de dessus, puis la caméra fait le tour de l'arbre.](img/outil-arbre.webp)
 > <!-- ws:anim {src: img/outil-arbre.webm, chapters: img/outil-arbre.vtt} -->
 <!-- /ws:toolbox -->
 
@@ -478,6 +478,8 @@ Ta pente est nue. Plante-lui quelques arbres.
 Place quelques **arbres** sur ta pente, debout sur l'herbe.
 
 Un arbre est une forme compliquée. Commence par réussir **un seul** arbre. Ensuite, mets-le dans une fonction `arbre(x, y, z)`, et appelle cette fonction plusieurs fois pour planter des arbres à des positions tirées au hasard.
+
+Tu peux poser les feuilles une par une avec `set_block`. Commence par une seule feuille, génère, vérifie, puis ajoute les autres.
 
 Ce que tu dois avoir pour valider cette étape :
 - Des arbres debout sur l'herbe, ni enterrés, ni en l'air
@@ -498,6 +500,20 @@ Tire <var>x</var> et <var>z</var> au hasard, cherche le sol avec `while`, et pla
 <details><summary>Indice 2</summary>
 
 Plante les arbres **après** la double boucle du terrain, sinon il n'y a pas encore de sol.
+
+</details>
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 3</summary>
+
+Dessine l'arbre vu de dessus sur un papier : le tronc au milieu, les feuilles autour. Chaque feuille est en <var>x</var> - 1, <var>x</var> ou <var>x</var> + 1, et en <var>z</var> - 1, <var>z</var> ou <var>z</var> + 1.
+
+</details>
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 4</summary>
+
+Tes feuilles flottent ou sont dans le tronc ? Regarde leur <var>y</var> : le tronc va de `y` à `y + 4`.
 
 </details>
 

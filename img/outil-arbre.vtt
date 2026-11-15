@@ -1,8 +1,23 @@
 WEBVTT
 
-00:00.000 --> 00:06.933
-le tronc : 5 blocs, de y à y + 4
+00:00.000 --> 00:03.100
+le tronc : de y à y + 4
 
-00:06.933 --> 00:12.067
-des feuilles autour du sommet
+00:03.100 --> 00:10.833
+étage 1 : les feuilles en y + 3
+
+00:10.833 --> 00:17.333
+étage 1 terminé
+
+00:17.333 --> 00:25.067
+étage 2 : les feuilles en y + 4
+
+00:25.067 --> 00:31.567
+étage 2 terminé
+
+00:31.567 --> 00:34.633
+étage 3 : les feuilles en y + 5
+
+00:34.633 --> 00:43.933
+étage 3 terminé
 
