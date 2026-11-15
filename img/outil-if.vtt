@@ -1,11 +1,26 @@
 WEBVTT
 
-00:00.000 --> 00:07.733
-h = 30 : ni bas ni haut, donc else
+00:00.000 --> 00:02.200
+deux questions, posées dans l'ordre
 
-00:07.733 --> 00:11.533
-h = 12 : la première condition est vraie
+00:02.200 --> 00:08.000
+h = 30 : non, non, donc sinon
 
-00:11.533 --> 00:19.467
-h = 40 : la deuxième
+00:08.000 --> 00:11.933
+h = 12 : oui à la première question
+
+00:11.933 --> 00:19.799
+h = 40 : oui à la deuxième
+
+00:19.799 --> 00:27.066
+les mêmes questions, écrites avec if, elseif et else
+
+00:27.066 --> 00:32.199
+en Lua, h = 30 : ni bas ni haut, donc else
+
+00:32.199 --> 00:35.999
+en Lua, h = 12 : la première condition est vraie
+
+00:35.999 --> 00:43.932
+en Lua, h = 40 : la deuxième
 

@@ -1,23 +1,23 @@
 WEBVTT
 
-00:00.000 --> 00:05.133
+00:00.000 --> 00:04.933
 z reste fixe : une seule ligne du monde
 
-00:05.133 --> 00:11.333
-avec des entiers : toujours 0
+00:04.933 --> 00:09.133
+à chaque nombre entier : 0
 
-00:11.333 --> 00:15.333
-une grande largeur : des collines larges
+00:09.133 --> 00:19.000
+÷ largeur : des collines larges ou serrées
 
-00:15.333 --> 00:18.933
-une petite largeur : des collines serrées
-
-00:18.933 --> 00:23.133
+00:19.000 --> 00:27.200
 × amplitude : plus haut, autour de 0
 
-00:23.133 --> 00:26.733
+00:27.200 --> 00:33.000
 + niveau : à la bonne hauteur
 
-00:26.733 --> 00:31.333
+00:33.000 --> 00:37.600
 les colonnes suivent la courbe
+
+00:37.600 --> 00:44.599
+les trois réglages, dans une ligne de code
 

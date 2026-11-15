@@ -1,55 +1,60 @@
 # Étape 11, « perlin3d : creuser des grottes » : sur une tranche du monde, le
 # bruit 3D donne un nombre par case ; là où il dépasse le seuil, on ne pose
 # rien, et un trou apparaît. Plus le seuil baisse, plus les grottes grandissent.
+# Sans code : le test et les diviseurs sont à l'élève.
 #
 #   capture.py anim anim/grottes.py LesGrottes -o img/outil-grottes.webp
-import math, random
 from manim import *
 from commun import *
 from perlin import perlin2d
 
 
-def perlin3d_tranche(x, y, z=40):
-    # Une tranche à z fixe : un bruit 2D (x, y) joue le rôle de perlin3d(x, y, z) sur cette tranche.
-    return perlin2d(x + 0.37 * z, y + 0.11 * z)
-
-
 class LesGrottes(Scene):
     def construct(self):
         self.next_section("un nombre par case")
-        prog = bloc_code(["if perlin3d(x / 16, y / 10, z / 16) > 0.3 then", "  -- grotte : on ne pose rien", "else", "  set_block(x, y, z, PIERRE)", "end"], 20).to_corner(UL, buff=0.4)
-        self.play(Write(prog), run_time=1.2)
-        g = Grille(cases=32, hauteur=16, largeur=8.4, haut=4.2, origine=DOWN * 1.0 + RIGHT * 0.6)
-        self.play(FadeIn(g.lignes(opacite=0.12)), FadeIn(g.axe_y(pas=4)), run_time=0.5)
-        valeurs = {}
-        cases = VGroup()
+        g = Grille(cases=32, hauteur=16, largeur=9.6, haut=4.8, origine=DOWN * 0.3)
+
+        def titre(t, couleur=WHITE):
+            return texte(t, 28, couleur).to_edge(UP, buff=0.4)
+
+        t = titre("une tranche du monde, sous la terre")
+        self.play(FadeIn(g.lignes(opacite=0.12)), FadeIn(t), run_time=0.6)
+        valeurs, cases = {}, VGroup()
         for y in range(16):
             for x in range(32):
-                v = perlin3d_tranche(x / 16, y / 10)
+                # Un coin du bruit choisi pour ses poches : plusieurs petites grottes
+                # au seuil 0.3, qui grandissent et se rejoignent au seuil 0.1.
+                v = perlin2d(x / 7 + 47.95, y / 5 + 2.22)
                 valeurs[(x, y)] = v
                 teinte = interpolate_color(ManimColor("#1e2a3a"), ManimColor(CIEL), (v + 0.7) / 1.4)
-                c = Square(side_length=g.pas, fill_color=teinte, fill_opacity=0.9, stroke_width=0).move_to(g.centre(x, y))
-                cases.add(c)
+                cases.add(Square(side_length=g.pas, fill_color=teinte, fill_opacity=0.9, stroke_width=0).move_to(g.centre(x, y)))
         self.play(FadeIn(cases), run_time=1.2)
+        # Trois cases lues à voix haute : une claire, une moyenne, une sombre.
+        ordre = sorted(valeurs, key=valeurs.get)
+        lues = VGroup()
+        for (x, y) in (ordre[-1], ordre[len(ordre) // 2], ordre[0]):
+            c = Square(side_length=g.pas, stroke_color=ALERTE, stroke_width=3).move_to(g.centre(x, y))
+            e = code(f"{round(valeurs[(x, y)], 1) + 0.0:.1f}", 22, ALERTE).next_to(c, UP, buff=0.1)
+            fond = BackgroundRectangle(e, color=FOND, fill_opacity=0.85, buff=0.06)
+            lues.add(VGroup(c, fond, e))
+        self.play(LaggedStart(*[FadeIn(m) for m in lues], lag_ratio=0.4), run_time=1.4)
         ph = phrase("perlin3d donne un nombre entre -1 et 1 à chaque case : clair, nombre élevé", CIEL)
-        self.play(FadeIn(ph)); self.wait(1.4)
+        self.play(FadeIn(ph)); self.wait(1.6)
 
-        def creuser(seuil, section, texte):
-            self.next_section(section)
-            pierre = VGroup(); vide = VGroup()
-            for (x, y), v in valeurs.items():
-                (vide if v > seuil else pierre).add(g.bloc(x, y, "PIERRE"))
-            return pierre, vide
+        def pierre(seuil):
+            return VGroup(*[g.bloc(x, y, "PIERRE") for (x, y), v in valeurs.items() if v <= seuil])
 
-        pierre, vide = creuser(0.3, "seuil 0.3 : si le nombre le dépasse, on ne pose rien", "")
-        self.play(FadeOut(ph), FadeIn(pierre), run_time=1.0)
-        trous = VGroup(*[Square(side_length=g.pas, stroke_color=ALERTE, stroke_width=1.5).move_to(c.get_center()) for c in vide])
-        self.play(Create(trous), run_time=0.8); self.wait(0.4)
-        self.play(FadeOut(trous), FadeOut(cases), run_time=0.5)
-        ph = phrase("les cases dont le nombre dépasse 0.3 restent vides, ce sont les grottes", ALERTE)
-        self.play(FadeIn(ph)); self.wait(1.4)
+        self.next_section("seuil 0.3 : au-dessus, on ne pose rien")
+        t2 = titre("seuil : 0.3", ALERTE)
+        trous = VGroup(*[Square(side_length=g.pas, stroke_color=ALERTE, stroke_width=1.5).move_to(g.centre(x, y)) for (x, y), v in valeurs.items() if v > 0.3])
+        self.play(FadeOut(ph), FadeOut(lues), FadeOut(t), FadeIn(t2), run_time=0.6)
+        self.play(Create(trous), run_time=0.9); self.wait(0.5)
+        p = pierre(0.3)
+        self.play(FadeIn(p), FadeOut(trous), FadeOut(cases), run_time=1.0)
+        ph = phrase("les cases dont le nombre dépasse 0.3 restent vides : ce sont les grottes", ALERTE)
+        self.play(FadeIn(ph)); self.wait(1.6)
 
-        pierre2, vide2 = creuser(0.1, "seuil 0.1 : des grottes plus grandes", "")
-        self.play(FadeOut(ph), Transform(pierre, pierre2), run_time=1.0)
-        self.play(FadeIn(phrase("seuil 0.1 : plus de cases dépassent, les grottes grandissent", CIEL)))
+        self.next_section("seuil 0.1 : des grottes plus grandes")
+        self.play(FadeOut(ph), Transform(t2, titre("seuil : 0.1", ALERTE)), Transform(p, pierre(0.1)), run_time=1.0)
+        self.play(FadeIn(phrase("seuil plus bas : plus de cases le dépassent, les grottes grandissent", CIEL)))
         self.wait(1.8)

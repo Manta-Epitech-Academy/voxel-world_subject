@@ -1,5 +1,14 @@
 WEBVTT
 
-00:00.000 --> 00:13.267
-dessus = HERBE, sauf si h ≥ 34
+00:00.000 --> 00:03.733
+le bloc du dessus dépend de la hauteur
+
+00:03.733 --> 00:06.133
+au-dessus du seuil : NEIGE
+
+00:06.133 --> 00:12.533
+sous le seuil : HERBE
+
+00:12.533 --> 00:16.533
+au-dessus du seuil : NEIGE
 

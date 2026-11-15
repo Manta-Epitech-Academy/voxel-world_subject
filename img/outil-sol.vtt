@@ -1,11 +1,11 @@
 WEBVTT
 
-00:00.000 --> 00:03.000
+00:00.000 --> 00:02.200
 on part du ciel
 
-00:03.000 --> 00:07.000
-tant que c'est de l'air, y = y - 1
+00:02.200 --> 00:07.200
+tant que c'est de l'air, on descend d'une case
 
-00:07.000 --> 00:10.400
-get_block ≠ AIR : on s'arrête
+00:07.200 --> 00:10.733
+de l'herbe : on s'arrête
 

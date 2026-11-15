@@ -3,12 +3,15 @@ WEBVTT
 00:00.000 --> 00:04.467
 un grand bruit : les montagnes
 
-00:04.467 --> 00:07.867
+00:04.467 --> 00:08.267
 un moyen : les bosses
 
-00:07.867 --> 00:11.267
+00:08.267 --> 00:13.000
+grand + moyen
+
+00:13.000 --> 00:16.800
 un petit : les détails
 
-00:11.267 --> 00:16.667
-on les additionne
+00:16.800 --> 00:22.000
+grand + moyen + petit
 

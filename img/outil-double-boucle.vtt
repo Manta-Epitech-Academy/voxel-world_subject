@@ -1,5 +1,8 @@
 WEBVTT
 
-00:00.000 --> 00:11.800
-pour chaque x, tous les z
+00:00.000 --> 00:07.400
+x vaut 0 : z passe de 0 à 9
+
+00:07.400 --> 00:25.000
+x augmente de 1, et z recommence à 0
 

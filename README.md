@@ -23,6 +23,6 @@ Moteur : **voxel-world** (lua).
 - Étape 8 : Les collines (2 indices)
 - Étape 9 : Le vrai relief (3 indices)
 - Étape 10 : Mers, plages et neige (3 indices)
-- Étape 11 : Grottes et minerais (2 indices)
+- Étape 11 : Grottes et minerais (3 indices)
 
-**11 étapes**, 28 indices, 33 images, 12 scènes 3D, 17 animations à chapitres.
+**11 étapes**, 29 indices, 34 images, 12 scènes 3D, 18 animations à chapitres.
