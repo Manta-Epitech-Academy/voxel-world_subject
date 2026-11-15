@@ -102,7 +102,7 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 <!-- ws: {type: exercise, id: sol-plat, points: 200, token_id: "2"} -->
 <!-- étape de modelage : la double boucle est donnée volontairement dans la boîte à outils -->
 
-Un bloc flotte, tout seul dans le vide. Un monde entier en demande **16 384** (128 × 128) rien que pour le sol. Tu y serais encore à Noël.
+Un bloc flotte, tout seul dans le vide. Un monde entier en demande **16 384** (128 × 128) rien que pour le sol.
 
 Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 
@@ -225,16 +225,16 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 > <!-- ws:anim {src: img/outil-variables.webm, chapters: img/outil-variables.vtt} -->
 
 > 🧰 **Une boucle vers le haut**
-> La même boucle `for`, mais sur <var>y</var> : un poteau de bois de <var>y</var> = 5 à <var>y</var> = 12.
+> La même boucle `for`, mais sur <var>y</var> : une colonne de pierre de <var>y</var> = 5 à <var>y</var> = 12.
 >
 > ```lua
 > for y = 5, 12 do
->   set_block(10, y, 10, BOIS)
+>   set_block(10, y, 10, PIERRE)
 > end
 > ```
 >
-> ![Le compteur y monte de 5 à 12, et le poteau grandit bloc par bloc.](img/outil-poteau.webp)
-> <!-- ws:anim {src: img/outil-poteau.webm, chapters: img/outil-poteau.vtt} -->
+> ![Le compteur y monte de 5 à 12, et la colonne de pierre grandit bloc par bloc.](img/outil-colonne.webp)
+> <!-- ws:anim {src: img/outil-colonne.webm, chapters: img/outil-colonne.vtt} -->
 
 > 🧰 **Calculer avec les variables**
 > On peut faire des calculs partout où on attend un nombre : `+`, `-`, `*` (multiplication), `/` (division).
@@ -255,7 +255,7 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 
 Crée une variable `SOL`, puis construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet, à la hauteur `SOL`.
 
-Tu peux garder le sol de l'étape 2 ou le mettre en commentaire (`--` devant la ligne).
+Tu peux supprimer le code de l'étape 2 ou le mettre en commentaire (`--` devant chaque ligne).
 
 Ce que tu dois avoir pour valider cette étape :
 
@@ -270,14 +270,14 @@ Tu dois obtenir quelque chose comme ça :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Avec `SOL = 20` : bedrock à 0, pierre de 1 à 16, terre de 17 à 19, herbe à 20.
+Avec `SOL = 20` : bedrock à 0, pierre de 1 à 16, terre de 17 à 19, herbe à 20. Le nombre de blocs de pierre n'est pas toujours 16 : il se calcule à partir de `SOL`.
 
 </details>
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Une boucle sur <var>y</var> t'évite d'écrire 16 lignes de pierre. Trois `set_block` suffisent pour la terre ; une boucle marche aussi.
+Une boucle sur <var>y</var> t'évite d'écrire une ligne par bloc de pierre. Trois `set_block` suffisent pour la terre ; une boucle marche aussi.
 
 </details>
 
@@ -461,7 +461,7 @@ Ta pente est nue. Plante-lui quelques arbres.
 > <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
 
 > 🧰 **Une fonction arbre**
-> Un arbre, c'est un tronc de 5 blocs de `BOIS` et des `FEUILLES` au sommet. Range-le dans une fonction `arbre(x, y, z)`, comme tu l'as fait pour `colonne`. Le tronc commence une case **au-dessus** de l'herbe.
+> Un arbre, c'est un tronc de 5 blocs de `BOIS` et des `FEUILLES` au sommet. Écris une fonction `arbre(x, y, z)`, comme tu l'as fait pour `colonne`. Le tronc commence une case **au-dessus** de l'herbe.
 >
 > ![Le tronc monte bloc par bloc, de « y » à « y + 4 ». Puis les feuilles : « à toi de choisir leur forme ».](img/outil-arbre.webp)
 > <!-- ws:anim {src: img/outil-arbre.webm, chapters: img/outil-arbre.vtt} -->
@@ -476,6 +476,8 @@ Ta pente est nue. Plante-lui quelques arbres.
 <!-- ws:doit -->
 
 Place quelques **arbres** sur ta pente, debout sur l'herbe.
+
+Un arbre est une forme compliquée. Commence par réussir **un seul** arbre. Ensuite, mets-le dans une fonction `arbre(x, y, z)`, et appelle cette fonction plusieurs fois pour planter des arbres à des positions tirées au hasard.
 
 Ce que tu dois avoir pour valider cette étape :
 - Des arbres debout sur l'herbe, ni enterrés, ni en l'air

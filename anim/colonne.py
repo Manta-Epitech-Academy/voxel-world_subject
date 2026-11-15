@@ -1,15 +1,15 @@
-# Étape 3, « Une boucle vers le haut » : la même boucle for, mais sur y, et un
-# poteau monte bloc par bloc. Puis étape 4, « Penser en colonnes » : une
+# Étape 3, « Une boucle vers le haut » : la même boucle for, mais sur y, et une
+# colonne de pierre monte bloc par bloc. Puis étape 4, « Penser en colonnes » : une
 # colonne, c'est une pile avec ses couches, et le monde en est fait. Les
 # boucles sont montrées sans code, par des compteurs à rouleaux.
 #
-#   capture.py anim anim/colonne.py LePoteau -o img/outil-poteau.webp --fps 30
+#   capture.py anim anim/colonne.py LaColonne -o img/outil-colonne.webp --fps 30
 #   capture.py anim anim/colonne.py LesColonnes -o img/outil-colonnes.webp --fps 30
 from manim import *
 from commun import *
 
 
-class LePoteau(Scene):
+class LaColonne(Scene):
     def construct(self):
         self.next_section("y monte de 5 à 12")
         tours = ValueTracker(0)
@@ -18,7 +18,7 @@ class LePoteau(Scene):
         g = Grille(cases=5, hauteur=16, largeur=2.4, haut=4.6, origine=RIGHT * 2.5 + DOWN * 0.4)
         tour = always_redraw(lambda: texte(f"tour {min(int(tours.get_value() + 1e-6), 7) + 1} sur 8", 30).next_to(b.fenetre, DOWN, buff=0.6))
         geste = texte("à chaque tour : un bloc, posé en y", 22, DOUX).next_to(tour, DOWN, buff=0.25)
-        blocs = VGroup(*[g.bloc(2, y, "BOIS", 1).set_stroke(BLANC, 1) for y in range(5, 13)])
+        blocs = VGroup(*[g.bloc(2, y, "PIERRE", 1) for y in range(5, 13)])
 
         def poser(m):
             t = tours.get_value()
@@ -33,7 +33,7 @@ class LePoteau(Scene):
         self.add(blocs)
         self.wait(0.4)
         self.play(tours.animate.set_value(8), run_time=6.4, rate_func=linear)
-        self.play(FadeIn(phrase("la même boucle, mais sur y : un poteau qui monte, de y = 5 à y = 12", CIEL)))
+        self.play(FadeIn(phrase("la même boucle, mais sur y : une colonne de pierre qui monte, de y = 5 à y = 12", CIEL)))
         self.wait(1.6)
 
 
