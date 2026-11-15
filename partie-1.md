@@ -270,14 +270,14 @@ Tu dois obtenir quelque chose comme ça :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Avec `SOL = 20` : bedrock à 0, pierre de 1 à 16, terre de 17 à 19, herbe à 20.
+Avec `SOL = 20` : bedrock à 0, pierre de 1 à 16, terre de 17 à 19, herbe à 20. Le nombre de blocs de pierre n'est pas toujours 16 : il se calcule à partir de `SOL`.
 
 </details>
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Une boucle sur <var>y</var> t'évite d'écrire 16 lignes de pierre. Trois `set_block` suffisent pour la terre ; une boucle marche aussi.
+Une boucle sur <var>y</var> t'évite d'écrire une ligne par bloc de pierre. Trois `set_block` suffisent pour la terre ; une boucle marche aussi.
 
 </details>
 
@@ -461,7 +461,7 @@ Ta pente est nue. Plante-lui quelques arbres.
 > <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
 
 > 🧰 **Une fonction arbre**
-> Un arbre, c'est un tronc de 5 blocs de `BOIS` et des `FEUILLES` au sommet. Range-le dans une fonction `arbre(x, y, z)`, comme tu l'as fait pour `colonne`. Le tronc commence une case **au-dessus** de l'herbe.
+> Un arbre, c'est un tronc de 5 blocs de `BOIS` et des `FEUILLES` au sommet. Écris une fonction `arbre(x, y, z)`, comme tu l'as fait pour `colonne`. Le tronc commence une case **au-dessus** de l'herbe.
 >
 > ![Le tronc monte bloc par bloc, de « y » à « y + 4 ». Puis les feuilles : « à toi de choisir leur forme ».](img/outil-arbre.webp)
 > <!-- ws:anim {src: img/outil-arbre.webm, chapters: img/outil-arbre.vtt} -->
@@ -476,6 +476,8 @@ Ta pente est nue. Plante-lui quelques arbres.
 <!-- ws:doit -->
 
 Place quelques **arbres** sur ta pente, debout sur l'herbe.
+
+Un arbre est une forme compliquée. Commence par réussir **un seul** arbre. Ensuite, mets-le dans une fonction `arbre(x, y, z)`, et appelle cette fonction plusieurs fois pour planter des arbres à des positions tirées au hasard.
 
 Ce que tu dois avoir pour valider cette étape :
 - Des arbres debout sur l'herbe, ni enterrés, ni en l'air
