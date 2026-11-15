@@ -1,20 +1,23 @@
 WEBVTT
 
-00:00.000 --> 00:04.300
-math.sin(x) : trop serré
+00:00.000 --> 00:04.533
+math.sin(x) seul : trop serré
 
-00:04.300 --> 00:07.700
-÷ largeur : plus large
+00:04.533 --> 00:11.200
+÷ largeur : la vague s'étire
 
-00:07.700 --> 00:11.100
-× amplitude : plus haute
+00:11.200 --> 00:17.867
+× amplitude : la vague grandit
 
-00:11.100 --> 00:17.500
-+ niveau : à la bonne hauteur
+00:17.867 --> 00:26.733
++ niveau : la vague monte ou descend
 
-00:17.500 --> 00:22.300
+00:26.733 --> 00:31.533
 les colonnes suivent la courbe
 
-00:22.300 --> 00:25.300
+00:31.533 --> 00:37.933
+les trois réglages, dans une ligne de code
+
+00:37.933 --> 00:40.933
 la hauteur du sol vient de math.sin(x)
 

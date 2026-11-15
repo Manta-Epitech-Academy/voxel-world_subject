@@ -13,7 +13,7 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 > 🧰 **`math.sin` « la vague »**
 > `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent : le **niveau**, l'**amplitude**, la **largeur**. L'animation les montre un par un. Dans ta ligne `h` : <var>x</var> divisé par la largeur dans `math.sin( )`, le résultat multiplié par l'amplitude, le niveau ajouté devant. `math.` est la boîte à outils de Lua.
 >
-> ![La vague, terme par terme : ÷ largeur l'élargit, × amplitude la grandit, + niveau la monte, et les colonnes suivent la courbe.](img/etape7-vague.webp)
+> ![Trois curseurs : ÷ largeur, × amplitude, + niveau. Chacun passe par plusieurs valeurs, et la courbe suit. À la fin, les trois curseurs deviennent la ligne h = niveau + amplitude * math.sin(x / largeur).](img/etape7-vague.webp)
 > <!-- ws:anim {src: img/etape7-vague.webm, chapters: img/etape7-vague.vtt} -->
 
 <!-- /ws:toolbox -->
@@ -46,7 +46,7 @@ Garde ta fonction `colonne` telle quelle : seule la ligne qui calcule `h` change
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
 
-Commence avec une vague de petite amplitude, par exemple `2 * math.sin(x / 8)`, génère, puis augmente-la.
+Commence avec une petite amplitude, 2 par exemple. Génère, puis augmente-la.
 
 </details>
 
@@ -77,7 +77,7 @@ Ton monde ressemble à une **tôle ondulée** : du relief sur un seul axe.
 
 ### Pièges
 
-- Si tu écris `math.sin(x / 8 + z / 11)`, c'est **une seule** vague, en diagonale. Il faut deux `math.sin`.
+- Si tu mets <var>x</var> et <var>z</var> dans le **même** `math.sin`, tu obtiens **une seule** vague, en diagonale. Il faut deux `math.sin`.
 
 ### Défi
 <!-- ws:doit -->
@@ -131,11 +131,14 @@ Après avoir travaillé sur les effets spéciaux de *Tron* (1982), Ken Perlin tr
 > print(perlin2d(50.1, 80.7))
 > ```
 >
-> ![Le bruit de Perlin : 0 à chaque nombre entier, puis la largeur, l'amplitude et le niveau, une par une.](img/etape9-perlin.webp)
+> ![Le bruit le long d'une ligne du monde, celle où z vaut 7, puis les trois mêmes curseurs qu'à l'étape 7. À la fin, ils deviennent la ligne h = niveau + amplitude * perlin2d(x / largeur, z / largeur).](img/etape9-perlin.webp)
 > <!-- ws:anim {src: img/etape9-perlin.webm, chapters: img/etape9-perlin.vtt} -->
 
 > 🧰 **L'échelle**
 > Mêmes réglages que la vague. Le nombre qui divise <var>x</var> et <var>z</var> fait la **largeur**, celui qui multiplie fait l'**amplitude**, celui que tu ajoutes fait le **niveau**.
+>
+> ![Le terrain en 3D. Avec z fixé à 7, toutes les lignes du monde ont la même courbe : rien ne change quand on avance en z. Avec z divisé comme x, il y a des sommets et des vallées dans les deux sens.](img/etape9-relief.webp)
+> <!-- ws:anim {src: img/etape9-relief.webm, chapters: img/etape9-relief.vtt} -->
 
 > 🧰 **`return` « une fonction qui répond »**
 > Une fonction peut **renvoyer** une valeur avec `return` : celui qui l'appelle la récupère.
@@ -151,7 +154,7 @@ Après avoir travaillé sur les effets spéciaux de *Tron* (1982), Ken Perlin tr
 > 🧰 **Les octaves**
 > Un seul bruit donne des collines lisses. On en **additionne** plusieurs : un grand pour les montagnes, un moyen pour les bosses, un petit pour les détails. Chacun s'appelle une **octave**, avec sa largeur et son amplitude.
 >
-> ![Un grand bruit, un moyen, un petit, et leur somme.](img/outil-octaves.webp)
+> ![Un grand bruit. Un moyen s'ajoute : « grand + moyen ». Puis un petit : « grand + moyen + petit ».](img/outil-octaves.webp)
 > <!-- ws:anim {src: img/outil-octaves.webm, chapters: img/outil-octaves.vtt} -->
 
 > 🧰 **La seed**
@@ -224,44 +227,49 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > end
 > ```
 >
-> ![Pour h = 30, 12 puis 40 : la première condition vraie l'emporte.](img/outil-if.webp)
+> ![Trois questions posées dans l'ordre : « plus petit que 20 ? », « plus grand que 35 ? », « sinon ». Les nombres 30, 12 et 40 y passent. Puis les mêmes questions, écrites avec if, elseif et else.](img/outil-if.webp)
 > <!-- ws:anim {src: img/outil-if.webm, chapters: img/outil-if.vtt} -->
 
 > 🧰 **Les comparaisons**
 > `<` plus petit, `>` plus grand, `<=` et `>=` « ou égal », `==` égal, `~=` différent.
 
-> 🧰 **Choisir le bloc du dessus**
-> On range le type de bloc dans une variable, et on la change si besoin avant de poser.
+> 🧰 **Choisir le bloc avant de le poser**
+> On stocke le type de bloc dans une variable, et on la change si besoin avant de poser. Ici, une ligne de blocs : de l'herbe, puis de la neige à partir de `SEUIL`.
 >
 > ```lua
-> dessus = HERBE
-> if h >= 34 then
->   dessus = NEIGE
+> SEUIL = 10
+> for x = 0, 20 do
+>   bloc = HERBE
+>   if x >= SEUIL then
+>     bloc = NEIGE
+>   end
+>   set_block(x, 40, 0, bloc)
 > end
-> set_block(x, h, z, dessus)
 > ```
 >
-> ![À partir de 34, le dessus devient NEIGE.](img/outil-dessus.webp)
+> ![Des colonnes et une ligne pointillée marquée « seuil ». Au-dessus du seuil, le bloc du dessus change.](img/outil-dessus.webp)
 > <!-- ws:anim {src: img/outil-dessus.webm, chapters: img/outil-dessus.vtt} -->
 
-> 🧰 **Remplir d'eau**
-> De l'eau de `h + 1` jusqu'au niveau de la mer.
+> 🧰 **Une boucle qui ne fait aucun tour**
+> Si le départ est plus grand que l'arrivée, la boucle ne fait rien. Pratique pour la mer : l'eau remplit les cases vides entre le sol et le niveau de la mer, et là où le sol dépasse, il n'y a rien à remplir. Stocke le niveau de la mer dans une variable `NIVEAU_MER`.
 >
 > ```lua
-> NIVEAU_MER = 22
-> for y = h + 1, NIVEAU_MER do
->   set_block(x, y, z, EAU)
+> for y = 5, 8 do
+>   print("tour", y)
+> end
+> for y = 9, 8 do
+>   print("jamais affiché")
 > end
 > ```
 >
-> ![De h + 1 jusqu'à NIVEAU_MER : sous la mer la boucle remplit, au-dessus elle ne fait aucun tour.](img/outil-eau.webp)
+> ![Le terrain, la ligne de la mer, l'eau qui remplit les creux. Là où le sol dépasse : « rien à remplir ».](img/outil-eau.webp)
 > <!-- ws:anim {src: img/outil-eau.webm, chapters: img/outil-eau.vtt} -->
 
 <!-- /ws:toolbox -->
 
 ### Pièges
 
-- `=` range une valeur, `==` compare. On écrit `if h == 20 then`.
+- `=` stocke une valeur, `==` compare. On écrit `if h == 20 then`.
 - L'eau se pose **au-dessus** du sol, jamais à sa place.
 - `h` à virgule ? `for y = 21.5, 22` ne fait qu'un tour : il manque la couche du dessus de la mer. Arrondis `h` dans ta fonction `hauteur` : `math.floor(21.5)` vaut 21.
 - Si `NIVEAU_MER` est plus bas que tout ton terrain, il n'y aura pas de mer du tout.
@@ -313,31 +321,28 @@ Il manque, sous tes pieds, des **grottes** remplies de **minerais**. Dernière l
 ### Boîte à outils
 
 > 🧰 **`perlin3d` « creuser des grottes »**
-> Même idée que `perlin2d`, mais en 3D. Là où il dépasse un seuil, on **ne pose pas** de pierre : ça fait un trou.
+> Même idée que `perlin2d`, mais en 3D : un nombre entre -1 et 1 pour chaque case. Divise <var>x</var>, <var>y</var> et <var>z</var>, comme à l'étape 9. Là où le nombre dépasse un seuil, tu **ne poses pas** de pierre : ça fait un trou.
 >
 > ```lua
-> if perlin3d(x / 16, y / 10, z / 16) > 0.3 then
->   -- grotte : on ne pose rien
-> else
->   set_block(x, y, z, PIERRE)
-> end
+> print(perlin3d(1.5, 2.5, 3.5))
+> print(perlin3d(1.6, 2.5, 3.5))
 > ```
 >
-> ![Un nombre par case ; au-dessus du seuil, on ne pose rien, et baisser le seuil agrandit les grottes.](img/outil-grottes.webp)
+> ![Un nombre par case. Au-dessus du seuil, pas de pierre. Le seuil passe de 0.3 à 0.1 et les grottes grandissent.](img/outil-grottes.webp)
 > <!-- ws:anim {src: img/outil-grottes.webm, chapters: img/outil-grottes.vtt} -->
 
 > 🧰 **Une fonction qui choisit le bloc**
-> La fonction renvoie le bloc à poser : parfois un diamant, sinon de la pierre.
+> La fonction renvoie le bloc à poser. `random(1, 2) == 1` est vrai 50 % du temps. `random(1, 100) == 1` est vrai 1 % du temps.
 >
 > ```lua
-> function choisir_bloc(y)
->   if y < 12 and random(1, 200) == 1 then
->     return DIAMANT
+> function pile_ou_face()
+>   if random(1, 2) == 1 then
+>     return SABLE
 >   end
->   return PIERRE
+>   return NEIGE
 > end
 >
-> print(choisir_bloc(5))
+> set_block(64, 50, 64, pile_ou_face())
 > ```
 <!-- /ws:toolbox -->
 
@@ -366,12 +371,19 @@ Et sous tes pieds :
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
 
-Ne creuse pas trop près de la surface : seulement si `y < h - 5`, par exemple.
+Dans `perlin3d`, divise <var>x</var>, <var>y</var> et <var>z</var> par 16, et prends 0.3 comme seuil. Si tu divises par 32, les grottes sont plus larges et plus éloignées les unes des autres.
 
 </details>
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 2</summary>
+
+Ne creuse pas trop près de la surface : seulement si `y < h - 5`, par exemple.
+
+</details>
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 3</summary>
 
 Remplace `PIERRE` par l'appel d'une fonction qui renvoie parfois un minerai.
 

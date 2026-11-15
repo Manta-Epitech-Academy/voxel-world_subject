@@ -100,6 +100,7 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 
 ## Étape 2 : Le sol plat
 <!-- ws: {type: exercise, id: sol-plat, points: 200, token_id: "2"} -->
+<!-- étape de modelage : la double boucle est donnée volontairement dans la boîte à outils -->
 
 Un bloc flotte, tout seul dans le vide. Un monde entier en demande **16 384** (128 × 128) rien que pour le sol. Tu y serais encore à Noël.
 
@@ -131,7 +132,7 @@ Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 > end
 > ```
 >
-> ![Pour chaque x, la boucle intérieure fait tous les z : le carré se remplit ligne après ligne.](img/outil-double-boucle.webp)
+> ![Deux compteurs, un par boucle. Quand z a fait tous ses tours, x augmente de 1 et z recommence à 0. Le carré se remplit ligne après ligne.](img/outil-double-boucle.webp)
 > <!-- ws:anim {src: img/outil-double-boucle.webm, chapters: img/outil-double-boucle.vtt} -->
 
 > 🧰 **`TAILLE` « la largeur du monde »**
@@ -224,29 +225,29 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 > <!-- ws:anim {src: img/outil-variables.webm, chapters: img/outil-variables.vtt} -->
 
 > 🧰 **Une boucle vers le haut**
-> La même boucle `for`, mais sur <var>y</var> : une colonne de pierre de <var>y</var> = 1 à <var>y</var> = 16.
+> La même boucle `for`, mais sur <var>y</var> : un poteau de bois de <var>y</var> = 5 à <var>y</var> = 12.
 >
 > ```lua
-> for y = 1, 16 do
->   set_block(64, y, 64, PIERRE)
+> for y = 5, 12 do
+>   set_block(10, y, 10, BOIS)
 > end
 > ```
 >
-> ![y compte de 1 à 16, et la colonne monte bloc par bloc.](img/outil-colonne.webp)
-> <!-- ws:anim {src: img/outil-colonne.webm, chapters: img/outil-colonne.vtt} -->
+> ![Le compteur y monte de 5 à 12, et le poteau grandit bloc par bloc.](img/outil-poteau.webp)
+> <!-- ws:anim {src: img/outil-poteau.webm, chapters: img/outil-poteau.vtt} -->
 
 > 🧰 **Calculer avec les variables**
 > On peut faire des calculs partout où on attend un nombre : `+`, `-`, `*` (multiplication), `/` (division).
 >
 > ```lua
 > SOL = 20
-> print(SOL - 4, SOL * 2, SOL / 2)
+> print(SOL - 6, SOL * 2, SOL / 2)
 > ```
 <!-- /ws:toolbox -->
 
 ### Pièges
 
-- Si la pierre va jusqu'à `SOL - 4`, la terre commence à `SOL - 3`. Un chiffre de travers et les couches se chevauchent.
+- Si une couche s'arrête à 9, la suivante commence à 10. Un chiffre de travers et les couches se chevauchent.
 - Si tu poses deux blocs au même endroit, c'est **le dernier** bloc posé qui est gardé.
 
 ### Défi
@@ -299,7 +300,7 @@ Une colonne, c'est un bon début. Il en faut **16 384** (128 × 128) pour couvri
 > Ton monde, c'est 128 × 128 **colonnes**. Une colonne, c'est une pile de blocs posée en (<var>x</var>, <var>z</var>).
 > Si tu sais construire **une** colonne, la double boucle de l'étape 2 construit toutes les autres.
 >
-> ![Une colonne avec ses couches, puis la double boucle qui pose toutes les autres.](img/outil-colonnes.webp)
+> ![Une colonne et ses couches. Puis les deux compteurs de l'étape 2 tournent, et les autres colonnes se posent.](img/outil-colonnes.webp)
 > <!-- ws:anim {src: img/outil-colonnes.webm, chapters: img/outil-colonnes.vtt} -->
 <!-- /ws:toolbox -->
 
@@ -365,11 +366,11 @@ Chaque colonne doit avoir *sa propre* hauteur.
 > <!-- ws:anim {src: img/outil-fonction.webm, chapters: img/outil-fonction.vtt} -->
 
 > 🧰 **Une hauteur qui dépend de <var>x</var>**
-> Ici, plus <var>x</var> est grand, plus le bloc est haut : une ligne d'herbe qui monte, un bloc plus haut tous les 10 blocs. Pas besoin d'arrondir : `set_block` arrondit vers le bas tout seul.
+> Ici, plus <var>x</var> est grand, plus le bloc est haut : une ligne d'herbe qui monte. `20` est la hauteur de départ : c'est `h` quand <var>x</var> vaut 0. Il faut 4 tours de boucle pour que `x / 4` augmente de 1 : la ligne monte d'un bloc tous les 4 blocs. Pas besoin d'arrondir : `set_block` arrondit vers le bas tout seul.
 >
 > ```lua
 > for x = 0, TAILLE - 1 do
->   h = 10 + x / 10
+>   h = 20 + x / 4
 >   set_block(x, h, 0, HERBE)
 > end
 > ```
@@ -427,6 +428,7 @@ Fais monter la pente en diagonale : que `h` dépende de <var>x</var> **et** de <
 
 ## Étape 6 : Les arbres
 <!-- ws: {type: exercise, id: arbres, points: 150, validation: checkpoint} -->
+<!-- étape de modelage : la recherche du sol avec while est donnée volontairement dans la boîte à outils -->
 
 Ta pente est nue. Plante-lui quelques arbres.
 
@@ -434,10 +436,10 @@ Ta pente est nue. Plante-lui quelques arbres.
 ### Boîte à outils
 
 > 🧰 **`random(a, b)` « lancer un dé »**
-> `random(1, 6)` donne un nombre entier entre 1 et 6, comme un dé. Il dépend de la **seed**, le nombre en haut du monde : même seed, mêmes tirages, donc même monde.
+> `random(1, 6)` donne un nombre entier entre 1 et 6, comme un dé. Il dépend de la **seed** : même seed, mêmes tirages, donc même monde.
 >
 > ```lua
-> print(random(1, 6), random(1, 6), random(0, TAILLE - 1))
+> print(random(1, 6), random(1, 6))
 > ```
 
 > 🧰 **`get_block` et `while` « trouver le sol »**
@@ -455,22 +457,13 @@ Ta pente est nue. Plante-lui quelques arbres.
 >
 > `and` est vrai seulement si les deux conditions sont vraies.
 >
-> ![y descend du ciel tant que la case est de l'air, et s'arrête sur l'herbe.](img/outil-sol.webp)
+> ![Une sonde descend du ciel. « de l'air : on descend », puis « de l'herbe : on s'arrête ».](img/outil-sol.webp)
 > <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
 
 > 🧰 **Une fonction arbre**
-> Un tronc de 5 blocs et un bloc de feuilles au sommet. À toi de rajouter quelques blocs de feuilles autour du sommet du tronc. `y` est la case juste **au-dessus** de l'herbe : appelle `arbre(x, y + 1, z)` quand ton `y` est le sol.
+> Un arbre, c'est un tronc de 5 blocs de `BOIS` et des `FEUILLES` au sommet. Range-le dans une fonction `arbre(x, y, z)`, comme tu l'as fait pour `colonne`. Le tronc commence une case **au-dessus** de l'herbe.
 >
-> ```lua
-> function arbre(x, y, z)
->   for i = 0, 4 do
->     set_block(x, y + i, z, BOIS)
->   end
->   set_block(x, y + 5, z, FEUILLES)
-> end
-> ```
->
-> ![Un tronc de cinq blocs, une feuille au sommet, puis les feuilles autour.](img/outil-arbre.webp)
+> ![Le tronc monte bloc par bloc, de « y » à « y + 4 ». Puis les feuilles : « à toi de choisir leur forme ».](img/outil-arbre.webp)
 > <!-- ws:anim {src: img/outil-arbre.webm, chapters: img/outil-arbre.vtt} -->
 <!-- /ws:toolbox -->
 

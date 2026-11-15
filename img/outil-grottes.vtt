@@ -1,11 +1,11 @@
 WEBVTT
 
-00:00.000 --> 00:05.333
+00:00.000 --> 00:05.800
 un nombre par case
 
-00:05.333 --> 00:10.466
-seuil 0.3 : si le nombre le dépasse, on ne pose rien
+00:05.800 --> 00:11.400
+seuil 0.3 : au-dessus, on ne pose rien
 
-00:10.466 --> 00:14.266
+00:11.400 --> 00:15.200
 seuil 0.1 : des grottes plus grandes
 
