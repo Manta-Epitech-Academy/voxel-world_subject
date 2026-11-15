@@ -102,7 +102,7 @@ Construis une petite tour de 5 blocs de haut, puis pose un `DIAMANT` au sommet.
 <!-- ws: {type: exercise, id: sol-plat, points: 200, token_id: "2"} -->
 <!-- étape de modelage : la double boucle est donnée volontairement dans la boîte à outils -->
 
-Un bloc flotte, tout seul dans le vide. Un monde entier en demande **16 384** (128 × 128) rien que pour le sol. Tu y serais encore à Noël.
+Un bloc flotte, tout seul dans le vide. Un monde entier en demande **16 384** (128 × 128) rien que pour le sol.
 
 Heureusement, un ordinateur sait très bien répéter des actions en boucle.
 
@@ -225,16 +225,16 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 > <!-- ws:anim {src: img/outil-variables.webm, chapters: img/outil-variables.vtt} -->
 
 > 🧰 **Une boucle vers le haut**
-> La même boucle `for`, mais sur <var>y</var> : un poteau de bois de <var>y</var> = 5 à <var>y</var> = 12.
+> La même boucle `for`, mais sur <var>y</var> : une colonne de pierre de <var>y</var> = 5 à <var>y</var> = 12.
 >
 > ```lua
 > for y = 5, 12 do
->   set_block(10, y, 10, BOIS)
+>   set_block(10, y, 10, PIERRE)
 > end
 > ```
 >
-> ![Le compteur y monte de 5 à 12, et le poteau grandit bloc par bloc.](img/outil-poteau.webp)
-> <!-- ws:anim {src: img/outil-poteau.webm, chapters: img/outil-poteau.vtt} -->
+> ![Le compteur y monte de 5 à 12, et la colonne de pierre grandit bloc par bloc.](img/outil-colonne.webp)
+> <!-- ws:anim {src: img/outil-colonne.webm, chapters: img/outil-colonne.vtt} -->
 
 > 🧰 **Calculer avec les variables**
 > On peut faire des calculs partout où on attend un nombre : `+`, `-`, `*` (multiplication), `/` (division).
@@ -255,7 +255,7 @@ Ton monde, lui, n'a qu'une pellicule d'un bloc d'épaisseur. Enlève un bloc et 
 
 Crée une variable `SOL`, puis construis **une seule colonne**, au centre du monde en (64, 64). De bas en haut : `BEDROCK` à <var>y</var> = 0, de la `PIERRE`, exactement 3 blocs de `TERRE`, puis l'`HERBE` au sommet, à la hauteur `SOL`.
 
-Tu peux garder le sol de l'étape 2 ou le mettre en commentaire (`--` devant la ligne).
+Tu peux supprimer le code de l'étape 2 ou le mettre en commentaire (`--` devant chaque ligne).
 
 Ce que tu dois avoir pour valider cette étape :
 
