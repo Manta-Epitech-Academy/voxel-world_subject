@@ -234,16 +234,16 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 > `<` plus petit, `>` plus grand, `<=` et `>=` « ou égal », `==` égal, `~=` différent.
 
 > 🧰 **Choisir le bloc avant de le poser**
-> On stocke le type de bloc dans une variable, et on la change si besoin avant de poser. Ici, une ligne de blocs : de l'herbe, puis de la neige à partir de `SEUIL`.
+> On stocke le type de bloc dans une variable, et on la change si besoin avant de poser. Ici, une colonne de blocs : de l'herbe, puis de la neige à partir de la hauteur `SEUIL`.
 >
 > ```lua
 > SEUIL = 10
-> for x = 0, 20 do
+> for y = 0, 20 do
 >   bloc = HERBE
->   if x >= SEUIL then
+>   if y >= SEUIL then
 >     bloc = NEIGE
 >   end
->   set_block(x, 40, 0, bloc)
+>   set_block(0, y, 0, bloc)
 > end
 > ```
 >

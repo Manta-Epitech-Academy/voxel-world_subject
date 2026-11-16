@@ -203,7 +203,7 @@ end
 Fais un damier : `HERBE` et `SABLE` en alternance. Indice : `%` correspond à l'opérateur « modulo », c'est le **reste de la division**. `7 % 2` vaut 1, et `(x + z) % 2` vaut 0 ou 1.
 
 ## Étape 3 : Une colonne
-<!-- ws: {type: exercise, id: une-colonne, points: 150, validation: checkpoint} -->
+<!-- ws: {type: exercise, id: une-colonne, points: 200, validation: checkpoint} -->
 
 Dans Minecraft, sous l'herbe il y a de la terre, puis de la pierre. Tout au fond, la **bedrock** : incassable.
 
@@ -427,7 +427,7 @@ Ta pente monte trop vite ? **Divise** <var>x</var> par un plus grand nombre.
 Fais monter la pente en diagonale : que `h` dépende de <var>x</var> **et** de <var>z</var>.
 
 ## Étape 6 : Un arbre
-<!-- ws: {type: exercise, id: un-arbre, points: 150, validation: checkpoint} -->
+<!-- ws: {type: exercise, id: un-arbre, points: 250, validation: checkpoint} -->
 
 Ta pente est nue. Construis-lui un premier arbre.
 
@@ -498,7 +498,7 @@ Pour écrire ta fonction, fais comme avec `colonne` à l'étape 5. La position d
 Invente une autre forme d'arbre : plus haut, plus large, ou un sapin.
 
 ## Étape 7 : La forêt
-<!-- ws: {type: exercise, id: arbres, points: 100, validation: checkpoint} -->
+<!-- ws: {type: exercise, id: arbres, points: 150, validation: checkpoint} -->
 <!-- étape de modelage : la recherche du sol avec while est donnée volontairement dans la boîte à outils -->
 
 Ton arbre est seul. Plante-en d'autres, à des positions tirées au hasard.
