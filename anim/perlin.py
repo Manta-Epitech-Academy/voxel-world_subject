@@ -1,13 +1,13 @@
-# Étape 9, « perlin2d » : le bruit le long d'une ligne du monde (z = 7), puis
-# les trois mêmes curseurs qu'à l'étape 7, ÷ largeur, × amplitude, + niveau. À
+# Étape 10, « perlin2d » : le bruit le long d'une ligne du monde (z = 7), puis
+# les trois mêmes curseurs qu'à l'étape 8, ÷ largeur, × amplitude, + niveau. À
 # la fin, les curseurs deviennent la ligne de code :
 # h = niveau + amplitude * perlin2d(x / largeur, z / largeur).
 # Puis « L'échelle », en 3D : avec z fixé, chaque ligne du monde a la même
 # courbe ; avec z / largeur, le relief change dans les deux sens.
 # Même bruit que l'application (prélude Lua), permutation tirée de la seed.
 #
-#   capture.py anim anim/perlin.py LePerlin -o img/etape9-perlin.webp   # + .webm et .vtt
-#   capture.py anim anim/perlin.py LeReliefPerlin -o img/etape9-relief.webp
+#   capture.py anim anim/perlin.py LePerlin -o img/etape10-perlin.webp   # + .webm et .vtt
+#   capture.py anim anim/perlin.py LeReliefPerlin -o img/etape10-relief.webp
 import math
 import random
 from manim import *
@@ -149,7 +149,7 @@ class LePerlin(Scene):
 
 
 class LeReliefPerlin(ThreeDScene):
-    """Comme les collines de l'étape 8 : le terrain en 3D, d'abord avec z fixé
+    """Comme les collines de l'étape 9 : le terrain en 3D, d'abord avec z fixé
     (la même courbe sur toutes les lignes), puis avec z / largeur."""
 
     def construct(self):

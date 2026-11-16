@@ -1,6 +1,6 @@
 # Partie 1 : du premier bloc aux premiers arbres
 
-Six étapes, dans l'ordre. Chacune te donne les outils, te prévient des pièges, puis te lance un défi. Quand ton monde est prêt, l'encadrant valide l'étape avec un code de validation. Les indices sont là si tu bloques. D'une étape à l'autre, tu **gardes ton code** et tu le transformes.
+Sept étapes, dans l'ordre. Chacune te donne les outils, te prévient des pièges, puis te lance un défi. Quand ton monde est prêt, l'encadrant valide l'étape avec un code de validation. Les indices sont là si tu bloques. D'une étape à l'autre, tu **gardes ton code** et tu le transformes.
 
 **Comment ça marche**
 
@@ -426,11 +426,82 @@ Ta pente monte trop vite ? **Divise** <var>x</var> par un plus grand nombre.
 
 Fais monter la pente en diagonale : que `h` dépende de <var>x</var> **et** de <var>z</var>.
 
-## Étape 6 : Les arbres
-<!-- ws: {type: exercise, id: arbres, points: 150, validation: checkpoint} -->
+## Étape 6 : Un arbre
+<!-- ws: {type: exercise, id: un-arbre, points: 150, validation: checkpoint} -->
+
+Ta pente est nue. Construis-lui un premier arbre.
+
+<!-- ws:toolbox -->
+### Boîte à outils
+
+> 🧰 **Une fonction arbre**
+> Un arbre, c'est un tronc de 5 blocs de `BOIS` et des `FEUILLES` au sommet : deux étages de 3 × 3 autour du haut du tronc, et une feuille tout en haut. Écris une fonction `arbre(x, y, z)`, comme tu l'as fait pour `colonne`. Le tronc commence une case **au-dessus** de l'herbe.
+>
+> ![Le tronc monte de y à y + 4. Puis les feuilles, un étage à la fois : chaque étage se pose vu de dessus, puis la caméra fait le tour de l'arbre.](img/outil-arbre.webp)
+> <!-- ws:anim {src: img/outil-arbre.webm, chapters: img/outil-arbre.vtt} -->
+<!-- /ws:toolbox -->
+
+### Pièges
+
+- Un arbre pousse sur l'herbe : pas dans le vide, pas dans la pierre.
+- Dans `arbre(x, y, z)`, <var>y</var> est la hauteur, comme dans `set_block`. Dans `colonne(x, z, h)`, la hauteur était à la fin.
+
+### Défi
+<!-- ws:doit -->
+
+Construis **un arbre** sur ta pente, debout sur l'herbe.
+
+Un arbre est une forme compliquée. Commence par le tronc, à un endroit que tu choisis. Tu peux poser les feuilles une par une avec `set_block`. Commence par une seule feuille, génère, vérifie, puis ajoute les autres.
+
+Quand ton arbre est réussi, mets-le dans une fonction `arbre(x, y, z)`. À l'étape 7, tu appelleras cette fonction pour planter une forêt.
+
+Ce que tu dois avoir pour valider cette étape :
+
+- un arbre debout sur l'herbe, ni enterré, ni en l'air ;
+- ton arbre est construit par un appel à ta fonction `arbre(x, y, z)` : quand tu changes les valeurs données à l'appel, l'arbre change de place.
+
+Tu dois obtenir quelque chose comme ça :
+
+![Un seul arbre sur la pente : le tronc est posé sur l'herbe, les feuilles sont au sommet.](img/etape6-resultat.png)
+<!-- ws:scene {src: scenes/etape6.glb, show_axis: true, camera: {from: [55, 23, 50], to: [64.5, 19, 64.5]}} -->
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 1</summary>
+
+Choisis d'abord le <var>x</var> et le <var>z</var> de ton arbre. Calcule ensuite `h` pour ce <var>x</var>, avec ta formule de l'étape 5 : l'herbe est en `h`, et le tronc commence juste au-dessus.
+
+</details>
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 2</summary>
+
+Dessine l'arbre vu de dessus sur un papier : le tronc au milieu, les feuilles autour. Chaque feuille est en <var>x</var> - 1, <var>x</var> ou <var>x</var> + 1, et en <var>z</var> - 1, <var>z</var> ou <var>z</var> + 1.
+
+</details>
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 3</summary>
+
+Tes feuilles flottent ou sont dans le tronc ? Regarde leur <var>y</var> : le tronc va de `y` à `y + 4`.
+
+</details>
+
+<!-- ws: {type: hint} -->
+<details><summary>Indice 4</summary>
+
+Pour écrire ta fonction, fais comme avec `colonne` à l'étape 5. La position de ton arbre devient trois paramètres : <var>x</var>, <var>y</var> et <var>z</var>. Une feuille à côté du tronc n'est plus à un nombre fixe : elle est en <var>x</var> + 1.
+
+</details>
+
+### Bonus
+
+Invente une autre forme d'arbre : plus haut, plus large, ou un sapin.
+
+## Étape 7 : La forêt
+<!-- ws: {type: exercise, id: arbres, points: 100, validation: checkpoint} -->
 <!-- étape de modelage : la recherche du sol avec while est donnée volontairement dans la boîte à outils -->
 
-Ta pente est nue. Plante-lui quelques arbres.
+Ton arbre est seul. Plante-en d'autres, à des positions tirées au hasard.
 
 <!-- ws:toolbox -->
 ### Boîte à outils
@@ -459,35 +530,29 @@ Ta pente est nue. Plante-lui quelques arbres.
 >
 > ![Une sonde descend du ciel. « de l'air : on descend », puis « de l'herbe : on s'arrête ».](img/outil-sol.webp)
 > <!-- ws:anim {src: img/outil-sol.webm, chapters: img/outil-sol.vtt} -->
-
-> 🧰 **Une fonction arbre**
-> Un arbre, c'est un tronc de 5 blocs de `BOIS` et des `FEUILLES` au sommet : deux étages de 3 × 3 autour du haut du tronc, et une feuille tout en haut. Écris une fonction `arbre(x, y, z)`, comme tu l'as fait pour `colonne`. Le tronc commence une case **au-dessus** de l'herbe.
->
-> ![Le tronc monte de y à y + 4. Puis les feuilles, un étage à la fois : chaque étage se pose vu de dessus, puis la caméra fait le tour de l'arbre.](img/outil-arbre.webp)
-> <!-- ws:anim {src: img/outil-arbre.webm, chapters: img/outil-arbre.vtt} -->
 <!-- /ws:toolbox -->
 
 ### Pièges
 
 - Une boucle `while` dont la condition reste toujours vraie ne s'arrête jamais : ton code est coupé au bout de 5 secondes.
-- Un arbre pousse sur l'herbe : pas dans le vide, pas dans la pierre.
+- La boucle `while` s'arrête sur le bloc d'herbe. Le tronc commence une case au-dessus.
 
 ### Défi
 <!-- ws:doit -->
 
-Place quelques **arbres** sur ta pente, debout sur l'herbe.
+Plante quelques **arbres** sur ta pente, à des positions tirées au hasard. Chaque arbre est debout sur l'herbe.
 
-Un arbre est une forme compliquée. Commence par réussir **un seul** arbre. Ensuite, mets-le dans une fonction `arbre(x, y, z)`, et appelle cette fonction plusieurs fois pour planter des arbres à des positions tirées au hasard.
-
-Tu peux poser les feuilles une par une avec `set_block`. Commence par une seule feuille, génère, vérifie, puis ajoute les autres.
+Ta fonction `arbre(x, y, z)` de l'étape 6 construit un arbre : appelle-la plusieurs fois.
 
 Ce que tu dois avoir pour valider cette étape :
-- Des arbres debout sur l'herbe, ni enterrés, ni en l'air
+
+- des arbres debout sur l'herbe, ni enterrés, ni en l'air ;
+- quand tu changes la seed avec le bouton dé, les arbres changent de place.
 
 Tu dois obtenir quelque chose comme ça :
 
-![Quelques arbres plantés au hasard sur la pente, chacun debout sur l'herbe.](img/etape6-resultat.png)
-<!-- ws:scene {src: scenes/etape6.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+![Quelques arbres plantés au hasard sur la pente, chacun debout sur l'herbe.](img/etape7-resultat.png)
+<!-- ws:scene {src: scenes/etape7.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -506,14 +571,7 @@ Plante les arbres **après** la double boucle du terrain, sinon il n'y a pas enc
 <!-- ws: {type: hint} -->
 <details><summary>Indice 3</summary>
 
-Dessine l'arbre vu de dessus sur un papier : le tronc au milieu, les feuilles autour. Chaque feuille est en <var>x</var> - 1, <var>x</var> ou <var>x</var> + 1, et en <var>z</var> - 1, <var>z</var> ou <var>z</var> + 1.
-
-</details>
-
-<!-- ws: {type: hint} -->
-<details><summary>Indice 4</summary>
-
-Tes feuilles flottent ou sont dans le tronc ? Regarde leur <var>y</var> : le tronc va de `y` à `y + 4`.
+Pour planter plusieurs arbres, une boucle `for` répète le tirage, la recherche du sol et l'appel de `arbre`. Un tour de boucle, un arbre.
 
 </details>
 

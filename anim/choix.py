@@ -1,4 +1,4 @@
-# Étape 10, « if : faire un choix » : d'abord l'idée, trois questions posées
+# Étape 11, « if : faire un choix » : d'abord l'idée, trois questions posées
 # dans l'ordre à un nombre ; puis les mêmes questions écrites en Lua, avec if,
 # elseif et else. Et « Choisir le bloc avant de le poser » : au-dessus d'un
 # seuil, le bloc du dessus change. Sans code : le test est à l'élève.

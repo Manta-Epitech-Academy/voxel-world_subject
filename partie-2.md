@@ -2,7 +2,7 @@
 
 Cinq étapes de plus : les vagues, le vrai relief, la mer et la neige, puis les grottes et les minerais. Même fonctionnement : les outils, les pièges, le défi, et le code de validation quand c'est réussi. Les couches restent obligatoires à chaque étape.
 
-## Étape 7 : La vague
+## Étape 8 : La vague
 <!-- ws: {type: exercise, id: collines, points: 200, token_id: "4"} -->
 
 Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et des creux.
@@ -13,8 +13,8 @@ Ta pente monte tout droit, comme une rampe. La nature, elle, fait des bosses et 
 > 🧰 **`math.sin` « la vague »**
 > `math.sin(t)` monte et descend entre -1 et 1, comme une vague. Trois nombres la règlent : le **niveau**, l'**amplitude**, la **largeur**. L'animation les montre un par un. Dans ta ligne `h` : <var>x</var> divisé par la largeur dans `math.sin( )`, le résultat multiplié par l'amplitude, le niveau ajouté devant. `math.` est la boîte à outils de Lua.
 >
-> ![Trois curseurs : ÷ largeur, × amplitude, + niveau. Chacun passe par plusieurs valeurs, et la courbe suit. À la fin, les trois curseurs deviennent la ligne h = niveau + amplitude * math.sin(x / largeur).](img/etape7-vague.webp)
-> <!-- ws:anim {src: img/etape7-vague.webm, chapters: img/etape7-vague.vtt} -->
+> ![Trois curseurs : ÷ largeur, × amplitude, + niveau. Chacun passe par plusieurs valeurs, et la courbe suit. À la fin, les trois curseurs deviennent la ligne h = niveau + amplitude * math.sin(x / largeur).](img/etape8-vague.webp)
+> <!-- ws:anim {src: img/etape8-vague.webm, chapters: img/etape8-vague.vtt} -->
 
 <!-- /ws:toolbox -->
 
@@ -33,8 +33,8 @@ Ce que tu dois avoir pour valider cette étape :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Comme des vagues : le terrain ondule de gauche à droite, et chaque vague traverse le monde d'un bord à l'autre.](img/etape7-resultat.png)
-<!-- ws:scene {src: scenes/etape7.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+![Comme des vagues : le terrain ondule de gauche à droite, et chaque vague traverse le monde d'un bord à l'autre.](img/etape8-resultat.png)
+<!-- ws:scene {src: scenes/etape8.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -57,7 +57,7 @@ Des falaises ? **Divise** <var>x</var> par un plus grand nombre.
 
 </details>
 
-## Étape 8 : Les collines
+## Étape 9 : Les collines
 <!-- ws: {type: exercise, id: collines-deux-sens, points: 150, validation: checkpoint} -->
 
 Ton monde ressemble à une **tôle ondulée** : du relief sur un seul axe.
@@ -68,8 +68,8 @@ Ton monde ressemble à une **tôle ondulée** : du relief sur un seul axe.
 > 🧰 **Une vague en <var>x</var>, une vague en <var>z</var>**
 > Une seule vague en <var>x</var> : rien ne change quand tu avances vers le fond, c'est une tôle ondulée. Ajoute une deuxième vague, qui regarde <var>z</var>. Les deux s'additionnent : la tôle devient une **boîte d'œufs**.
 >
-> ![Une vague en x : une tôle ondulée. Plus une vague en z : des bosses dans tous les sens.](img/etape8-collines.webp)
-> <!-- ws:anim {src: img/etape8-collines.webm, chapters: img/etape8-collines.vtt} -->
+> ![Une vague en x : une tôle ondulée. Plus une vague en z : des bosses dans tous les sens.](img/etape9-collines.webp)
+> <!-- ws:anim {src: img/etape9-collines.webm, chapters: img/etape9-collines.vtt} -->
 
 > 🧰 **Pourquoi deux largeurs différentes ?**
 > Si les deux vagues ont la même largeur, leurs bosses tombent toutes au même endroit. Essaie la même largeur pour les deux, puis deux largeurs différentes, et regarde la différence depuis le ciel.
@@ -91,8 +91,8 @@ Ce que tu dois avoir pour valider cette étape :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Des collines rondes et régulières, alignées comme une boîte d'œufs.](img/etape8-resultat.png)
-<!-- ws:scene {src: scenes/etape8.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+![Des collines rondes et régulières, alignées comme une boîte d'œufs.](img/etape9-resultat.png)
+<!-- ws:scene {src: scenes/etape9.glb, show_axis: true, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -112,7 +112,7 @@ Si le terrain fait des marches trop hautes : ajuste les paramètres de ta vague.
 
 Multiplie les deux vagues au lieu de les additionner. Que se passe-t-il ?
 
-## Étape 9 : Le vrai relief
+## Étape 10 : Le vrai relief
 <!-- ws: {type: exercise, id: relief, points: 250, token_id: "5"} -->
 
 Vole tout en haut et regarde : la nature ne se répète pas comme ça.
@@ -131,14 +131,14 @@ Après avoir travaillé sur les effets spéciaux de *Tron* (1982), Ken Perlin tr
 > print(perlin2d(50.1, 80.7))
 > ```
 >
-> ![Le bruit le long d'une ligne du monde, celle où z vaut 7, puis les trois mêmes curseurs qu'à l'étape 7. À la fin, ils deviennent la ligne h = niveau + amplitude * perlin2d(x / largeur, z / largeur).](img/etape9-perlin.webp)
-> <!-- ws:anim {src: img/etape9-perlin.webm, chapters: img/etape9-perlin.vtt} -->
+> ![Le bruit le long d'une ligne du monde, celle où z vaut 7, puis les trois mêmes curseurs qu'à l'étape 8. À la fin, ils deviennent la ligne h = niveau + amplitude * perlin2d(x / largeur, z / largeur).](img/etape10-perlin.webp)
+> <!-- ws:anim {src: img/etape10-perlin.webm, chapters: img/etape10-perlin.vtt} -->
 
 > 🧰 **L'échelle**
 > Mêmes réglages que la vague. Le nombre qui divise <var>x</var> et <var>z</var> fait la **largeur**, celui qui multiplie fait l'**amplitude**, celui que tu ajoutes fait le **niveau**.
 >
-> ![Le terrain en 3D. Avec z fixé à 7, toutes les lignes du monde ont la même courbe : rien ne change quand on avance en z. Avec z divisé comme x, il y a des sommets et des vallées dans les deux sens.](img/etape9-relief.webp)
-> <!-- ws:anim {src: img/etape9-relief.webm, chapters: img/etape9-relief.vtt} -->
+> ![Le terrain en 3D. Avec z fixé à 7, toutes les lignes du monde ont la même courbe : rien ne change quand on avance en z. Avec z divisé comme x, il y a des sommets et des vallées dans les deux sens.](img/etape10-relief.webp)
+> <!-- ws:anim {src: img/etape10-relief.webm, chapters: img/etape10-relief.vtt} -->
 
 > 🧰 **`return` « une fonction qui répond »**
 > Une fonction peut **renvoyer** une valeur avec `return` : celui qui l'appelle la récupère.
@@ -175,8 +175,8 @@ Ce que tu dois avoir pour valider cette étape :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Avec le bruit, les collines sont beaucoup moins régulières : des vallées, des sommets, des pentes douces.](img/etape9-resultat.png)
-<!-- ws:scene {src: scenes/etape9.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+![Avec le bruit, les collines sont beaucoup moins régulières : des vallées, des sommets, des pentes douces.](img/etape10-resultat.png)
+<!-- ws:scene {src: scenes/etape10.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -203,7 +203,7 @@ Ton relief est trop plat ? Multiplie davantage.
 
 Mets `math.abs(perlin2d(...))` pour le grand bruit : tu obtiens des crêtes de montagne.
 
-## Étape 10 : Mers, plages et neige
+## Étape 11 : Mers, plages et neige
 <!-- ws: {type: exercise, id: mers-plages-neige, points: 250, token_id: "6"} -->
 
 Tu as de jolies collines en relief, mais avec de l'herbe partout en surface. Il manque la **mer**, des **plages** et des **sommets enneigés**.
@@ -273,7 +273,7 @@ Le bloc du dessus ne sera plus toujours le même : il va dépendre de l'altitude
 - L'eau se pose **au-dessus** du sol, jamais à sa place.
 - `h` à virgule ? `for y = 21.5, 22` ne fait qu'un tour : il manque la couche du dessus de la mer. Arrondis `h` dans ta fonction `hauteur` : `math.floor(21.5)` vaut 21.
 - Si `NIVEAU_MER` est plus bas que tout ton terrain, il n'y aura pas de mer du tout.
-- Tes arbres de l'étape 6 restent plantés après la double boucle : grâce au test `== HERBE`, aucun ne pousse dans la mer ni sur le sable.
+- Tes arbres de l'étape 7 restent plantés après la double boucle : grâce au test `== HERBE`, aucun ne pousse dans la mer ni sur le sable.
 - `NEIGE`, c'est le bloc. Écris `NEIGE = 30` et `set_block` reçoit 30 à la place du bloc. Appelle ta hauteur de neige `NIVEAU_NEIGE`, comme `NIVEAU_MER`.
 
 ### Défi
@@ -286,8 +286,8 @@ Ce que tu dois avoir pour valider cette étape :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Une mer à hauteur fixe, du sable là où le sol touche l'eau, et de la neige sur les sommets.](img/etape10-resultat.png)
-<!-- ws:scene {src: scenes/etape10.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: z}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
+![Une mer à hauteur fixe, du sable là où le sol touche l'eau, et de la neige sur les sommets.](img/etape11-resultat.png)
+<!-- ws:scene {src: scenes/etape11.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: z}, camera: {from: [-30, 72, -30], to: [64, 12, 64]}} -->
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
@@ -310,7 +310,7 @@ Mets aussi du sable sous l'eau, à la place de l'herbe et de la terre.
 
 </details>
 
-## Étape 11 : Grottes et minerais
+## Étape 12 : Grottes et minerais
 <!-- ws: {type: exercise, id: forets-grottes-minerais, points: 350, token_id: "7"} -->
 
 Ton monde a des mers, des plages et des montagnes. Il est prêt à accueillir la vie… et les mineurs.
@@ -321,7 +321,7 @@ Il manque, sous tes pieds, des **grottes** remplies de **minerais**. Dernière l
 ### Boîte à outils
 
 > 🧰 **`perlin3d` « creuser des grottes »**
-> Même idée que `perlin2d`, mais en 3D : un nombre entre -1 et 1 pour chaque case. Divise <var>x</var>, <var>y</var> et <var>z</var>, comme à l'étape 9. Là où le nombre dépasse un seuil, tu **ne poses pas** de pierre : ça fait un trou.
+> Même idée que `perlin2d`, mais en 3D : un nombre entre -1 et 1 pour chaque case. Divise <var>x</var>, <var>y</var> et <var>z</var>, comme à l'étape 10. Là où le nombre dépasse un seuil, tu **ne poses pas** de pierre : ça fait un trou.
 >
 > ```lua
 > print(perlin3d(1.5, 2.5, 3.5))
@@ -361,12 +361,12 @@ Ce que tu dois avoir pour valider cette étape :
 
 Tu dois obtenir quelque chose comme ça :
 
-![Des arbres partout où il y a de l'herbe, et aucun dans l'eau ni sur le sable.](img/etape11-resultat.png)
-<!-- ws:scene {src: scenes/etape11.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-18, 58, -18], to: [50, 20, 50]}} -->
+![Des arbres partout où il y a de l'herbe, et aucun dans l'eau ni sur le sable.](img/etape12-resultat.png)
+<!-- ws:scene {src: scenes/etape12.glb, show_axis: true, features: [orbit, zoom, pan, reset, cut], cut: {axis: x}, camera: {from: [-18, 58, -18], to: [50, 20, 50]}} -->
 
 Et sous tes pieds :
 
-![Dans une grotte, tout au fond : le charbon en points noirs, les diamants en bleu, et la bedrock sous tes pieds.](img/etape11-grotte.png)
+![Dans une grotte, tout au fond : le charbon en points noirs, les diamants en bleu, et la bedrock sous tes pieds.](img/etape12-grotte.png)
 
 <!-- ws: {type: hint} -->
 <details><summary>Indice 1</summary>
