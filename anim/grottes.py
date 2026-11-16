@@ -1,4 +1,4 @@
-# Étape 11, « perlin3d : creuser des grottes » : sur une tranche du monde, le
+# Étape 12, « perlin3d : creuser des grottes » : sur une tranche du monde, le
 # bruit 3D donne un nombre par case ; là où il dépasse le seuil, on ne pose
 # rien, et un trou apparaît. Plus le seuil baisse, plus les grottes grandissent.
 # Sans code : le test et les diviseurs sont à l'élève.

@@ -1,4 +1,4 @@
-# Étape 6, « get_block et while : trouver le sol » : une sonde part du ciel et
+# Étape 7, « get_block et while : trouver le sol » : une sonde part du ciel et
 # descend d'une case tant que la case est de l'air. Sans code : le code du
 # while est dans la boîte à outils, l'animation montre l'idée.
 #

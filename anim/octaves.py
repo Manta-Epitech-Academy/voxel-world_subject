@@ -1,4 +1,4 @@
-# Étape 9, « Les octaves » : un grand bruit pour les montagnes, un moyen pour
+# Étape 10, « Les octaves » : un grand bruit pour les montagnes, un moyen pour
 # les bosses, un petit pour les détails. On les additionne un par un, pour voir
 # ce que chacun ajoute. Sans nombres : les largeurs et les amplitudes sont à
 # l'élève.

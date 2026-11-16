@@ -15,14 +15,15 @@ Moteur : **voxel-world** (lua).
 - Étape 3 : Une colonne (3 indices)
 - Étape 4 : Le monde en colonnes (2 indices)
 - Étape 5 : La fonction colonne (3 indices)
-- Étape 6 : Les arbres (4 indices)
+- Étape 6 : Un arbre (4 indices)
+- Étape 7 : La forêt (3 indices)
 
 ### Partie 2 : des collines au monde entier
 
-- Étape 7 : La vague (3 indices)
-- Étape 8 : Les collines (2 indices)
-- Étape 9 : Le vrai relief (3 indices)
-- Étape 10 : Mers, plages et neige (3 indices)
-- Étape 11 : Grottes et minerais (3 indices)
+- Étape 8 : La vague (3 indices)
+- Étape 9 : Les collines (2 indices)
+- Étape 10 : Le vrai relief (3 indices)
+- Étape 11 : Mers, plages et neige (3 indices)
+- Étape 12 : Grottes et minerais (3 indices)
 
-**11 étapes**, 31 indices, 34 images, 12 scènes 3D, 18 animations à chapitres.
+**12 étapes**, 34 indices, 35 images, 13 scènes 3D, 18 animations à chapitres.

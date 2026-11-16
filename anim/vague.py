@@ -1,9 +1,9 @@
-# Étape 7, « La vague » : trois curseurs, ÷ largeur, × amplitude, + niveau.
+# Étape 8, « La vague » : trois curseurs, ÷ largeur, × amplitude, + niveau.
 # Chacun passe par plusieurs valeurs et la courbe suit. Les colonnes prennent
 # la hauteur de la courbe. À la fin, les trois curseurs deviennent la
 # ligne de code : h = niveau + amplitude * math.sin(x / largeur).
 #
-#   capture.py anim anim/vague.py LaVague -o img/etape7-vague.webp   # + .webm et .vtt des chapitres
+#   capture.py anim anim/vague.py LaVague -o img/etape8-vague.webp   # + .webm et .vtt des chapitres
 import math
 from manim import *
 from commun import *

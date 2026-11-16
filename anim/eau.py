@@ -1,4 +1,4 @@
-# Étape 10, « Une boucle qui ne fait aucun tour » : l'eau remplit les cases
+# Étape 11, « Une boucle qui ne fait aucun tour » : l'eau remplit les cases
 # vides entre le sol et le niveau de la mer ; là où le sol dépasse la mer, il
 # n'y a rien à remplir. Sans code : la boucle d'eau est à l'élève.
 #
